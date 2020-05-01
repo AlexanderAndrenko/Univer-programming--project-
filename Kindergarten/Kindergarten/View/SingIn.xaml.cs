@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace Kindergarten
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for SingIn.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class SingIn : Page
     {
-        public MainWindow()
+        public SingIn()
         {
             InitializeComponent();
         }
