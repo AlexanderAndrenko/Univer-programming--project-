@@ -4,17 +4,20 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Kindergarten"        
-        xmlns:ViewModel="clr-namespace:Kindergarten.ViewModel"
+        xmlns:ViewModel="clr-namespace:Kindergarten.ViewModels"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Window.Resources>
-        <ViewModel:MainViewModel x:Key="viewModelSource"/>
-    </Window.Resources>
-    <Window.DataContext>
-        <Binding Source="{StaticResource viewModelSource}"/>
-    </Window.DataContext>
     <Grid>
-        <Frame x:Name="MainFrame" Width="auto" Height="auto"/>
-        <TextBlock Text="{Binding Value}"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        
+        <ContentControl Content="{Binding SelectedViewModel}"/>
+
+        <StackPanel Grid.Row="1">
+            <Button>OK</Button>            
+        </StackPanel>
+        
     </Grid>
 </Window>

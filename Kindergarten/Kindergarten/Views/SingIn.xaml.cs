@@ -13,15 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Kindergarten
+namespace Kindergarten.Views
 {
-    public partial class MainWindow : Window
+    /// <summary>
+    /// Interaction logic for SingIn.xaml
+    /// </summary>
+    public partial class SingIn : Page
     {
-        public MainWindow()
+        public SingIn()
         {
             InitializeComponent();
-
-            MainFrame.Navigate(new SingIn());
         }
     }
 }

@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Kindergarten.ViewModel
+namespace Kindergarten.ViewModels
 {
-    class MainViewModel
+    public class BaseViewModel
     {
-        public int Value { get; set; }
+
     }
 }

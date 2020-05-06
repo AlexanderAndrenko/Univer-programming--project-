@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Kindergarten.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,14 +16,13 @@ using System.Windows.Shapes;
 
 namespace Kindergarten
 {
-    /// <summary>
-    /// Interaction logic for SingIn.xaml
-    /// </summary>
-    public partial class SingIn : Page
+    public partial class MainWindow : Window
     {
-        public SingIn()
+        public MainWindow()
         {
             InitializeComponent();
+
+            DataContext = new MainWindowViewModel();
         }
     }
 }
