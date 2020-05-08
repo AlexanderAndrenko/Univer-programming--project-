@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Kindergarten.ViewModels
+namespace Kindergarten.Models
 {
-    public class BaseViewModel
+    class SingInModel
     {
+
     }
 }

@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Kindergarten.ViewModels
+namespace Kindergarten.ViewModels.Commands
 {
-    public class BaseViewModel
+    class HomeCommands : HomeViewModel
     {
+
     }
 }
