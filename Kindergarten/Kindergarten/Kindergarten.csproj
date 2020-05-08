@@ -106,7 +106,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Image\" />
-    <Folder Include="Model\" />
+    <Folder Include="Models\" />
     <Folder Include="Views\PageData\" />
     <Folder Include="Views\PageSetting\" />
   </ItemGroup>
