@@ -6,20 +6,29 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace Kindergarten.ViewModels
 {
-    public class SingInViewModel : MainWindowViewModel
+    public class SingInViewModel : BaseViewModel
     {
-        public ICommand SingInExecute
+        private Page Home;
+        public SingInViewModel()
+        {
+            Home = new Views.Home();
+        }
+
+        private RelayCommand addCommand;
+        public RelayCommand AddCommand
         {
             get
             {
-                return new SingInCommand((obj) =>
-                {
-                    CurrentPage = Home;
-                });
+                return addCommand ??
+                  (addCommand = new RelayCommand(obj =>
+                  {
+                     CurrentPage = Home;
+                  }));
             }
         }
     }

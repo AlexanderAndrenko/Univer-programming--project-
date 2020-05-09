@@ -24,6 +24,12 @@ namespace Kindergarten.Views
         public SingIn()
         {
             InitializeComponent();
+            DataContext = new SingInViewModel();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            
         }
     }
 }
