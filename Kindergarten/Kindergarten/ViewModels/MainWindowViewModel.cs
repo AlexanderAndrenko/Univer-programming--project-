@@ -14,22 +14,36 @@ namespace Kindergarten.ViewModels
 {
     public class MainWindowViewModel : BaseViewModel
     {
-        private BaseViewModel _selectedViewModel = new SingInViewModel();
+        //private Page SingIn;
+        //private Page Home;
+        private Page Data;
+        private Page Setting;
 
-        public BaseViewModel SelectedViewModel
+        private Page _currentPage;
+        public Page CurrentPage
         {
-            get { return _selectedViewModel; }
-            set 
-            { 
-                _selectedViewModel = value;                
-            }           
+            get { return _currentPage; }
+            set
+            {
+                if (_currentPage == value)
+                    return;
+
+                _currentPage = value;
+                OnPropertyChanged("CurrentPage");
+            }
         }
 
-        public void SetPage(MainWindowViewModel page)
+        public Page SingIn { get => SingIn; set => SingIn = value; }
+        public Page Home { get => Home; set => Home = value; }
+
+        public MainWindowViewModel()
         {
-            _selectedViewModel = page;
+            SingIn = new Views.SingIn();
+            Home = new Views.Home();
+
+            CurrentPage = SingIn;
         }
 
-
+        
     }
 }

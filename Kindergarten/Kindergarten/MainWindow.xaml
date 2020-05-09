@@ -8,6 +8,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Frame Content="{Binding SelectedViewModel}"/>
+        <Frame Content="{Binding CurrentPage}"
+               NavigationUIVisibility="Hidden"/>
     </Grid>
 </Window>
