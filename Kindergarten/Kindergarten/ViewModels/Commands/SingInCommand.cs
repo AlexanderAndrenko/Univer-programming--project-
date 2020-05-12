@@ -10,9 +10,9 @@ using Kindergarten.ViewModels.Commands;
 
 namespace Kindergarten.ViewModels.Commands
 {
-    public class RelayCommand : ICommand
+    public class SingInCommand : ICommand
     {
-        private Action<object> execute;
+        private Action execute;
         private Func<object, bool> canExecute;
 
         public event EventHandler CanExecuteChanged
@@ -21,10 +21,9 @@ namespace Kindergarten.ViewModels.Commands
             remove { CommandManager.RequerySuggested -= value; }
         }
 
-        public RelayCommand(Action<object> execute, Func<object, bool> canExecute = null)
+        public SingInCommand(Action execute)
         {
             this.execute = execute;
-            this.canExecute = canExecute;
         }
 
         public bool CanExecute(object parameter)
@@ -34,7 +33,7 @@ namespace Kindergarten.ViewModels.Commands
 
         public void Execute(object parameter)
         {
-            this.execute(parameter);
+            this.execute.Invoke();
         }
     }
 }
