@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 F:\Документы Александр\Универ СибГУ\Программирование\Прога 4 семестр\Univer-programming--project-\Kindergarten\Kindergarten\App.xaml
-4-1745883653
+7-2109190046
 
-162070662559
+23-1992505246
 13-1142990016
-MainWindow.xaml;Views\Home.xaml;Views\Home1.xaml;Views\SingIn.xaml;
+MainWindow.xaml;Views\Data\MainData.xaml;Views\Data\Pages\ChildrenData.xaml;Views\Data\Pages\DishListData.xaml;Views\Data\Control.xaml;Views\Home.xaml;Views\SingIn.xaml;
 
 True
 

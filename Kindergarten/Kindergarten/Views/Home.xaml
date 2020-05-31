@@ -23,14 +23,14 @@
                     Background="White"
                     BorderBrush="Black"
                     Margin="2,5"
-                    >
+                    Command="{Binding DataButton}">
                 <Image Source="/Image/database.png"/>
             </Button>
             <Button Width="110"
                     Background="White"
                     BorderBrush="Black"
                     Margin="2,5"
-                    >
+                    Command="{Binding SettingsButton}">
                 <Image Source="/Image/settings.png"/>
             </Button>
         </StackPanel>

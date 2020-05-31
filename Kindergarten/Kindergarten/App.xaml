@@ -6,8 +6,5 @@
              xmlns:viewmodels="clr-namespace:Kindergarten.ViewModels"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-        <DataTemplate DataType="{x:Type viewmodels:SingInViewModel}">
-            <views:SingIn/>
-        </DataTemplate>
     </Application.Resources>
 </Application>

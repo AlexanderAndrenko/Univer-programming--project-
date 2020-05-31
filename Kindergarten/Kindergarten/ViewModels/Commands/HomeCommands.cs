@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace Kindergarten.ViewModels.Commands
 {
-    public class HomeCommands : HomeViewModel
+    public class HomeCommands : ICommand
     {
         public event EventHandler CanExecuteChanged;
         private Action _execute;

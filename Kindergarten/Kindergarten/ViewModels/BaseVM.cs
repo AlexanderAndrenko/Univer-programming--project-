@@ -9,16 +9,25 @@ using System.Windows.Controls;
 
 namespace Kindergarten.ViewModels
 {
-    public class BaseViewModel : INotifyPropertyChanged
+    public class BaseVM : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
         protected void RaisePropertyChanged ([CallerMemberName] string name = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
-        }      
+        }
 
-        public void SetPage()
-        {           
-        }    
+        private BaseVM _currentPage;
+        public BaseVM CurrentPage
+        {
+            get { return _currentPage; }
+            set
+            {
+                if (_currentPage == value)
+                    return;
+                _currentPage = value;
+                RaisePropertyChanged();
+            }
+        }
     }
 }

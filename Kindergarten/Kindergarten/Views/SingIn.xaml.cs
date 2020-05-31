@@ -24,7 +24,7 @@ namespace Kindergarten.Views
         public SingIn()
         {
             InitializeComponent();
-            DataContext = new SingInViewModel();
+            DataContext = new SingInVM();
         }
     }
 }

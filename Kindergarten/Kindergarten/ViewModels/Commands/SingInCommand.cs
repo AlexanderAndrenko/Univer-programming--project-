@@ -8,8 +8,8 @@ using Kindergarten.ViewModels;
 using Kindergarten.Views;
 using Kindergarten.ViewModels.Commands;
 using System.Runtime.InteropServices;
-using static Kindergarten.ViewModels.SingInViewModel;
-using static Kindergarten.ViewModels.BaseViewModel;
+using static Kindergarten.ViewModels.SingInVM;
+using static Kindergarten.ViewModels.BaseVM;
 
 namespace Kindergarten.ViewModels.Commands
 {

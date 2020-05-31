@@ -5,20 +5,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Kindergarten.Views;
+using Kindergarten.ViewModels.DataViewModels;
 
 namespace Kindergarten.ViewModels
 {
-    public class HomeViewModel : BaseViewModel
+    public class HomeVM : BaseVM
     {
         public HomeCommands DataButton { get; private set; }
         public HomeCommands SettingsButton { get; private set; }
 
-        public HomeViewModel()
+        public HomeVM()
         {
+            DataButton = new HomeCommands(SetDataPage);
         }
-        public void Stub()
+        public void SetDataPage()
         {
-
+            CurrentPage = new DataVM();
         }
 
     }

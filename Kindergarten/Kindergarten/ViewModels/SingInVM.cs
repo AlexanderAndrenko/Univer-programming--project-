@@ -13,13 +13,12 @@ using System.Windows.Input;
 
 namespace Kindergarten.ViewModels
 {
-    public class SingInViewModel : BaseViewModel
+    public class SingInVM : BaseVM
     {
         public SingInCommand OpenHomePage { get; private set; }
 
-        public SingInViewModel()
+        public SingInVM()
         {
-            OpenHomePage = new SingInCommand(SetPage);
         }
     }
 }

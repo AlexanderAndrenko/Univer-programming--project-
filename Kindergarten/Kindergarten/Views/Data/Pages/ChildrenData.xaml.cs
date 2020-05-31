@@ -1,5 +1,4 @@
-﻿using Kindergarten.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,17 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Kindergarten.Views
+namespace Kindergarten.Views.Data
 {
     /// <summary>
-    /// Interaction logic for Home.xaml
+    /// Interaction logic for ChildrenData.xaml
     /// </summary>
-    public partial class Home1 : Page
+    public partial class ChildrenData : UserControl
     {
-        public Home1()
+        public ChildrenData()
         {
             InitializeComponent();
-            DataContext = new HomeViewModel();
         }
     }
 }
