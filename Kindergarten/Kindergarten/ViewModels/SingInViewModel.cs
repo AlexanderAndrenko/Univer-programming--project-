@@ -2,6 +2,7 @@
 using Kindergarten.Views;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net;
 using System.Text;
@@ -12,19 +13,13 @@ using System.Windows.Input;
 
 namespace Kindergarten.ViewModels
 {
-    public class SingInViewModel : MainWindowViewModel
+    public class SingInViewModel : BaseViewModel
     {
+        public SingInCommand OpenHomePage { get; private set; }
+
         public SingInViewModel()
         {
-            AddCommand = new SingInCommand(DisplayHomePage);
+            OpenHomePage = new SingInCommand(SetPage);
         }
- 
-        public SingInCommand AddCommand { get; private set; }
-
-        public void DisplayHomePage()
-        {
-            CurrentPage = GetHome();
-        }
-
     }
 }

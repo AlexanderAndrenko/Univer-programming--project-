@@ -14,19 +14,27 @@ namespace Kindergarten.ViewModels
 {
     public class MainWindowViewModel : BaseViewModel
     {
-        public Page GetHome()
-        {
-            return Home;
-        }        
-
+        public BaseViewModel Home { get; set; }
         public MainWindowViewModel()
         {
-            SingIn = new Views.SingIn();
-            Home = new Views.Home();
+            Home = new HomeViewModel();
 
-            CurrentPage = SingIn;
+            CurrentPage = Home;
         }
 
-        
+        private BaseViewModel _currentPage;
+        public BaseViewModel CurrentPage
+        {
+            get { return _currentPage; }
+            set
+            {
+                if (_currentPage == value)
+                    return;
+                _currentPage = value;
+                RaisePropertyChanged();
+            }
+        }
+
+
     }
 }

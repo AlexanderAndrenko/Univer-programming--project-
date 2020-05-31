@@ -17,14 +17,14 @@ using System.Windows.Shapes;
 namespace Kindergarten.Views
 {
     /// <summary>
-    /// Interaction logic for SingIn.xaml
+    /// Interaction logic for Home.xaml
     /// </summary>
-    public partial class SingIn : Page
+    public partial class Home1 : Page
     {
-        public SingIn()
+        public Home1()
         {
             InitializeComponent();
-            DataContext = new SingInViewModel();
+            DataContext = new HomeViewModel();
         }
     }
 }

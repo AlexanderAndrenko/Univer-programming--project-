@@ -19,3 +19,5 @@ F:\Документы Александр\Универ СибГУ\Програм�
 F:\Документы Александр\Универ СибГУ\Программирование\Прога 4 семестр\Univer-programming--project-\Kindergarten\Kindergarten\obj\Debug\MainWindow.baml
 F:\Документы Александр\Универ СибГУ\Программирование\Прога 4 семестр\Univer-programming--project-\Kindergarten\Kindergarten\obj\Debug\Views\Home.g.cs
 F:\Документы Александр\Универ СибГУ\Программирование\Прога 4 семестр\Univer-programming--project-\Kindergarten\Kindergarten\obj\Debug\Views\Home.baml
+F:\Документы Александр\Универ СибГУ\Программирование\Прога 4 семестр\Univer-programming--project-\Kindergarten\Kindergarten\obj\Debug\Views\Home1.g.cs
+F:\Документы Александр\Универ СибГУ\Программирование\Прога 4 семестр\Univer-programming--project-\Kindergarten\Kindergarten\obj\Debug\Views\Home1.baml

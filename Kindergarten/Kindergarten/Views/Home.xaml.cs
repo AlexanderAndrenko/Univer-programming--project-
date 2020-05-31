@@ -18,7 +18,7 @@ namespace Kindergarten.Views
     /// <summary>
     /// Interaction logic for Home.xaml
     /// </summary>
-    public partial class Home : Page
+    public partial class Home : UserControl
     {
         public Home()
         {

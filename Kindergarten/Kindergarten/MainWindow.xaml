@@ -4,11 +4,18 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Kindergarten"        
-        xmlns:ViewModel="clr-namespace:Kindergarten.ViewModels"
+        xmlns:viewModel="clr-namespace:Kindergarten.ViewModels"
+        xmlns:views="clr-namespace:Kindergarten.Views"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <Frame Content="{Binding CurrentPage}"
-               NavigationUIVisibility="Hidden"/>
+    <Window.Resources>
+        <DataTemplate DataType="{x:Type viewModel:HomeViewModel}">
+            <views:Home/>
+        </DataTemplate>
+    </Window.Resources>
+    <Grid>        
+        <!--<Frame Content="{Binding CurrentPage, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+               NavigationUIVisibility="Visible"/>-->
+        <ContentPresenter Content="{Binding CurrentPage, Mode=TwoWay}"/>
     </Grid>
 </Window>

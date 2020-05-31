@@ -6,8 +6,23 @@ using System.Threading.Tasks;
 
 namespace Kindergarten.ViewModels.Commands
 {
-    class HomeCommands : HomeViewModel
+    public class HomeCommands : HomeViewModel
     {
+        public event EventHandler CanExecuteChanged;
+        private Action _execute;
+        public HomeCommands(Action execute)
+        {
+            _execute = execute;
+        }
 
+        public bool CanExecute(object parameter)
+        {
+            return true;
+        }
+
+        public void Execute(object parameter)
+        {
+            _execute.Invoke();
+        }
     }
 }

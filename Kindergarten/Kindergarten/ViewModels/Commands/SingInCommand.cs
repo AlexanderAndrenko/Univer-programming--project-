@@ -7,33 +7,29 @@ using System.Windows.Input;
 using Kindergarten.ViewModels;
 using Kindergarten.Views;
 using Kindergarten.ViewModels.Commands;
+using System.Runtime.InteropServices;
+using static Kindergarten.ViewModels.SingInViewModel;
+using static Kindergarten.ViewModels.BaseViewModel;
 
 namespace Kindergarten.ViewModels.Commands
 {
     public class SingInCommand : ICommand
     {
-        private Action execute;
-        private Func<object, bool> canExecute;
-
-        public event EventHandler CanExecuteChanged
-        {
-            add { CommandManager.RequerySuggested += value; }
-            remove { CommandManager.RequerySuggested -= value; }
-        }
-
+        public event EventHandler CanExecuteChanged;
+        private Action _execute;
         public SingInCommand(Action execute)
         {
-            this.execute = execute;
+            _execute = execute;
         }
 
         public bool CanExecute(object parameter)
         {
-            return this.canExecute == null || this.canExecute(parameter);
+            return true;
         }
 
         public void Execute(object parameter)
         {
-            this.execute.Invoke();
+            _execute.Invoke();
         }
     }
 }

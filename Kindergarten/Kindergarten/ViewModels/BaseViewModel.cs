@@ -12,28 +12,13 @@ namespace Kindergarten.ViewModels
     public class BaseViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
-        public void OnPropertyChanged([CallerMemberName]string prop = "")
+        protected void RaisePropertyChanged ([CallerMemberName] string name = null)
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
-        }
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+        }      
 
-        public Page SingIn;
-        public Page Home;
-        private Page Data;
-        private Page Setting;
-
-        private Page _currentPage;
-        public Page CurrentPage
-        {
-            get { return _currentPage; }
-            set
-            {
-                if (_currentPage == value)
-                    return;
-
-                _currentPage = value;
-                OnPropertyChanged("CurrentPage");
-            }
-        }
+        public void SetPage()
+        {           
+        }    
     }
 }

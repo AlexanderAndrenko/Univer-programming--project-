@@ -52,7 +52,7 @@
                     Height="25"
                     Margin="0,10,73,0"
                     HorizontalAlignment="Right"
-                    Command="{Binding AddCommand}" Click="Button_Click"/>
+                    Command="{Binding OpenHomePage}"/>
         </StackPanel>
     </Grid>
 </Page>
