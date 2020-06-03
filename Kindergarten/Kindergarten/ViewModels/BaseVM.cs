@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Kindergarten.ViewModels.DataViewModels;
+using Kindergarten.Views;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -12,22 +14,9 @@ namespace Kindergarten.ViewModels
     public class BaseVM : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
-        protected void RaisePropertyChanged ([CallerMemberName] string name = null)
+        protected void RaisePropertyChanged ([CallerMemberName] string propertyName = "")
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
-        }
-
-        private BaseVM _currentPage;
-        public BaseVM CurrentPage
-        {
-            get { return _currentPage; }
-            set
-            {
-                if (_currentPage == value)
-                    return;
-                _currentPage = value;
-                RaisePropertyChanged();
-            }
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

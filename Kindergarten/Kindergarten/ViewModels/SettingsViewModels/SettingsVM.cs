@@ -1,20 +1,21 @@
-﻿using System;
+﻿using Kindergarten.ViewModels.SettingsViewModels.PagesViewModels;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Kindergarten.ViewModels.DataViewModels
+namespace Kindergarten.ViewModels.SettingsViewModels
 {
-    public class DataVM : BaseVM
+    public class SettingsVM : BaseVM
     {
-        public DataVM()
+        public SettingsVM()
         {
             MenuItemsData = new ObservableCollection<MenuItemDataVM>()
             {
-                new MenuItemDataVM("Дети", new ChildrenDataVM()),
-                new MenuItemDataVM("Блюда", new DishListDataVM())
+                new MenuItemDataVM("Дети Set", new ChildrenSetVM()),
+                new MenuItemDataVM("Блюда Set", new DishListSetVM())
             };
         }
         public ObservableCollection<MenuItemDataVM> MenuItemsData { get; set; }
@@ -42,6 +43,4 @@ namespace Kindergarten.ViewModels.DataViewModels
             }
         }
     }
-
-    
 }

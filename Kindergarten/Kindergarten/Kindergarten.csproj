@@ -62,6 +62,9 @@
     <Compile Include="ViewModels\DataViewModels\PagesViewModel\ChildrenDataVM.cs" />
     <Compile Include="ViewModels\DataViewModels\PagesViewModel\DishListDataVM.cs" />
     <Compile Include="ViewModels\MenuItemDataVM.cs" />
+    <Compile Include="ViewModels\SettingsViewModels\PagesViewModels\ChildrenSetVM.cs" />
+    <Compile Include="ViewModels\SettingsViewModels\PagesViewModels\DishListSetVM.cs" />
+    <Compile Include="ViewModels\SettingsViewModels\SettingsVM.cs" />
     <Compile Include="Views\Data\MainData.xaml.cs">
       <DependentUpon>MainData.xaml</DependentUpon>
     </Compile>
@@ -79,6 +82,15 @@
     </Compile>
     <Compile Include="Views\Home.xaml.cs">
       <DependentUpon>Home.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Settings\Pages\ChildrenSet.xaml.cs">
+      <DependentUpon>ChildrenSet.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Settings\Pages\DishListSet.xaml.cs">
+      <DependentUpon>DishListSet.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Settings\Settings.xaml.cs">
+      <DependentUpon>Settings.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\SingIn.xaml.cs">
       <DependentUpon>SingIn.xaml</DependentUpon>
@@ -112,6 +124,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Home.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Settings\Pages\ChildrenSet.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Settings\Pages\DishListSet.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Settings\Settings.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

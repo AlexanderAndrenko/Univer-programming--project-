@@ -11,16 +11,41 @@ namespace Kindergarten.ViewModels
 {
     public class HomeVM : BaseVM
     {
+        private static HomeVM instance;//Единственный объект класса в соответствии с паттерном Singleton
+
+        /*метод создающий единственный объект класса, если он ещё не создан или возвращает существующий*/
+        public static HomeVM GetInstance()
+        {
+            if (instance == null)
+                instance = new HomeVM();
+            return instance;
+        }
+
+
+        public delegate void NextPage();
+        public event NextPage dataButton;//event хранит методы подписанные на событие Data_btn_click
+        public event NextPage settingsButton;//event хранит методы подписанные на событие Settings_btn_click
         public HomeCommands DataButton { get; private set; }
         public HomeCommands SettingsButton { get; private set; }
 
-        public HomeVM()
+        private HomeVM()
         {
-            DataButton = new HomeCommands(SetDataPage);
+            DataButton = new HomeCommands(Data_btn_click);
+            SettingsButton = new HomeCommands(Settings_btn_click);
+            dataButton = () => { };
+            settingsButton = () => { };
         }
-        public void SetDataPage()
+
+        /*Событие нажатие на кнопку Data*/
+        public void Data_btn_click()
         {
-            CurrentPage = new DataVM();
+           dataButton();
+        }
+
+        /*Событие нажатие на кнопку Settings*/
+        public void Settings_btn_click()
+        {
+            settingsButton();
         }
 
     }

@@ -17,8 +17,16 @@
         <DataTemplate DataType="{x:Type vmd:DataVM}">
             <viewData:MainData/>
         </DataTemplate>
+        <DataTemplate DataType="{x:Type vmd:ChildrenDataVM}">
+            <viewData:ChildrenData/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vmd:DishListDataVM}">
+            <viewData:DishListData/>
+        </DataTemplate>
     </Window.Resources>
     <Grid>
-        <ContentPresenter Content="{Binding CurrentPage, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <!--<ContentPresenter Content="{Binding CurrentPage, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>-->
+        <ContentControl Content="{Binding CurrentPage}">
+        </ContentControl>
     </Grid>
 </Window>

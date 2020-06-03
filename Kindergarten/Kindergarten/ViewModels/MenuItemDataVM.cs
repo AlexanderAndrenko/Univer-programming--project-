@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Kindergarten.ViewModels
 {
-    class MenuItemDataVM
+    public class MenuItemDataVM
     {
         public string Name { get; set; }
         public BaseVM ViewModel { get; set; }
