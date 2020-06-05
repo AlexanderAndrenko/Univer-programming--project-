@@ -24,7 +24,7 @@ namespace Kindergarten.Views.Data
         public MainData()
         {
             InitializeComponent();
-            DataContext = new DataVM();
+            DataContext = DataVM.GetInstance();
         }
     }
 }

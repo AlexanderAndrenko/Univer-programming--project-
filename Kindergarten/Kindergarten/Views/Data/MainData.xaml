@@ -17,8 +17,8 @@
     </UserControl.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <local:MenuControl ItemsSource="{Binding MenuItemsData}" SelectedItem="{Binding SelectedMenu, Mode=TwoWay}"/>
         <ContentPresenter Grid.Column="1" Content="{Binding CurrentContent, Mode=TwoWay}"/>

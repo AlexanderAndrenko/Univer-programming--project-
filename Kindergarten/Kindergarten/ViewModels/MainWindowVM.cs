@@ -17,33 +17,53 @@ namespace Kindergarten.ViewModels
 {
     public class MainWindowVM : BaseVM
     {
+        public SingInVM SingIn { get; set; }
         public HomeVM Home { get; set; }
         public DataVM MainData { get; set; }
         public SettingsVM Settings { get; set; }
 
         public MainWindowVM()
         {
+            SingIn = SingInVM.GetInstance();
             Home = HomeVM.GetInstance();
-            MainData = new DataVM();
+            MainData = DataVM.GetInstance();
             Settings = new SettingsVM();
+            BackspaceButton button = BackspaceButton.GetInstance();
 
 
             Home.dataButton += SetDataPage;
             Home.settingsButton += SetSettingsPage;
+            SingIn.singInButton += SetHomePage;
+            button.backspaceButton += SetPreviousPage;
 
-            CurrentPage = Home;
+
+            CurrentPage = SingIn;
         }
 
         public void SetDataPage()
         {
             CurrentPage = MainData;
         }
-
         public void SetSettingsPage()
         {
             CurrentPage = Settings;
         }
-
+        public void SetHomePage()
+        {
+            CurrentPage = Home;
+        }
+        public void SetPreviousPage()
+        {
+            if (CurrentPage == MainData || CurrentPage == Settings)
+            {
+                CurrentPage = Home;
+            }
+            else
+            {
+                /*Тут нужен деструктор объекта класса Account так как мы выходим и надо заходить в систему заново*/
+                CurrentPage = SingIn;
+            }
+        }
         private object _currentPage;
         public object CurrentPage
         {

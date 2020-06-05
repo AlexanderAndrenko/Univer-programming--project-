@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Kindergarten.ViewModels.Commands;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -9,14 +10,25 @@ namespace Kindergarten.ViewModels.DataViewModels
 {
     public class DataVM : BaseVM
     {
-        public DataVM()
+        private static DataVM instance;
+        public static DataVM GetInstance()
+        {
+            if (instance == null)
+                instance = new DataVM();
+            return instance;
+        }
+        private DataVM()
         {
             MenuItemsData = new ObservableCollection<MenuItemDataVM>()
             {
                 new MenuItemDataVM("Дети", new ChildrenDataVM()),
                 new MenuItemDataVM("Блюда", new DishListDataVM())
             };
+
+            
         }
+
+        
         public ObservableCollection<MenuItemDataVM> MenuItemsData { get; set; }
 
         private BaseVM currentContent;

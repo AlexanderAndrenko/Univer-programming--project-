@@ -55,8 +55,11 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Models\SingInModel.cs" />
+    <Compile Include="ViewModels\Account.cs" />
+    <Compile Include="ViewModels\BackspaceButton.cs" />
     <Compile Include="ViewModels\BaseVM.cs" />
     <Compile Include="ViewModels\Commands\HomeCommands.cs" />
+    <Compile Include="ViewModels\Commands\MenuItemDataCommand.cs" />
     <Compile Include="ViewModels\Commands\SingInCommand.cs" />
     <Compile Include="ViewModels\DataViewModels\DataVM.cs" />
     <Compile Include="ViewModels\DataViewModels\PagesViewModel\ChildrenDataVM.cs" />
@@ -170,7 +173,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Image\backspace.png" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Image\settings.png" />
   </ItemGroup>

@@ -15,10 +15,30 @@ namespace Kindergarten.ViewModels
 {
     public class SingInVM : BaseVM
     {
+        private static SingInVM instance;//Единственный объект класса в соответствии с паттерном Singleton
+
+        /*метод создающий единственный объект класса, если он ещё не создан или возвращает существующий*/
+        public static SingInVM GetInstance()
+        {
+            if (instance == null)
+                instance = new SingInVM();
+            return instance;
+        }
+        private SingInVM()
+        {
+            OpenHomePage = new SingInCommand(singIn_btn_click);
+            singInButton = () => { };
+        }
+
+        public delegate void SingInProcess();
+        public event SingInProcess singInButton;
         public SingInCommand OpenHomePage { get; private set; }
 
-        public SingInVM()
+        private void singIn_btn_click()
         {
+            singInButton();
         }
+
+        
     }
 }

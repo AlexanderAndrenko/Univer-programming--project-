@@ -19,12 +19,12 @@ namespace Kindergarten.Views
     /// <summary>
     /// Interaction logic for SingIn.xaml
     /// </summary>
-    public partial class SingIn : Page
+    public partial class SingIn : UserControl
     {
         public SingIn()
         {
             InitializeComponent();
-            DataContext = new SingInVM();
+            DataContext = SingInVM.GetInstance();
         }
     }
 }
