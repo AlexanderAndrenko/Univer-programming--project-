@@ -11,7 +11,15 @@ namespace Kindergarten.ViewModels.SettingsViewModels
 {
     public class SettingsVM : BaseVM
     {
-        public SettingsVM()
+        private static SettingsVM instance;
+
+        public static SettingsVM GetInstance()
+        {
+            if (instance == null)
+                instance = new SettingsVM();
+            return instance;
+        }
+        private SettingsVM()
         {
             MenuItemsData = new ObservableCollection<MenuItemDataVM>()
             {

@@ -13,7 +13,8 @@
                 BorderBrush="White"
                 VerticalAlignment="Top"
                 HorizontalAlignment="Right"
-                Margin="5">
+                Margin="5"
+                Command="{Binding SingOut}">
             <Image Source="/Image/singout.png"/>
         </Button>
         <StackPanel Orientation="Horizontal"

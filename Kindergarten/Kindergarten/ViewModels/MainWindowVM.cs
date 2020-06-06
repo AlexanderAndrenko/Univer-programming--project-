@@ -27,13 +27,15 @@ namespace Kindergarten.ViewModels
             SingIn = SingInVM.GetInstance();
             Home = HomeVM.GetInstance();
             MainData = DataVM.GetInstance();
-            Settings = new SettingsVM();
+            Settings = SettingsVM.GetInstance();
 
 
             Home.dataButton += SetDataPage;
             Home.settingsButton += SetSettingsPage;
+            Home.singOut += SetPreviousPage;
             SingIn.singInButton += SetHomePage;
             MainData.backspaceButton += SetPreviousPage;
+            Settings.backspaceButton += SetPreviousPage;
 
 
             CurrentPage = SingIn;
@@ -63,6 +65,7 @@ namespace Kindergarten.ViewModels
                 CurrentPage = SingIn;
             }
         }
+
         private object _currentPage;
         public object CurrentPage
         {

@@ -26,7 +26,8 @@
                            FontSize="14"/>
                 <TextBox Height="25"
                          Width="220"
-                         Margin="13"/>
+                         Margin="13"
+                         Text="{Binding Login, Mode=OneWayToSource}"/>
                 <TextBlock Width="60"
                            Visibility="Hidden"/>
             </StackPanel>
@@ -40,7 +41,8 @@
                            TextAlignment="Center"/>
                 <TextBox Height="25"
                          Width="220"
-                         Margin="13"/>
+                         Margin="13"
+                         Text="{Binding Password, Mode=OneWayToSource}"/>
                 <TextBlock Width="60"
                            Visibility="Hidden"/>
             </StackPanel>
