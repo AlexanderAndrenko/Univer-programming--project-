@@ -9,17 +9,8 @@
              x:Name="Control">
     <Grid>
         <StackPanel Orientation="Vertical">
-            <StackPanel Orientation="Horizontal">
-                <Button HorizontalAlignment="Left"
-                    Width="30"
-                    Command="{Binding Backspace_btn_click}">
-                    <Image Source="/Image/backspace.png"/>
-                </Button>
-                <TextBlock Width="120"
-                           Background="White"/>
-            </StackPanel>
             <ListBox ItemsSource="{Binding ElementName=Control, Path=ItemsSource}" 
-                    SelectedItem="{Binding ElementName=Control, Path=SelectedItem}"
+                     SelectedItem="{Binding ElementName=Control, Path=SelectedItem}"
                      Width="150"/>
         </StackPanel>
     </Grid>

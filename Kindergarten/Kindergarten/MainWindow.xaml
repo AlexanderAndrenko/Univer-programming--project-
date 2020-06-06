@@ -6,8 +6,12 @@
         xmlns:local="clr-namespace:Kindergarten"        
         xmlns:viewModel="clr-namespace:Kindergarten.ViewModels"
         xmlns:vmd="clr-namespace:Kindergarten.ViewModels.DataViewModels"
+        xmlns:vms="clr-namespace:Kindergarten.ViewModels.SettingsViewModels"
+        xmlns:vmsp="clr-namespace:Kindergarten.ViewModels.SettingsViewModels.PagesViewModels"
         xmlns:views="clr-namespace:Kindergarten.Views"
         xmlns:viewData="clr-namespace:Kindergarten.Views.Data"
+        xmlns:viewSettings="clr-namespace:Kindergarten.Views.Settings"
+        xmlns:viewSetiingsPages="clr-namespace:Kindergarten.Views.Settings.Pages"
         mc:Ignorable="d"
         Title="Kindergarden" Height="450" Width="800">
     <Window.Resources>
@@ -25,6 +29,15 @@
         </DataTemplate>
         <DataTemplate DataType="{x:Type viewModel:SingInVM}">
             <views:SingIn/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vms:SettingsVM}">
+            <viewSettings:Settings/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vmsp:ChildrenSetVM}">
+            <viewSetiingsPages:ChildrenSet/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vmsp:DishListSetVM}">
+            <viewSetiingsPages:DishListSet/>
         </DataTemplate>
     </Window.Resources>
     <Grid>

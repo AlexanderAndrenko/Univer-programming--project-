@@ -25,10 +25,25 @@ namespace Kindergarten.ViewModels.DataViewModels
                 new MenuItemDataVM("Блюда", new DishListDataVM())
             };
 
-            
+            backspaceButton = () => { };
+            BackspaceButtonClick = new MenuItemDataCommand(Backspace_btn_click);
         }
 
-        
+
+
+        #region backspace button
+
+        public delegate void BackspaceButtonDelegate();
+        public event BackspaceButtonDelegate backspaceButton;
+        public MenuItemDataCommand BackspaceButtonClick { get; set; }
+
+        private void Backspace_btn_click()
+        {
+            backspaceButton();
+        }
+
+        #endregion //backspace button
+
         public ObservableCollection<MenuItemDataVM> MenuItemsData { get; set; }
 
         private BaseVM currentContent;

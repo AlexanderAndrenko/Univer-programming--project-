@@ -19,10 +19,29 @@
     </UserControl.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <dataControl:MenuControl ItemsSource="{Binding MenuItemsData}" SelectedItem="{Binding SelectedMenu, Mode=TwoWay}"/>
-        <ContentPresenter Grid.Column="1" Content="{Binding CurrentContent, Mode=TwoWay}"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    Orientation="Horizontal"
+                    Background="White">
+            <Button HorizontalAlignment="Left"
+                    Width="30"
+                    Command="{Binding BackspaceButtonClick}">
+                <Image Source="/Image/backspace.png"/>
+            </Button>
+            <TextBlock Width="150"
+                       Background="Wheat"
+                       Text="Login Name Surname"
+                       />
+        </StackPanel>
+        <dataControl:MenuControl Grid.Row="1" ItemsSource="{Binding MenuItemsData}" SelectedItem="{Binding SelectedMenu, Mode=TwoWay}"/>
+        <ContentPresenter Grid.Row="1" Grid.Column="1" Content="{Binding CurrentContent, Mode=TwoWay}"/>
     </Grid>
 </UserControl>

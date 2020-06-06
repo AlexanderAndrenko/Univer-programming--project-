@@ -28,13 +28,12 @@ namespace Kindergarten.ViewModels
             Home = HomeVM.GetInstance();
             MainData = DataVM.GetInstance();
             Settings = new SettingsVM();
-            BackspaceButton button = BackspaceButton.GetInstance();
 
 
             Home.dataButton += SetDataPage;
             Home.settingsButton += SetSettingsPage;
             SingIn.singInButton += SetHomePage;
-            button.backspaceButton += SetPreviousPage;
+            MainData.backspaceButton += SetPreviousPage;
 
 
             CurrentPage = SingIn;

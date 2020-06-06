@@ -56,7 +56,6 @@
     </ApplicationDefinition>
     <Compile Include="Models\SingInModel.cs" />
     <Compile Include="ViewModels\Account.cs" />
-    <Compile Include="ViewModels\BackspaceButton.cs" />
     <Compile Include="ViewModels\BaseVM.cs" />
     <Compile Include="ViewModels\Commands\HomeCommands.cs" />
     <Compile Include="ViewModels\Commands\MenuItemDataCommand.cs" />

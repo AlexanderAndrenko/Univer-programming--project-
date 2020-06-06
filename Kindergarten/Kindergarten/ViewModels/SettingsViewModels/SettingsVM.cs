@@ -1,4 +1,5 @@
-﻿using Kindergarten.ViewModels.SettingsViewModels.PagesViewModels;
+﻿using Kindergarten.ViewModels.Commands;
+using Kindergarten.ViewModels.SettingsViewModels.PagesViewModels;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -17,7 +18,24 @@ namespace Kindergarten.ViewModels.SettingsViewModels
                 new MenuItemDataVM("Дети Set", new ChildrenSetVM()),
                 new MenuItemDataVM("Блюда Set", new DishListSetVM())
             };
+
+            backspaceButton = () => { };
+            BackspaceButtonClick = new MenuItemDataCommand(Backspace_btn_click);
         }
+
+        #region backspace button
+
+        public delegate void BackspaceButtonDelegate();
+        public event BackspaceButtonDelegate backspaceButton;
+        public MenuItemDataCommand BackspaceButtonClick { get; set; }
+
+        private void Backspace_btn_click()
+        {
+            backspaceButton();
+        }
+
+        #endregion //backspace button
+
         public ObservableCollection<MenuItemDataVM> MenuItemsData { get; set; }
 
         private BaseVM currentContent;
