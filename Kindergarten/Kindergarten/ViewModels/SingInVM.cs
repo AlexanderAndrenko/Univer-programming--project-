@@ -11,6 +11,8 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media;
+using System.Xml;
 
 namespace Kindergarten.ViewModels
 {
@@ -30,6 +32,7 @@ namespace Kindergarten.ViewModels
         {
             OpenHomePage = new SingInCommand(singIn_btn_click);
             singInButton = () => { };
+            ColorOfMainStackPanel = Brushes.White;
         }
         #endregion //Constructor
 
@@ -39,14 +42,32 @@ namespace Kindergarten.ViewModels
         public string Login { get; set; }
         public string Password { private get; set; }
 
-        private void singIn_btn_click()
-        {
-            if (SingInModel.CheckLogin(Login, Password))
+        private SolidColorBrush _colorOfMainStackPanel;
+        public SolidColorBrush ColorOfMainStackPanel 
+        { 
+            get => _colorOfMainStackPanel;
+            set
             {
-                singInButton();
-            }            
+                _colorOfMainStackPanel = value;
+                RaisePropertyChanged();
+            }
         }
 
-        
+        private void singIn_btn_click()
+        {
+            if (Login != "" && Password != "" && SingInModel.CheckLogin(Login, Password))
+            {
+                singInButton();
+                Password = "";//Стираем из памяти пароль
+            }
+            else
+            {
+
+                ColorOfMainStackPanel = Brushes.Red;
+            }
+        }
+
+
+
     }
 }

@@ -10,6 +10,7 @@ namespace Kindergarten.ViewModels.DataViewModels
 {
     public class DataVM : BaseVM
     {
+        #region Constructor
         private static DataVM instance;
         public static DataVM GetInstance()
         {
@@ -19,17 +20,22 @@ namespace Kindergarten.ViewModels.DataViewModels
         }
         private DataVM()
         {
+            #region CreateListOfPages
             MenuItemsData = new ObservableCollection<MenuItemDataVM>()
             {
                 new MenuItemDataVM("Дети", new ChildrenDataVM()),
                 new MenuItemDataVM("Блюда", new DishListDataVM())
             };
+            #endregion //CreateListOfPages
+
+            #region CreateEventClickButton
 
             backspaceButton = () => { };
             BackspaceButtonClick = new MenuItemDataCommand(Backspace_btn_click);
+
+            #endregion //CreateEventClickButton
         }
-
-
+        #endregion //Constructor
 
         #region backspace button
 
@@ -44,6 +50,7 @@ namespace Kindergarten.ViewModels.DataViewModels
 
         #endregion //backspace button
 
+        #region ListBoxItem
         public ObservableCollection<MenuItemDataVM> MenuItemsData { get; set; }
 
         private BaseVM currentContent;
@@ -68,7 +75,19 @@ namespace Kindergarten.ViewModels.DataViewModels
                 RaisePropertyChanged();
             }
         }
+        #endregion //ListBoxItem
+
+        private string _userNameSurname;
+        public string UserNameSurname 
+        { 
+            get => _userNameSurname;
+            set 
+            {
+                _userNameSurname = value;
+                RaisePropertyChanged();
+            }
+        }
     }
 
-    
+
 }

@@ -21,6 +21,7 @@ namespace Kindergarten.ViewModels
         public HomeVM Home { get; set; }
         public DataVM MainData { get; set; }
         public SettingsVM Settings { get; set; }
+        public Account CurrentAccount { get; set; }
 
         public MainWindowVM()
         {
@@ -34,6 +35,7 @@ namespace Kindergarten.ViewModels
             Home.settingsButton += SetSettingsPage;
             Home.singOut += SetPreviousPage;
             SingIn.singInButton += SetHomePage;
+            SingIn.singInButton += SetAccountParameters;
             MainData.backspaceButton += SetPreviousPage;
             Settings.backspaceButton += SetPreviousPage;
 
@@ -64,6 +66,12 @@ namespace Kindergarten.ViewModels
                 /*Тут нужен деструктор объекта класса Account так как мы выходим и надо заходить в систему заново*/
                 CurrentPage = SingIn;
             }
+        }
+        public void SetAccountParameters()
+        {
+            CurrentAccount = Account.GetInstance(SingIn.Login);
+            //string userParameters = 
+            MainData.UserNameSurname = CurrentAccount.Name + " " + CurrentAccount.Surname;
         }
 
         private object _currentPage;

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Data.Sql;
 using System.Data.SqlClient;
 using System.Windows;
+using System.Diagnostics;
 
 namespace Kindergarten.Models
 {
@@ -15,24 +16,35 @@ namespace Kindergarten.Models
         {
             try
             {
-                SqlConnection conn = new SqlConnection(@"Data source = localhost; Initial Catalog = StudyDB; Integrated Security = true; Pooling = False;");
-
-                using (SqlCommand sql = conn.CreateCommand())
+                using (SqlConnection connection = new SqlConnection(@"Data source = ALEXANDER-PC\SQLEXPRESS; Initial Catalog = StudyDB; Integrated Security = true; Pooling = False;"))
                 {
-                    SqlCommand com = new SqlCommand(@"SELECT Password FROM StudyDB.dbo.Account WHERE Login = " + login, conn);
-                    SqlDataReader reader = com.ExecuteReader();
+                    try
+                    {
+                        connection.Open();
+                    }
+                    catch (Exception ex)
+                    {
+                        Debug.WriteLine(ex.Message);//Вывод в лог текст исключения
+                        throw;
+                    }
+                    SqlCommand command = connection.CreateCommand();
+                    command = new SqlCommand(@"SELECT Password FROM Account WHERE Login = '" + login + "'", connection);
+                    SqlDataReader reader = command.ExecuteReader();
                     reader.Read();
 
                     if(password == reader["Password"].ToString())
                     {
+                        reader.Close();
                         return true;
                     }
 
+                    reader.Close();
                     return false;
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                Debug.WriteLine(ex.Message);//Вывод в лог текст исключения
                 MessageBox.Show("Ошибка подключения к базе данных!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return false;
             }

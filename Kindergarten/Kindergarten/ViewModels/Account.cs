@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Kindergarten.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,41 +9,31 @@ namespace Kindergarten.ViewModels
 {
     public class Account
     {
-        public Account()
+        #region Constructor
+        private static Account instance;
+        public static Account GetInstance(string login)
         {
-
+            if (instance == null)
+                instance = new Account(login);
+            return instance;
         }
-
-        public string Login { get; set; }
-
-        #region ???
-        private int accessLevel;//Уровень доступа в программе
-        public int AccessLevel
+        private Account(string login)
         {
-            get => accessLevel;
-            set { }
+            Login = login;
+            Name = AccountModel.GetName(Login);
+            Surname = AccountModel.GetSurname(Login);
+            Patronymic = AccountModel.GetPatronymic(Login);
+            AccessLevel = AccountModel.GetAccessLevel(Login);
         }
+        #endregion //Constructor
 
-        private string name;//Имя
-        public string Name
-        {
-            get => name;
-            set { }
-        }
+        #region Properties
+        public string Login { get; set; }        
+        public int AccessLevel { get; set; }
+        public string Name { get; set; }
+        public string Surname { get; set; }
+        public string Patronymic { get; set; }
 
-        private string surname;//Фамилия
-        public string Surname
-        {
-            get => surname;
-            set { }
-        }
-
-        private string patronymic;//Отчество
-        public string Patronymic
-        {
-            get => patronymic;
-            set { }
-        }
-        #endregion //???
+        #endregion //Properties
     }
 }
