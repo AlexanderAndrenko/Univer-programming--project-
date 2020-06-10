@@ -27,6 +27,15 @@ namespace Kindergarten.ViewModels
         }
         #endregion //Constructor
 
+        #region Method
+
+        public void DeleteObject()
+        {
+            instance = null;
+        }
+
+        #endregion //Method
+
         #region Properties
         public string Login { get; set; }        
         public int AccessLevel { get; set; }

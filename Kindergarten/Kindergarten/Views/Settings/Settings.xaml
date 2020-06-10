@@ -38,8 +38,7 @@
             </Button>
             <TextBlock Width="150"
                        Background="Wheat"
-                       Text="Login Name Surname"
-                       />
+                       Text="{Binding UserNameSurname, Mode=OneWay}"/>
         </StackPanel>
         <dataControl:MenuControl Grid.Row="1" ItemsSource="{Binding MenuItemsData}" SelectedItem="{Binding SelectedMenu, Mode=TwoWay}"/>
         <ContentPresenter Grid.Row="1" Grid.Column="1" Content="{Binding CurrentContent, Mode=TwoWay}"/>

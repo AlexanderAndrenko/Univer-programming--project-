@@ -63,15 +63,15 @@ namespace Kindergarten.ViewModels
             }
             else
             {
-                /*Тут нужен деструктор объекта класса Account так как мы выходим и надо заходить в систему заново*/
-                CurrentPage = SingIn;
+                CurrentAccount.DeleteObject();//удаление объекта класса Account так как мы выходим из учетной записи
+                CurrentPage = SingIn;//установка стартовой страницы
             }
         }
         public void SetAccountParameters()
         {
             CurrentAccount = Account.GetInstance(SingIn.Login);
-            //string userParameters = 
             MainData.UserNameSurname = CurrentAccount.Name + " " + CurrentAccount.Surname;
+            Settings.UserNameSurname = CurrentAccount.Name + " " + CurrentAccount.Surname;
         }
 
         private object _currentPage;

@@ -11,6 +11,7 @@ namespace Kindergarten.ViewModels.SettingsViewModels
 {
     public class SettingsVM : BaseVM
     {
+        #region Constructor
         private static SettingsVM instance;
 
         public static SettingsVM GetInstance()
@@ -30,6 +31,7 @@ namespace Kindergarten.ViewModels.SettingsViewModels
             backspaceButton = () => { };
             BackspaceButtonClick = new MenuItemDataCommand(Backspace_btn_click);
         }
+        #endregion //Constructor
 
         #region backspace button
 
@@ -44,6 +46,7 @@ namespace Kindergarten.ViewModels.SettingsViewModels
 
         #endregion //backspace button
 
+        #region ListBoxItem
         public ObservableCollection<MenuItemDataVM> MenuItemsData { get; set; }
 
         private BaseVM currentContent;
@@ -65,6 +68,18 @@ namespace Kindergarten.ViewModels.SettingsViewModels
             {
                 selectedMenu = value;
                 CurrentContent = value.ViewModel;
+                RaisePropertyChanged();
+            }
+        }
+        #endregion //ListBoxItem
+
+        private string _userNameSurname;
+        public string UserNameSurname
+        {
+            get => _userNameSurname;
+            set
+            {
+                _userNameSurname = value;
                 RaisePropertyChanged();
             }
         }
