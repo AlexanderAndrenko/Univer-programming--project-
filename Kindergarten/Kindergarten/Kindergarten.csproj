@@ -54,12 +54,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DateCollections.cs" />
     <Compile Include="Models\AccountModel.cs" />
+    <Compile Include="Models\ChildrenModel.cs" />
     <Compile Include="Models\SingInModel.cs" />
     <Compile Include="ViewModels\Account.cs" />
     <Compile Include="ViewModels\BaseVM.cs" />
     <Compile Include="ViewModels\Commands\HomeCommands.cs" />
     <Compile Include="ViewModels\Commands\MenuItemDataCommand.cs" />
+    <Compile Include="ViewModels\Commands\OwnCommand.cs" />
     <Compile Include="ViewModels\Commands\SingInCommand.cs" />
     <Compile Include="ViewModels\DataViewModels\DataVM.cs" />
     <Compile Include="ViewModels\DataViewModels\PagesViewModel\ChildrenDataVM.cs" />

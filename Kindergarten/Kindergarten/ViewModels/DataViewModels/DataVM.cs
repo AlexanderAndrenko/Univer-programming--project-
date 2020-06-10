@@ -23,7 +23,7 @@ namespace Kindergarten.ViewModels.DataViewModels
             #region CreateListOfPages
             MenuItemsData = new ObservableCollection<MenuItemDataVM>()
             {
-                new MenuItemDataVM("Дети", new ChildrenDataVM()),
+                new MenuItemDataVM("Дети", ChildrenDataVM.GetInstanse()),
                 new MenuItemDataVM("Блюда", new DishListDataVM())
             };
             #endregion //CreateListOfPages

@@ -33,6 +33,11 @@ namespace Kindergarten.ViewModels
             OpenHomePage = new SingInCommand(singIn_btn_click);
             singInButton = () => { };
             ColorOfMainStackPanel = Brushes.White;
+
+            #region Need to delete in release, just for debug
+            Login = "admin";
+            Password = "admin";
+            #endregion //Need to delete in release, just for debug
         }
         #endregion //Constructor
 
