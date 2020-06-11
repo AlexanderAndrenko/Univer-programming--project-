@@ -28,7 +28,8 @@ namespace Kindergarten.ViewModels.DataViewModels
             SelectedDay = "*";
             SelectedMounth = "*";
             SelectedYear = "*";
-            DataGridChildren = new List<Children>(null);
+            DataGridChildren = new List<Children>();
+            IsRangeDate = false;
             ShowButton = new OwnCommand(GetChildrenData);
         }
         #endregion //Constructor
@@ -39,13 +40,27 @@ namespace Kindergarten.ViewModels.DataViewModels
         public List<string> ListYear { get; private set; }
         public string SelectedDay { get; set; }
         public string SelectedMounth { get; set; }
-        public string SelectedYear { get; set; }        
-        public List<Children> DataGridChildren 
+        public string SelectedYear { get; set; }
+        private bool _isRangeDate;
+        public bool IsRangeDate 
         { 
-            get => DataGridChildren; 
+            get => _isRangeDate;
             set 
             {
-                DataGridChildren = value;
+                _isRangeDate = value;
+                RaisePropertyChanged();
+            }
+        }
+        public DateTime StartDate { get; set; }
+        public DateTime EndDate { get; set; }
+
+        public List<Children> _dataGridChildren;
+        public List<Children> DataGridChildren 
+        { 
+            get => _dataGridChildren; 
+            set 
+            {
+                _dataGridChildren = value;
                 RaisePropertyChanged();
             } 
         }
@@ -55,7 +70,9 @@ namespace Kindergarten.ViewModels.DataViewModels
         #region Method
         public void GetChildrenData()
         {
-            DataGridChildren = new List<Children>(ChildrenModel.GetChildrenData(SelectedDay, SelectedMounth, SelectedYear));
+            if (EndDate == null)
+                EndDate = StartDate;
+            DataGridChildren = new List<Children>(ChildrenModel.GetChildrenData(StartDate, EndDate));
         }
 
         #endregion //Method

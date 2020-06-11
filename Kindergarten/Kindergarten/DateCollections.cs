@@ -92,7 +92,10 @@ namespace Kindergarten
             {
                 if (Mounth[index] ==  mounth)
                 {
-                    return  Convert.ToString(index);
+                    if (index > 9)
+                        return Convert.ToString(index);
+                    return Convert.ToString("0" + index);
+
                 }
             }
 
