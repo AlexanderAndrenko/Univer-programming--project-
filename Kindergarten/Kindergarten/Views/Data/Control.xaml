@@ -11,7 +11,8 @@
         <StackPanel Orientation="Vertical">
             <ListBox ItemsSource="{Binding ElementName=Control, Path=ItemsSource}" 
                      SelectedItem="{Binding ElementName=Control, Path=SelectedItem}"
-                     Width="150"/>
+                     Width="200"
+                     FontSize="16"/>
         </StackPanel>
     </Grid>
 </UserControl>

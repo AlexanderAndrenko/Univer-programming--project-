@@ -24,8 +24,8 @@ namespace Kindergarten.ViewModels.SettingsViewModels
         {
             MenuItemsData = new ObservableCollection<MenuItemDataVM>()
             {
-                new MenuItemDataVM("Дети Set", new ChildrenSetVM()),
-                new MenuItemDataVM("Блюда Set", new DishListSetVM())
+                new MenuItemDataVM("Дети", ChildrenSetVM.GetInstance()),
+                new MenuItemDataVM("Блюда", new DishListSetVM())
             };
 
             backspaceButton = () => { };

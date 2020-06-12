@@ -7,7 +7,7 @@ using System.Windows.Input;
 
 namespace Kindergarten.ViewModels.Commands
 {
-    class OwnCommand : ICommand
+    public class OwnCommand : ICommand
     {
         public event EventHandler CanExecuteChanged;
         private Action _execute;

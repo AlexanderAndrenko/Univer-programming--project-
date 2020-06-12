@@ -20,7 +20,7 @@ namespace Kindergarten.Models
                     {
                         connection.Open();
                     }
-                    catch (Exception ex)
+                    catch (Exception)
                     {
                         MessageBox.Show("Ошибка открытия соединения!","Error", MessageBoxButton.OK, MessageBoxImage.Error);
                         return "";
@@ -53,7 +53,7 @@ namespace Kindergarten.Models
                     {
                         connection.Open();
                     }
-                    catch (Exception ex)
+                    catch (Exception)
                     {
                         MessageBox.Show("Ошибка открытия соединения!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                         return "";
@@ -86,7 +86,7 @@ namespace Kindergarten.Models
                     {
                         connection.Open();
                     }
-                    catch (Exception ex)
+                    catch (Exception)
                     {
                         MessageBox.Show("Ошибка открытия соединения!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                         return "";
@@ -119,7 +119,7 @@ namespace Kindergarten.Models
                     {
                         connection.Open();
                     }
-                    catch (Exception ex)
+                    catch (Exception)
                     {
                         MessageBox.Show("Ошибка открытия соединения!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                         return -1;

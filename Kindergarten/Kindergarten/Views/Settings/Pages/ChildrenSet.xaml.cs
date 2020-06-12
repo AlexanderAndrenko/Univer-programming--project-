@@ -24,7 +24,7 @@ namespace Kindergarten.Views.Settings.Pages
         public ChildrenSet()
         {
             InitializeComponent();
-            DataContext = new ChildrenSetVM();
+            DataContext = ChildrenSetVM.GetInstance();
         }
     }
 }

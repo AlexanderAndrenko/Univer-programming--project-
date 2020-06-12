@@ -9,6 +9,6 @@
     <Grid>
         <TextBlock HorizontalAlignment="Center"
                    VerticalAlignment="Center"
-                   FontSize="20">Информация о блюдах</TextBlock>
+                   FontSize="20">Раздел в технической разработке</TextBlock>
     </Grid>
 </UserControl>

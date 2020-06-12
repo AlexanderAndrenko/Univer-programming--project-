@@ -26,5 +26,19 @@ namespace Kindergarten.Views.Data
             InitializeComponent();
             DataContext = ChildrenDataVM.GetInstanse();
         }
+
+        private void CheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+            if (SingleSelect.Visibility == Visibility.Visible)
+            {
+                SingleSelect.Visibility = Visibility.Hidden;
+                MultipleSelect.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                SingleSelect.Visibility = Visibility.Visible;
+                MultipleSelect.Visibility = Visibility.Hidden;
+            }
+        }
     }
 }

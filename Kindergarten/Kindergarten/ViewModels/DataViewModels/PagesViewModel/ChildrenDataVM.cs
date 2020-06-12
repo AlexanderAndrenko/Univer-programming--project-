@@ -22,25 +22,15 @@ namespace Kindergarten.ViewModels.DataViewModels
 
         private ChildrenDataVM()
         {
-            ListDay = DateCollections.Day;
-            ListMounth = DateCollections.Mounth;
-            ListYear = DateCollections.Year;
-            SelectedDay = "*";
-            SelectedMounth = "*";
-            SelectedYear = "*";
             DataGridChildren = new List<Children>();
             IsRangeDate = false;
             ShowButton = new OwnCommand(GetChildrenData);
+            StartDate = System.DateTime.Now;
         }
         #endregion //Constructor
 
         #region Properties
-        public List<string> ListDay { get; private set; }
-        public List<string> ListMounth { get; private set; }
-        public List<string> ListYear { get; private set; }
-        public string SelectedDay { get; set; }
-        public string SelectedMounth { get; set; }
-        public string SelectedYear { get; set; }
+
         private bool _isRangeDate;
         public bool IsRangeDate 
         { 

@@ -9,63 +9,57 @@
     <Grid Background="White">
         <DockPanel Margin="10">
             <StackPanel Orientation="Vertical"
+                        VerticalAlignment="Center"
                         DockPanel.Dock="Top" 
                         Height="80">
-                <!--
-                <ComboBox ItemsSource="{Binding ListDay}"
-                          SelectedItem="{Binding SelectedDay, Mode=OneWayToSource}"
-                          SelectedValue="*"
-                          Margin="4,2,2,2"
-                          Width="50"
-                          Height="25"/>
-                <ComboBox ItemsSource="{Binding ListMounth}"
-                          SelectedItem="{Binding SelectedMounth, Mode=OneWayToSource}"
-                          SelectedValue="*"
-                          Margin="2"
-                          Width="130"
-                          Height="25"/>
-                <ComboBox ItemsSource="{Binding ListYear}"
-                          SelectedItem="{Binding SelectedYear, Mode=OneWayToSource}"
-                          SelectedValue="*"
-                          Margin="2"
-                          Width="100"
-                          Height="25"/>
-                <Button Content="Показать"
-                        Height="25"
-                        Width="70"
-                        Margin="10,0,0,0"
-                        Command="{Binding ShowButton}"/>
-                -->
-                <StackPanel Orientation="Horizontal">
+                <StackPanel Orientation="Horizontal"
+                            VerticalAlignment="Center"
+                            Height="40">
                     <TextBlock Margin="10,0,30,0"
+                               VerticalAlignment="Center"
+                               TextAlignment="Center"
                                Width="100"
                                Height="25"
                                Text="Выберите дату"/>
-                    <CheckBox VerticalAlignment="Center" Content="выбрать диапазон"
-                              IsChecked="{Binding IsRangeDate, Mode=OneWayToSource}"
-                              />
+                    <CheckBox VerticalAlignment="Center" 
+                              Content="выбрать диапазон"
+                              Checked="CheckBox_Checked"
+                              Unchecked="CheckBox_Checked"/>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <DatePicker Margin="10,0,0,0"
-                                Height="25"
-                                SelectedDate="{Binding StartDate, Mode=OneWayToSource}"/>
-                    <Grid Visibility="{Binding IsRangeDate}">
-                        <TextBlock VerticalAlignment="Center" 
-                                   Text=" - "/>
+                <Grid>
+                    <StackPanel x:Name="SingleSelect"
+                                Orientation="Horizontal"
+                                Visibility="Visible">
                         <DatePicker Margin="10,0,0,0"
                                     Height="25"
-                                    SelectedDate="{Binding EndDate, Mode=OneWayToSource}"/>
-                    </Grid>
-                    <Button Content="Показать"
-                            Height="25"
-                            Width="70"
-                            Margin="10,0,0,0"
-                            Command="{Binding ShowButton}"/>
-                </StackPanel>
-            </StackPanel>
+                                    SelectedDate="{Binding StartDate, Mode=OneWayToSource}"/>
+                        <Button Content="Показать"
+                                Height="25"
+                                Width="70"
+                                Margin="10,0,0,0"
+                                Command="{Binding ShowButton}"/>
+                    </StackPanel>
+                    <StackPanel x:Name="MultipleSelect"
+                                Orientation="Horizontal"
+                                Visibility="Hidden">
+                        <DatePicker Margin="10,0,0,0"
+                                    Height="25"
+                                    SelectedDate="{Binding StartDate, Mode=OneWayToSource}"/>                    
+                            <TextBlock VerticalAlignment="Center" 
+                                       Text=" - "/>
+                            <DatePicker Margin="10,0,0,0"
+                                        Height="25"
+                                        SelectedDate="{Binding EndDate, Mode=OneWayToSource}"/>                   
+                        <Button Content="Показать"
+                                Height="25"
+                                Width="70"
+                                Margin="10,0,0,0"
+                                Command="{Binding ShowButton}"/>                    
+                    </StackPanel>
+                </Grid>
+    </StackPanel>
             <StackPanel>
-                <DataGrid ItemsSource="{Binding DataGridChildren, Mode=OneWay}"
-                          AutoGenerateColumns="True"/>
+                <DataGrid ItemsSource="{Binding DataGridChildren, Mode=OneWay}"/>
             </StackPanel>
         </DockPanel>
     </Grid>

@@ -54,7 +54,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="DateCollections.cs" />
     <Compile Include="Models\AccountModel.cs" />
     <Compile Include="Models\ChildrenModel.cs" />
     <Compile Include="Models\SingInModel.cs" />
