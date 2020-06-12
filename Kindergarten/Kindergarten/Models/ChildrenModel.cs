@@ -68,34 +68,85 @@ namespace Kindergarten.Models
 
                     SqlCommand command = connection.CreateCommand();
 
-                    //command = new SqlCommand(@"INSERT INTO Children VALUES (" + data.Date + ", " + data.Nursery + ", " + data.Yard +")", connection);
-                    command = new SqlCommand(@"INSERT INTO Children VALUES (@Date, @Nursery, @Yard) ", connection);
+                    SqlCommand checkDate = connection.CreateCommand();
+                    checkDate = new SqlCommand(@"SELECT * FROM Children WHERE Data = @SetDate",connection);
+                    checkDate.Parameters.Add("@SetDate", System.Data.SqlDbType.Date);
+                    checkDate.Parameters["@SetDate"].Value = data.Date;
+                    SqlDataReader sqlreader = checkDate.ExecuteReader();
 
-                    command.Parameters.Add("@Date", System.Data.SqlDbType.Date);
-                    command.Parameters.Add("@Nursery", System.Data.SqlDbType.Int);
-                    command.Parameters.Add("@Yard", System.Data.SqlDbType.Int);
-
-                    command.Parameters["@Date"].Value = data.Date;
-                    command.Parameters["@Nursery"].Value = data.Nursery;
-                    command.Parameters["@Yard"].Value = data.Yard;
-
-                    try
+                    if(!sqlreader.HasRows)//Если такая запись уже существует, необходимо отредактировать её, так как поле дата уникальное, создание новой записи с таким же ключом выдаст исключение
                     {
-                        int rowAffected = command.ExecuteNonQuery();
+                        sqlreader.Close();
 
-                        if (rowAffected == 1)
+                        command = new SqlCommand(@"INSERT INTO Children VALUES (@Date, @Nursery, @Yard) ", connection);
+
+                        command.Parameters.Add("@Date", System.Data.SqlDbType.Date);
+                        command.Parameters.Add("@Nursery", System.Data.SqlDbType.Int);
+                        command.Parameters.Add("@Yard", System.Data.SqlDbType.Int);
+
+                        command.Parameters["@Date"].Value = data.Date;
+                        command.Parameters["@Nursery"].Value = data.Nursery;
+                        command.Parameters["@Yard"].Value = data.Yard;
+
+                        try
                         {
-                            MessageBox.Show("Данные добавлены.", "", MessageBoxButton.OK);
+                            int rowAffected = command.ExecuteNonQuery();
+
+                            if (rowAffected == 1)
+                            {
+                                MessageBox.Show("Данные добавлены.", "", MessageBoxButton.OK);
+                            }
+                            else
+                            {
+                                MessageBox.Show("Что-то пошло не так. Попробуйте снова.", "", MessageBoxButton.OK);
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Ошибка " + ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                        }
+                    }
+                    else
+                    {
+                        sqlreader.Close();
+
+                        MessageBoxResult result = MessageBox.Show("Данные " + data.Date.ToString() + " уже существуют, внести изменения?", "Внимание!", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+                        if (result == MessageBoxResult.Yes)
+                        {
+                            command = new SqlCommand(@"UPDATE Children SET Nursery = @Nursery, Yard = @Yard WHERE Data = @Date", connection);
+
+                            command.Parameters.Add("@Date", System.Data.SqlDbType.Date);
+                            command.Parameters.Add("@Nursery", System.Data.SqlDbType.Int);
+                            command.Parameters.Add("@Yard", System.Data.SqlDbType.Int);
+
+                            command.Parameters["@Date"].Value = data.Date;
+                            command.Parameters["@Nursery"].Value = data.Nursery;
+                            command.Parameters["@Yard"].Value = data.Yard;
+
+                            try
+                            {
+                                int rowAffected = command.ExecuteNonQuery();
+
+                                if (rowAffected == 1)
+                                {
+                                    MessageBox.Show("Данные изменены.", "", MessageBoxButton.OK);
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Что-то пошло не так. Попробуйте снова.", "", MessageBoxButton.OK);
+                                }
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show("Ошибка " + ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                            }
                         }
                         else
                         {
-                            MessageBox.Show("Что-то пошло не так. Попробуйте снова.", "", MessageBoxButton.OK);
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Ошибка " + ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                    }
+                            MessageBox.Show("Изменение данных остановлено.", "", MessageBoxButton.OK);
+                        }                        
+                    }                    
                 }
             }
             catch (Exception ex)
