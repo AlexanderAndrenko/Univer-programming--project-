@@ -32,3 +32,37 @@ F:\Документы Александр\Универ СибГУ\Програм�
 F:\Документы Александр\Универ СибГУ\Программирование\Прога 4 семестр\Univer-programming--project-\Kindergarten\Kindergarten\obj\Debug\Views\Settings\Pages\DishListSet.baml
 F:\Документы Александр\Универ СибГУ\Программирование\Прога 4 семестр\Univer-programming--project-\Kindergarten\Kindergarten\obj\Debug\Views\Settings\Settings.baml
 F:\Документы Александр\Универ СибГУ\Программирование\Прога 4 семестр\Univer-programming--project-\Kindergarten\Kindergarten\obj\Debug\Kindergarten.csprojAssemblyReference.cache
+D:\Projects\Univer-programming--project-\Kindergarten\Kindergarten\bin\Debug\Kindergarten.exe.config
+D:\Projects\Univer-programming--project-\Kindergarten\Kindergarten\bin\Debug\Kindergarten.exe
+D:\Projects\Univer-programming--project-\Kindergarten\Kindergarten\bin\Debug\Kindergarten.pdb
+D:\Projects\Univer-programming--project-\Kindergarten\Kindergarten\obj\Debug\Kindergarten.csprojAssemblyReference.cache
+D:\Projects\Univer-programming--project-\Kindergarten\Kindergarten\obj\Debug\MainWindow.g.cs
+D:\Projects\Univer-programming--project-\Kindergarten\Kindergarten\obj\Debug\Views\Data\MainData.g.cs
+D:\Projects\Univer-programming--project-\Kindergarten\Kindergarten\obj\Debug\Views\Data\Pages\ChildrenData.g.cs
+D:\Projects\Univer-programming--project-\Kindergarten\Kindergarten\obj\Debug\Views\Data\Pages\DishListData.g.cs
+D:\Projects\Univer-programming--project-\Kindergarten\Kindergarten\obj\Debug\Views\Data\Control.g.cs
+D:\Projects\Univer-programming--project-\Kindergarten\Kindergarten\obj\Debug\Views\Home.g.cs
+D:\Projects\Univer-programming--project-\Kindergarten\Kindergarten\obj\Debug\Views\Settings\Pages\ChildrenSet.g.cs
+D:\Projects\Univer-programming--project-\Kindergarten\Kindergarten\obj\Debug\Views\Settings\Pages\DishListSet.g.cs
+D:\Projects\Univer-programming--project-\Kindergarten\Kindergarten\obj\Debug\Views\Settings\Settings.g.cs
+D:\Projects\Univer-programming--project-\Kindergarten\Kindergarten\obj\Debug\Views\SingIn.g.cs
+D:\Projects\Univer-programming--project-\Kindergarten\Kindergarten\obj\Debug\App.g.cs
+D:\Projects\Univer-programming--project-\Kindergarten\Kindergarten\obj\Debug\GeneratedInternalTypeHelper.g.cs
+D:\Projects\Univer-programming--project-\Kindergarten\Kindergarten\obj\Debug\Kindergarten_MarkupCompile.cache
+D:\Projects\Univer-programming--project-\Kindergarten\Kindergarten\obj\Debug\Kindergarten_MarkupCompile.lref
+D:\Projects\Univer-programming--project-\Kindergarten\Kindergarten\obj\Debug\MainWindow.baml
+D:\Projects\Univer-programming--project-\Kindergarten\Kindergarten\obj\Debug\Views\Data\MainData.baml
+D:\Projects\Univer-programming--project-\Kindergarten\Kindergarten\obj\Debug\Views\Data\Pages\ChildrenData.baml
+D:\Projects\Univer-programming--project-\Kindergarten\Kindergarten\obj\Debug\Views\Data\Pages\DishListData.baml
+D:\Projects\Univer-programming--project-\Kindergarten\Kindergarten\obj\Debug\Views\Data\Control.baml
+D:\Projects\Univer-programming--project-\Kindergarten\Kindergarten\obj\Debug\Views\Home.baml
+D:\Projects\Univer-programming--project-\Kindergarten\Kindergarten\obj\Debug\Views\Settings\Pages\ChildrenSet.baml
+D:\Projects\Univer-programming--project-\Kindergarten\Kindergarten\obj\Debug\Views\Settings\Pages\DishListSet.baml
+D:\Projects\Univer-programming--project-\Kindergarten\Kindergarten\obj\Debug\Views\Settings\Settings.baml
+D:\Projects\Univer-programming--project-\Kindergarten\Kindergarten\obj\Debug\Views\SingIn.baml
+D:\Projects\Univer-programming--project-\Kindergarten\Kindergarten\obj\Debug\Kindergarten.g.resources
+D:\Projects\Univer-programming--project-\Kindergarten\Kindergarten\obj\Debug\Kindergarten.Properties.Resources.resources
+D:\Projects\Univer-programming--project-\Kindergarten\Kindergarten\obj\Debug\Kindergarten.csproj.GenerateResource.cache
+D:\Projects\Univer-programming--project-\Kindergarten\Kindergarten\obj\Debug\Kindergarten.csproj.CoreCompileInputs.cache
+D:\Projects\Univer-programming--project-\Kindergarten\Kindergarten\obj\Debug\Kindergarten.exe
+D:\Projects\Univer-programming--project-\Kindergarten\Kindergarten\obj\Debug\Kindergarten.pdb

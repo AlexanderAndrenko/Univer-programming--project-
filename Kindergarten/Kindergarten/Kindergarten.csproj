@@ -56,6 +56,7 @@
     </ApplicationDefinition>
     <Compile Include="Models\AccountModel.cs" />
     <Compile Include="Models\ChildrenModel.cs" />
+    <Compile Include="Models\DBSQLServerUtils.cs" />
     <Compile Include="Models\SingInModel.cs" />
     <Compile Include="ViewModels\Account.cs" />
     <Compile Include="ViewModels\BaseVM.cs" />

@@ -13,10 +13,17 @@ namespace Kindergarten.Models
     public class SingInModel
     {
         public static bool CheckLogin(string login, string password)
-        {
+        {            
             try
             {
-                using (SqlConnection connection = new SqlConnection(@"Data source = ALEXANDER-PC\SQLEXPRESS; Initial Catalog = StudyDB; Integrated Security = true; Pooling = False;"))
+                SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
+                builder.DataSource = "DESKTOP-O2JKK2F\\ANDRENKO";
+                builder.UserID = "Kindergarten";
+                builder.Password = "golova1";
+                builder.IntegratedSecurity = false;
+                builder.InitialCatalog = "StudyDB";
+
+                using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
                 {
                     try
                     {
@@ -28,7 +35,7 @@ namespace Kindergarten.Models
                         throw;
                     }
                     SqlCommand command = connection.CreateCommand();
-                    command = new SqlCommand(@"SELECT Password FROM Account WHERE Login = '" + login + "'", connection);
+                    command = new SqlCommand(@"SELECT [Password] FROM [StudyDB].[dbo].[Account] WHERE [Login] = '" + login + "'", connection);
                     SqlDataReader reader = command.ExecuteReader();
                     reader.Read();
 
