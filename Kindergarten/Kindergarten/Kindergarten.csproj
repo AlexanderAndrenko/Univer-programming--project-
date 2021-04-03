@@ -56,14 +56,17 @@
     </ApplicationDefinition>
     <Compile Include="Models\AccountModel.cs" />
     <Compile Include="Models\ChildrenModel.cs" />
+    <Compile Include="Models\CredentialsForServer.cs" />
     <Compile Include="Models\DBSQLServerUtils.cs" />
     <Compile Include="Models\SingInModel.cs" />
     <Compile Include="ViewModels\Account.cs" />
     <Compile Include="ViewModels\BaseVM.cs" />
+    <Compile Include="ViewModels\Commands\CredentialCommand.cs" />
     <Compile Include="ViewModels\Commands\HomeCommands.cs" />
     <Compile Include="ViewModels\Commands\MenuItemDataCommand.cs" />
     <Compile Include="ViewModels\Commands\OwnCommand.cs" />
     <Compile Include="ViewModels\Commands\SingInCommand.cs" />
+    <Compile Include="ViewModels\CredentialForServerVM.cs" />
     <Compile Include="ViewModels\DataViewModels\DataVM.cs" />
     <Compile Include="ViewModels\DataViewModels\PagesViewModel\ChildrenDataVM.cs" />
     <Compile Include="ViewModels\DataViewModels\PagesViewModel\DishListDataVM.cs" />
@@ -71,6 +74,9 @@
     <Compile Include="ViewModels\SettingsViewModels\PagesViewModels\ChildrenSetVM.cs" />
     <Compile Include="ViewModels\SettingsViewModels\PagesViewModels\DishListSetVM.cs" />
     <Compile Include="ViewModels\SettingsViewModels\SettingsVM.cs" />
+    <Compile Include="Views\CredentialForServerWindow.xaml.cs">
+      <DependentUpon>CredentialForServerWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Data\MainData.xaml.cs">
       <DependentUpon>MainData.xaml</DependentUpon>
     </Compile>
@@ -113,6 +119,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\CredentialForServerWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Data\MainData.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

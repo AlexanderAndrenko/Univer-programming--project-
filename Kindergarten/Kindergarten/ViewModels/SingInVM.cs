@@ -44,6 +44,7 @@ namespace Kindergarten.ViewModels
         public delegate void SingInProcess();
         public event SingInProcess singInButton;
         public SingInCommand OpenHomePage { get; private set; }
+        public SingInCommand OpenServerSettigns { get; private set; }
         public string Login { get; set; }
         public string Password { private get; set; }
 

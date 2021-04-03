@@ -54,5 +54,12 @@
                     HorizontalAlignment="Right"
                     Command="{Binding OpenHomePage}"/>            
         </StackPanel>
+        <Button x:Name="button" 
+                Content="Server settings" 
+                HorizontalAlignment="Left" 
+                Margin="700,10,0,0" 
+                VerticalAlignment="Top" 
+                Width="90" 
+                Height="25"/>
     </Grid>
 </UserControl>

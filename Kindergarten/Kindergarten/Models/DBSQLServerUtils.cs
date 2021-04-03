@@ -11,9 +11,14 @@ namespace Kindergarten.Models
     {
         public static SqlConnection GetDBConnection(string datasource, string database, string username, string password)
         {
-            string connString = @"DataSource=" + datasource + ";Initial Catalog=" + database + ";Persist Security Info=True;User ID=" + username + ";Password=" + password;
+            SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
+            builder.DataSource = datasource;
+            builder.UserID = username;
+            builder.Password = password;
+            builder.IntegratedSecurity = false;
+            builder.InitialCatalog = database;
 
-            SqlConnection conn = new SqlConnection(connString);
+            SqlConnection conn = new SqlConnection(builder.ConnectionString);
 
             return conn;
         }
