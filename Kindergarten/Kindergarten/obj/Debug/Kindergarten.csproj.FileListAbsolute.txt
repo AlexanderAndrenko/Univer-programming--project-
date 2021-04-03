@@ -66,3 +66,5 @@ D:\Projects\Univer-programming--project-\Kindergarten\Kindergarten\obj\Debug\Kin
 D:\Projects\Univer-programming--project-\Kindergarten\Kindergarten\obj\Debug\Kindergarten.csproj.CoreCompileInputs.cache
 D:\Projects\Univer-programming--project-\Kindergarten\Kindergarten\obj\Debug\Kindergarten.exe
 D:\Projects\Univer-programming--project-\Kindergarten\Kindergarten\obj\Debug\Kindergarten.pdb
+D:\Projects\Univer-programming--project-\Kindergarten\Kindergarten\obj\Debug\Views\CredentialForServerWindow.g.cs
+D:\Projects\Univer-programming--project-\Kindergarten\Kindergarten\obj\Debug\Views\CredentialForServerWindow.baml

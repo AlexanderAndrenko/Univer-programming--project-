@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\Projects\Univer-programming--project-\Kindergarten\Kindergarten\App.xaml
-10-835002039
+111205048615
 
-34-217731087
+38-118871343
 13-1142990016
-MainWindow.xaml;Views\Data\MainData.xaml;Views\Data\Pages\ChildrenData.xaml;Views\Data\Pages\DishListData.xaml;Views\Data\Control.xaml;Views\Home.xaml;Views\Settings\Pages\ChildrenSet.xaml;Views\Settings\Pages\DishListSet.xaml;Views\Settings\Settings.xaml;Views\SingIn.xaml;
+MainWindow.xaml;Views\CredentialForServerWindow.xaml;Views\Data\MainData.xaml;Views\Data\Pages\ChildrenData.xaml;Views\Data\Pages\DishListData.xaml;Views\Data\Control.xaml;Views\Home.xaml;Views\Settings\Pages\ChildrenSet.xaml;Views\Settings\Pages\DishListSet.xaml;Views\Settings\Settings.xaml;Views\SingIn.xaml;
 
 False
 

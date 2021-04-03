@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Kindergarten.ViewModels;
 
 namespace Kindergarten.Views
 {
@@ -22,6 +23,7 @@ namespace Kindergarten.Views
         public CredentialForServerWindow()
         {
             InitializeComponent();
+            DataContext = CredentialForServerVM.GetInstance();
         }
     }
 }

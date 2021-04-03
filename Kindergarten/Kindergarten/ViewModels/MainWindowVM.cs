@@ -29,6 +29,7 @@ namespace Kindergarten.ViewModels
             Home = HomeVM.GetInstance();
             MainData = DataVM.GetInstance();
             Settings = SettingsVM.GetInstance();
+            CredentialForServerVM.GetInstance();
 
 
             Home.dataButton += SetDataPage;
