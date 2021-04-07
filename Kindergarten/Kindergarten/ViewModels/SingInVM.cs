@@ -31,6 +31,7 @@ namespace Kindergarten.ViewModels
         private SingInVM()
         {
             OpenHomePage = new SingInCommand(singIn_btn_click);
+            OpenServerSettigns = new SingInCommand(openServerSetting);
             singInButton = () => { };
             ColorOfMainStackPanel = Brushes.White;
 
@@ -75,7 +76,8 @@ namespace Kindergarten.ViewModels
 
         private void openServerSetting()
         {
-
+            CredentialForServerWindow nw = new CredentialForServerWindow();
+            nw.Show();
         }
 
     }

@@ -31,7 +31,6 @@ namespace Kindergarten.ViewModels
             Settings = SettingsVM.GetInstance();
             CredentialForServerVM.GetInstance();
 
-
             Home.dataButton += SetDataPage;
             Home.settingsButton += SetSettingsPage;
             Home.singOut += SetPreviousPage;
@@ -39,7 +38,6 @@ namespace Kindergarten.ViewModels
             SingIn.singInButton += SetAccountParameters;
             MainData.backspaceButton += SetPreviousPage;
             Settings.backspaceButton += SetPreviousPage;
-
 
             CurrentPage = SingIn;
         }
@@ -68,6 +66,7 @@ namespace Kindergarten.ViewModels
                 CurrentPage = SingIn;//установка стартовой страницы
             }
         }
+
         public void SetAccountParameters()
         {
             CurrentAccount = Account.GetInstance(SingIn.Login);
