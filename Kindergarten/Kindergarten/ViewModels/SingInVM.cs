@@ -73,7 +73,10 @@ namespace Kindergarten.ViewModels
             }
         }
 
+        private void openServerSetting()
+        {
 
+        }
 
     }
 }

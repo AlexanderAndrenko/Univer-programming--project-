@@ -60,6 +60,7 @@
                 Margin="700,10,0,0" 
                 VerticalAlignment="Top" 
                 Width="90" 
-                Height="25"/>
+                Height="25"
+                Command="{Binding OpenServerSettigns}"/>
     </Grid>
 </UserControl>
