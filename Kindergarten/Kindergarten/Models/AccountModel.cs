@@ -14,7 +14,7 @@ namespace Kindergarten.Models
         {
             
             try{
-                using (SqlConnection connection = new SqlConnection(@"Data source = ALEXANDER-PC\SQLEXPRESS; Initial Catalog = StudyDB; Integrated Security = true; Pooling = False;"))
+                using (SqlConnection connection = DBSQLServerUtils.GetDBConnection())
                 {
                     try
                     {
@@ -27,7 +27,7 @@ namespace Kindergarten.Models
                     }
 
                     SqlCommand command = connection.CreateCommand();
-                    command = new SqlCommand(@"SELECT Name FROM Employee JOIN Account ON Employee.ID_employee = (SELECT ID_employee FROM Account WHERE Login = '" + login + "')", connection );
+                    command = new SqlCommand(@"SELECT Name FROM Employee JOIN Account ON Employee.ID = (SELECT Employee FROM Account WHERE Login = '" + login + "')", connection );
                     SqlDataReader reader = command.ExecuteReader();
                     reader.Read();
                     bool i = reader.HasRows;
@@ -47,7 +47,7 @@ namespace Kindergarten.Models
         {
             try
             {
-                using (SqlConnection connection = new SqlConnection(@"Data source = ALEXANDER-PC\SQLEXPRESS; Initial Catalog = StudyDB; Integrated Security = true; Pooling = False;"))
+                using (SqlConnection connection = DBSQLServerUtils.GetDBConnection())
                 {
                     try
                     {
@@ -60,7 +60,7 @@ namespace Kindergarten.Models
                     }
 
                     SqlCommand command = connection.CreateCommand();
-                    command = new SqlCommand(@"SELECT Surname FROM Employee JOIN Account ON Employee.ID_employee = (SELECT ID_employee FROM Account WHERE Login = '" + login + "')", connection);
+                    command = new SqlCommand(@"SELECT Surname FROM Employee JOIN Account ON Employee.ID = (SELECT Employee FROM Account WHERE Login = '" + login + "')", connection);
                     SqlDataReader reader = command.ExecuteReader();
                     reader.Read();
                     bool i = reader.HasRows;
@@ -80,7 +80,7 @@ namespace Kindergarten.Models
         {
             try
             {
-                using (SqlConnection connection = new SqlConnection(@"Data source = ALEXANDER-PC\SQLEXPRESS; Initial Catalog = StudyDB; Integrated Security = true; Pooling = False;"))
+                using (SqlConnection connection = DBSQLServerUtils.GetDBConnection())
                 {
                     try
                     {
@@ -93,7 +93,7 @@ namespace Kindergarten.Models
                     }
 
                     SqlCommand command = connection.CreateCommand();
-                    command = new SqlCommand(@"SELECT Patronymic FROM Employee JOIN Account ON Employee.ID_employee = (SELECT ID_employee FROM Account WHERE Login = '" + login + "')", connection);
+                    command = new SqlCommand(@"SELECT Patronymic FROM Employee JOIN Account ON Employee.ID = (SELECT Employee FROM Account WHERE Login = '" + login + "')", connection);
                     SqlDataReader reader = command.ExecuteReader();
                     reader.Read();
                     bool i = reader.HasRows;
@@ -113,7 +113,7 @@ namespace Kindergarten.Models
         {
             try
             {
-                using (SqlConnection connection = new SqlConnection(@"Data source = ALEXANDER-PC\SQLEXPRESS; Initial Catalog = StudyDB; Integrated Security = true; Pooling = False;"))
+                using (SqlConnection connection = DBSQLServerUtils.GetDBConnection())
                 {
                     try
                     {

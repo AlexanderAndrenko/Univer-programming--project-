@@ -22,5 +22,20 @@ namespace Kindergarten.Models
 
             return conn;
         }
+
+        public static SqlConnection GetDBConnection()
+        {
+            SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
+            builder.DataSource = CredentialsForServer.DataSource;
+            builder.UserID = CredentialsForServer.Login;
+            builder.Password = CredentialsForServer.Password;
+            builder.IntegratedSecurity = false;
+            builder.InitialCatalog = CredentialsForServer.DataBase;
+
+            SqlConnection conn = new SqlConnection(builder.ConnectionString);
+
+            return conn;
+        }
+
     }
 }

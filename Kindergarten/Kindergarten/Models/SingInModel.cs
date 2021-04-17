@@ -16,14 +16,7 @@ namespace Kindergarten.Models
         {            
             try
             {
-                SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
-                builder.DataSource = "DESKTOP-O2JKK2F\\ANDRENKO";
-                builder.UserID = "Kindergarten";
-                builder.Password = "golova1";
-                builder.IntegratedSecurity = false;
-                builder.InitialCatalog = "StudyDB";
-
-                using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
+                using (SqlConnection connection = DBSQLServerUtils.GetDBConnection())
                 {
                     try
                     {
