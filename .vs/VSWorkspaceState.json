@@ -3,10 +3,13 @@
     "",
     "\\Kindergarten",
     "\\Kindergarten\\Kindergarten",
+    "\\Kindergarten\\Kindergarten\\bin",
+    "\\Kindergarten\\Kindergarten\\Models",
     "\\Kindergarten\\Kindergarten\\ViewModels",
+    "\\Kindergarten\\Kindergarten\\ViewModels\\Commands",
     "\\Kindergarten\\Kindergarten\\Views",
     "\\Kindergarten\\Kindergarten\\Views\\Settings"
   ],
-  "SelectedNode": "\\Kindergarten",
+  "SelectedNode": "\\Kindergarten\\Kindergarten\\Models\\SingInModel.cs",
   "PreviewInSolutionExplorer": false
 }

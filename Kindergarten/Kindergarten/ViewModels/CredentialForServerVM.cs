@@ -41,6 +41,9 @@ namespace Kindergarten.ViewModels
             CredentialsForServer.Password = Password;
             CredentialsForServer.DataSource = DataSource;
             CredentialsForServer.DataBase = DataBase;
+
+            SingInVM a = SingInVM.GetInstance();
+            a.closeServerSetting();
         }
     }
 }

@@ -48,6 +48,7 @@ namespace Kindergarten.ViewModels
         public SingInCommand OpenServerSettigns { get; private set; }
         public string Login { get; set; }
         public string Password { private get; set; }
+        private CredentialForServerWindow ServerSettingWindow { get; set;}
 
         private SolidColorBrush _colorOfMainStackPanel;
         public SolidColorBrush ColorOfMainStackPanel 
@@ -76,9 +77,15 @@ namespace Kindergarten.ViewModels
 
         private void openServerSetting()
         {
-            CredentialForServerWindow nw = new CredentialForServerWindow();
-            nw.Show();
+            if (ServerSettingWindow == null)
+                ServerSettingWindow = new CredentialForServerWindow();
+            ServerSettingWindow.Show();
         }
 
+        public void closeServerSetting()
+        {
+            if (ServerSettingWindow != null)
+                ServerSettingWindow.Close();
+        }
     }
 }
