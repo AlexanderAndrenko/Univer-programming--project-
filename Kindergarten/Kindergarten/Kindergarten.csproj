@@ -68,6 +68,10 @@
     <Compile Include="Models\ChildrenModel.cs" />
     <Compile Include="Models\CredentialsForServer.cs" />
     <Compile Include="Models\DBSQLServerUtils.cs" />
+    <Compile Include="Models\Entities\Dish.cs" />
+    <Compile Include="Models\Entities\DishItem.cs" />
+    <Compile Include="Models\Entities\Menu.cs" />
+    <Compile Include="Models\Entities\Product.cs" />
     <Compile Include="Models\SingInModel.cs" />
     <Compile Include="ViewModels\Account.cs" />
     <Compile Include="ViewModels\BaseVM.cs" />
@@ -211,6 +215,7 @@
   <ItemGroup>
     <Resource Include="Image\singout.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
