@@ -15,12 +15,22 @@ namespace Kindergarten.Models
 
         public KindergartenContext()
         {
-            Database.EnsureCreated();
+            //Database.EnsureCreated();
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(DBSQLServerUtils.GetDBStringConnection());
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            //Значения поля IsClosed у партии по умолчанию 0
+            modelBuilder.Entity<Party>().Property(u => u.IsClosed).HasDefaultValue(0);
+
+            //Значения поля IsDeleted у партии по умолчанию 0
+            modelBuilder.Entity<Party>().Property(u => u.IsDeleted).HasDefaultValue(0);
+
         }
     }
 }

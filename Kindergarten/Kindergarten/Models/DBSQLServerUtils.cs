@@ -48,6 +48,5 @@ namespace Kindergarten.Models
 
             return builder.ConnectionString;
         }
-
     }
 }
