@@ -16,7 +16,7 @@ namespace Kindergarten.Models.Entities
         public int Id { get; set; }
 
         [Required]
-        [Column(TypeName = ("navrchar(100)"))]
+        [Column(TypeName = ("nvarchar(100)"))]
         public string Name { get; set; }
 
         public ICollection<DishItem> DishItems { get; set; }

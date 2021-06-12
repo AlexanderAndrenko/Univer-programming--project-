@@ -7,7 +7,8 @@ using System.Text;
 
 namespace Kindergarten.Models.Entities
 {
-    [Index("DateCreated", "IsClosed")]
+    [Index("DateCreated")]
+    [Index("IsClosed")]
     class Party
     {
         [Key]

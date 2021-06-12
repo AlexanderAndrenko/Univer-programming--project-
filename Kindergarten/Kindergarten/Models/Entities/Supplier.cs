@@ -14,7 +14,7 @@ namespace Kindergarten.Models.Entities
         [Column(TypeName = "nvarchar(100)")]
         public string Name { get; set; }
 
-        [Column(TypeName = "nvarhcar(20)")]
+        [Column(TypeName = "nvarchar(20)")]
         public string Phone { get; set; }
 
 

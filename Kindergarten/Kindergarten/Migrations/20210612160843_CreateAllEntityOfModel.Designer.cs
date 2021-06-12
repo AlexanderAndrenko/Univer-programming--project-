@@ -4,14 +4,16 @@ using Kindergarten.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Kindergarten.Migrations
 {
     [DbContext(typeof(KindergartenContext))]
-    partial class KindergartenContextModelSnapshot : ModelSnapshot
+    [Migration("20210612160843_CreateAllEntityOfModel")]
+    partial class CreateAllEntityOfModel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -290,15 +292,13 @@ namespace Kindergarten.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("DateCreated");
-
                     b.HasIndex("InvoiceId");
-
-                    b.HasIndex("IsClosed");
 
                     b.HasIndex("ProductId");
 
                     b.HasIndex("SupplierId");
+
+                    b.HasIndex("DateCreated", "IsClosed");
 
                     b.ToTable("Party");
                 });
