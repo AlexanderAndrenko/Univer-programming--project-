@@ -12,6 +12,7 @@ namespace Kindergarten.Models.Entities
         public int Id { get; set; }
 
         //Наименование типа движения товара
+        [Required]
         [Column(TypeName = "nvarchar(100)")]
         public string Name { get; set; }
 

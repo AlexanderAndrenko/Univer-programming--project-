@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -6,12 +7,14 @@ using System.Text;
 
 namespace Kindergarten.Models.Entities
 {
+    [Index("Date")]
     class MovingProduct
     {
         [Key]
         public int Id { get; set; }
 
         [Required]
+        [Column(TypeName = "datetime")]
         public DateTime Date { get; set; }
 
         [Required]

@@ -27,5 +27,7 @@ namespace Kindergarten.Models.Entities
 
         [Column(TypeName = "nvarhchar(20")]
         public string? Phone { get; set; }
+
+        public ICollection<User> Users { get; set; }
     }
 }

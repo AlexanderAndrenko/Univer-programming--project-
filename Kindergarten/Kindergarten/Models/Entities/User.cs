@@ -19,6 +19,7 @@ namespace Kindergarten.Models.Entities
         [Column(TypeName = "nvarchar(100)")]
         public string Password { get; set; }
 
+        [Required]
         [Column(TypeName = "tinyint")]
         public int LevelAccess { get; set; }
     }

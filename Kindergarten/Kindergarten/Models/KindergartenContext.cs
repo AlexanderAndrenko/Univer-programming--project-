@@ -31,6 +31,9 @@ namespace Kindergarten.Models
             //Значения поля IsDeleted у партии по умолчанию 0
             modelBuilder.Entity<Party>().Property(u => u.IsDeleted).HasDefaultValue(0);
 
+            //Значение уровня доступа у пользователя по умолчанию 0
+            modelBuilder.Entity<User>().Property(u => u.LevelAccess).HasDefaultValue(0);
+
         }
     }
 }
