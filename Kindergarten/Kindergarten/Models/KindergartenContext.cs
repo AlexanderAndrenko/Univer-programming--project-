@@ -12,6 +12,17 @@ namespace Kindergarten.Models
         public DbSet<DishItem> DishItems { get; set; }
         public DbSet<Menu> Menus { get; set; }
         public DbSet<Product> Products { get; set; }
+        public DbSet<DishFact> DishFacts { get; set; }
+        public DbSet<DishItemFact> DishItemFacts { get; set; }
+        public DbSet<MenuFact> MenuFacts { get; set; }
+        public DbSet<Employee> Employees { get; set; }
+        public DbSet<Invoice> Invoices { get; set; }
+        public DbSet<MovingProduct> MovingProducts { get; set; }
+        public DbSet<NumberChildren> NumberChildrens { get; set; }
+        public DbSet<Party> Parties { get; set; }
+        public DbSet<Supplier> Suppliers { get; set; }
+        public DbSet<TypeMovingProduct> TypeMovingProducts { get; set; }
+        public DbSet<User> Users { get; set; }
 
         public KindergartenContext()
         {

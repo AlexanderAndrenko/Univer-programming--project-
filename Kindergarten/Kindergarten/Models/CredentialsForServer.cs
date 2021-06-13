@@ -8,9 +8,9 @@ namespace Kindergarten.Models
 {
     class CredentialsForServer
     {
-        public static string Login { get; set; } = "KindergartenAdmin";
+        public static string Login { get; set; } = "Kindergarten";
         public static string Password { get; set; } = "admin12345";
-        public static string DataSource { get; set; } = "ANDRENKO\\ANDRENKO";
+        public static string DataSource { get; set; } = "DESKTOP-Q8OVOEH\\ANDRENKO_LAPTOP";
         public static string DataBase { get; set; } = "StudyDB";
     }
 }

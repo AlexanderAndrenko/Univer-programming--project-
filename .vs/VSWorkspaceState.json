@@ -4,12 +4,13 @@
     "\\Kindergarten",
     "\\Kindergarten\\Kindergarten",
     "\\Kindergarten\\Kindergarten\\bin",
+    "\\Kindergarten\\Kindergarten\\Migrations",
     "\\Kindergarten\\Kindergarten\\Models",
     "\\Kindergarten\\Kindergarten\\ViewModels",
     "\\Kindergarten\\Kindergarten\\ViewModels\\Commands",
     "\\Kindergarten\\Kindergarten\\Views",
     "\\Kindergarten\\Kindergarten\\Views\\Settings"
   ],
-  "SelectedNode": "\\Kindergarten\\Kindergarten\\Models\\SingInModel.cs",
+  "SelectedNode": "\\Kindergarten\\Kindergarten\\Models\\CredentialsForServer.cs",
   "PreviewInSolutionExplorer": false
 }
