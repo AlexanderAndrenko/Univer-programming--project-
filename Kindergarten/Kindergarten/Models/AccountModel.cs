@@ -5,6 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using Kindergarten.Models.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace Kindergarten.Models
 {
@@ -12,62 +14,43 @@ namespace Kindergarten.Models
     {
         public static string GetName(string login)
         {
-            
-            try{
-                using (SqlConnection connection = DBSQLServerUtils.GetDBConnection())
+            try
+            {
+                using (KindergartenContext db = new KindergartenContext())
                 {
-                    try
+                    List<User> user = db.Users.Include(p=>p.Employee).Where(p => p.Login == login).ToList();
+
+                    if (user.FirstOrDefault() != null && user.Count() == 1)
                     {
-                        connection.Open();
-                    }
-                    catch (Exception)
-                    {
-                        MessageBox.Show("Ошибка открытия соединения!","Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                        return "";
+                        return user[0].Employee.Name;
                     }
 
-                    SqlCommand command = connection.CreateCommand();
-                    command = new SqlCommand(@"SELECT Name FROM Employee JOIN Account ON Employee.ID = (SELECT Employee FROM Account WHERE Login = '" + login + "')", connection );
-                    SqlDataReader reader = command.ExecuteReader();
-                    reader.Read();
-                    bool i = reader.HasRows;
-                    int j = reader.FieldCount;
-                    string name = reader["Name"].ToString();
-                    reader.Close();
-                    return name;
+                    return "";
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Ошибка! " + ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Ошибка! " + ex.Message, "error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return "";
             }
         }
+
+
+
         public static string GetSurname(string login)
         {
             try
             {
-                using (SqlConnection connection = DBSQLServerUtils.GetDBConnection())
+                using (KindergartenContext db = new KindergartenContext())
                 {
-                    try
+                    List<User> user = db.Users.Include(p => p.Employee).Where(p => p.Login == login).ToList();
+
+                    if (user.FirstOrDefault() != null && user.Count() == 1)
                     {
-                        connection.Open();
-                    }
-                    catch (Exception)
-                    {
-                        MessageBox.Show("Ошибка открытия соединения!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                        return "";
+                        return user[0].Employee.Lastname;
                     }
 
-                    SqlCommand command = connection.CreateCommand();
-                    command = new SqlCommand(@"SELECT Surname FROM Employee JOIN Account ON Employee.ID = (SELECT Employee FROM Account WHERE Login = '" + login + "')", connection);
-                    SqlDataReader reader = command.ExecuteReader();
-                    reader.Read();
-                    bool i = reader.HasRows;
-                    int j = reader.FieldCount;
-                    string surname = reader["Surname"].ToString();
-                    reader.Close();
-                    return surname;
+                    return "";
                 }
             }
             catch (Exception ex)
@@ -80,27 +63,16 @@ namespace Kindergarten.Models
         {
             try
             {
-                using (SqlConnection connection = DBSQLServerUtils.GetDBConnection())
+                using (KindergartenContext db = new KindergartenContext())
                 {
-                    try
+                    List<User> user = db.Users.Include(p => p.Employee).Where(p => p.Login == login).ToList();
+
+                    if (user.FirstOrDefault() != null && user.Count() == 1)
                     {
-                        connection.Open();
-                    }
-                    catch (Exception)
-                    {
-                        MessageBox.Show("Ошибка открытия соединения!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                        return "";
+                        return user[0].Employee.Patronymic;
                     }
 
-                    SqlCommand command = connection.CreateCommand();
-                    command = new SqlCommand(@"SELECT Patronymic FROM Employee JOIN Account ON Employee.ID = (SELECT Employee FROM Account WHERE Login = '" + login + "')", connection);
-                    SqlDataReader reader = command.ExecuteReader();
-                    reader.Read();
-                    bool i = reader.HasRows;
-                    int j = reader.FieldCount;
-                    string patronymic = reader["Patronymic"].ToString();
-                    reader.Close();
-                    return patronymic;
+                    return "";
                 }
             }
             catch (Exception ex)
@@ -113,27 +85,15 @@ namespace Kindergarten.Models
         {
             try
             {
-                using (SqlConnection connection = DBSQLServerUtils.GetDBConnection())
+                using (KindergartenContext db = new KindergartenContext())
                 {
-                    try
-                    {
-                        connection.Open();
-                    }
-                    catch (Exception)
-                    {
-                        MessageBox.Show("Ошибка открытия соединения!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                        return -1;
-                    }
+                    List<User> user = db.Users.Include(p => p.Employee).Where(p => p.Login == login).ToList();
 
-                    SqlCommand command = connection.CreateCommand();
-                    command = new SqlCommand(@"SELECT AccessLevel FROM Account WHERE Login = '" + login + "'", connection);
-                    SqlDataReader reader = command.ExecuteReader();
-                    reader.Read();
-                    bool i = reader.HasRows;
-                    int j = reader.FieldCount;
-                    int accessLevel = Convert.ToInt32(reader["AccessLevel"].ToString());
-                    reader.Close();
-                    return accessLevel;
+                    if (user.FirstOrDefault() != null && user.Count() == 1)
+                    {
+                        return user[0].LevelAccess;
+                    }
+                    return -1;
                 }
             }
             catch (Exception ex)

@@ -6,6 +6,14 @@
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
   <ItemGroup>
+    <None Remove="Image\backspace.png" />
+    <None Remove="Image\database.png" />
+    <None Remove="Image\documents.jpg" />
+    <None Remove="Image\saver.png" />
+    <None Remove="Image\settings.png" />
+    <None Remove="Image\singout.png" />
+  </ItemGroup>
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.7" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.7" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.7">
@@ -31,5 +39,14 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Image\backspace.png" />
+    <Resource Include="Image\database.png" />
+    <Resource Include="Image\documents.jpg" />
+    <Resource Include="Image\saver.png" />
+    <Resource Include="Image\settings.png" />
+    <Resource Include="Image\singout.png" />
   </ItemGroup>
 </Project>

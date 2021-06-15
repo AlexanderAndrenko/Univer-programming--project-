@@ -22,5 +22,8 @@ namespace Kindergarten.Models.Entities
         [Required]
         [Column(TypeName = "tinyint")]
         public int LevelAccess { get; set; }
+
+        public int EmployeeId { get; set; }
+        public Employee Employee { get; set; }
     }
 }
