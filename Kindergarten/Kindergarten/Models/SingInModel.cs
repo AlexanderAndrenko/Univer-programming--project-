@@ -7,12 +7,13 @@ using System.Data.Sql;
 using System.Data.SqlClient;
 using System.Windows;
 using System.Diagnostics;
+using Kindergarten.Models.Entities;
 
 namespace Kindergarten.Models
 {
     public class SingInModel
     {
-        public static bool CheckLogin(string login, string password)
+        public static bool CheckLoginOld(string login, string password)
         {            
             try
             {
@@ -49,5 +50,34 @@ namespace Kindergarten.Models
                 return false;
             }
         }
+
+        public static bool CheckLogin(string login, string password)
+        {            
+            try
+            {
+                using (KindergartenContext db = new KindergartenContext())
+                {
+                    List<User> user = db.Users.Where(p => p.Login == login).ToList(); 
+
+                    if (user == null || user.Count() != 1)
+	                {
+                        return false;
+	                }
+                    else if(user[0].Password == password)
+                    {
+                        return true;
+                    }
+                    
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);//Вывод в лог текст исключения
+                MessageBox.Show("Ошибка создания контекста", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return false;
+            }
+        }
+
     }
 }

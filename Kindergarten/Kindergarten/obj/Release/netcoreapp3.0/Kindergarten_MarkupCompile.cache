@@ -4,15 +4,15 @@
 winexe
 C#
 .cs
-C:\Users\andre\Source\Repos\AlexanderAndrenko\Univer-programming--project-\Kindergarten\Kindergarten\obj\Release\netcoreapp3.0\
+C:\Users\andre\source\repos\AlexanderAndrenko\Univer-programming--project-\Kindergarten\Kindergarten\obj\Release\netcoreapp3.0\
 Kindergarten
 none
 false
 TRACE;RELEASE;NETCOREAPP;NETCOREAPP3_0;
-C:\Users\andre\Source\Repos\AlexanderAndrenko\Univer-programming--project-\Kindergarten\Kindergarten\App.xaml
+C:\Users\andre\source\repos\AlexanderAndrenko\Univer-programming--project-\Kindergarten\Kindergarten\App.xaml
 111280364797
 
-61980951490
+63-1272736427
 214411247150
 MainWindow.xaml;Views\CredentialForServerWindow.xaml;Views\Data\Control.xaml;Views\Data\MainData.xaml;Views\Data\Pages\ChildrenData.xaml;Views\Data\Pages\DishListData.xaml;Views\Home.xaml;Views\Settings\Pages\ChildrenSet.xaml;Views\Settings\Pages\DishListSet.xaml;Views\Settings\Settings.xaml;Views\SingIn.xaml;
 
