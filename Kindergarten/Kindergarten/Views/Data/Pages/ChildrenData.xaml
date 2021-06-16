@@ -38,6 +38,11 @@
                                 Width="70"
                                 Margin="10,0,0,0"
                                 Command="{Binding ShowButton}"/>
+                        <Button Content="Добавить запись"
+                                Height="25"
+                                Width="120"
+                                Margin="300,0,0,0"
+                                Command="{Binding SaveChanges}"/>
                     </StackPanel>
                     <StackPanel x:Name="MultipleSelect"
                                 Orientation="Horizontal"

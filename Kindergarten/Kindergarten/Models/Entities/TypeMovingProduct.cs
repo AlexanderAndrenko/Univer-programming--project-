@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Kindergarten.Models.Entities
 {
-    class TypeMovingProduct
+    public class TypeMovingProduct
     {
         [Key]
         public int Id { get; set; }

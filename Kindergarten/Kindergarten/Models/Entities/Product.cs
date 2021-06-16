@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace Kindergarten.Models.Entities
 {
     [Index("Name", IsUnique = true)]
-    class Product
+    public class Product
     {
         [Key]
         public int Id { get; set; }

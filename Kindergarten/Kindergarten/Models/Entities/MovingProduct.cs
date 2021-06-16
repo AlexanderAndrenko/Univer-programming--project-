@@ -8,7 +8,7 @@ using System.Text;
 namespace Kindergarten.Models.Entities
 {
     [Index("Date")]
-    class MovingProduct
+    public class MovingProduct
     {
         [Key]
         public int Id { get; set; }

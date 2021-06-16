@@ -5,6 +5,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Kindergarten.Models.Entities;
+using Kindergarten.Views;
+using Kindergarten.ViewModels.DataViewModels.PagesViewModel;
+using Kindergarten.Views.Data.Pages;
 
 namespace Kindergarten.ViewModels.DataViewModels
 {
@@ -22,9 +26,10 @@ namespace Kindergarten.ViewModels.DataViewModels
 
         private ChildrenDataVM()
         {
-            DataGridChildren = new List<Children>();
+            DataGridChildren = new List<NumberChildren>();
             IsRangeDate = false;
             ShowButton = new OwnCommand(GetChildrenData);
+            SaveChanges = new OwnCommand(SetChangesNumberChildren);
             StartDate = System.DateTime.Now;
         }
         #endregion //Constructor
@@ -44,8 +49,8 @@ namespace Kindergarten.ViewModels.DataViewModels
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
 
-        public List<Children> _dataGridChildren;
-        public List<Children> DataGridChildren 
+        public List<NumberChildren> _dataGridChildren;
+        public List<NumberChildren> DataGridChildren 
         { 
             get => _dataGridChildren; 
             set 
@@ -55,14 +60,26 @@ namespace Kindergarten.ViewModels.DataViewModels
             } 
         }
         public OwnCommand ShowButton { get; set; }
+
+        public OwnCommand SaveChanges { get; set; }
         #endregion //Properties
 
         #region Method
         public void GetChildrenData()
         {
-            if (EndDate == null)
+            if (EndDate.Date == new DateTime(0001,01,01))
                 EndDate = StartDate;
-            DataGridChildren = new List<Children>(ChildrenModel.GetChildrenData(StartDate, EndDate));
+            var children = new List<NumberChildren>(ChildrenModel.GetChildrenData(StartDate, EndDate));
+            if (children != null)
+            {
+                DataGridChildren = children;
+            }
+        }
+
+        public void SetChangesNumberChildren()
+        {
+            ChildrenAdd ca = new ChildrenAdd();
+            ca.Show();
         }
 
         #endregion //Method

@@ -67,11 +67,11 @@ namespace Kindergarten.ViewModels.SettingsViewModels.PagesViewModels
         #region Methods
         public void SetChildrenData()
         {            
-            Children newData = new Children();
-            newData.Date = SetDate;
-            newData.Nursery = Nursery;
-            newData.Yard = Yard;
-            ChildrenModel.SetChildrenData(newData);
+            //Children newData = new Children();
+            //newData.Date = SetDate;
+            //newData.Nursery = Nursery;
+            //newData.Yard = Yard;
+            //ChildrenModel.SetChildrenData(newData);
         }
 
         public void DeleteChildrenData()

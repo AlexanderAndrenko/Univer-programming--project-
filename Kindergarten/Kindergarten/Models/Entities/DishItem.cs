@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Kindergarten.Models.Entities
 {
-    class DishItem
+    public class DishItem
     {
         [Key]
         public int Id { get; set; }

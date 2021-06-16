@@ -9,7 +9,7 @@ namespace Kindergarten.Models.Entities
 {
     [Index("DateCreated")]
     [Index("IsClosed")]
-    class Party
+    public class Party
     {
         [Key]
         public int Id { get; set; }

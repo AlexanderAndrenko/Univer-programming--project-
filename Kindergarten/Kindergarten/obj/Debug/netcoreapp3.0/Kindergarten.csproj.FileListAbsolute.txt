@@ -213,3 +213,8 @@ C:\Users\andre\Source\Repos\AlexanderAndrenko\Univer-programming--project-\Kinde
 C:\Users\andre\Source\Repos\AlexanderAndrenko\Univer-programming--project-\Kindergarten\Kindergarten\obj\Debug\netcoreapp3.0\Kindergarten.dll
 C:\Users\andre\Source\Repos\AlexanderAndrenko\Univer-programming--project-\Kindergarten\Kindergarten\obj\Debug\netcoreapp3.0\Kindergarten.pdb
 C:\Users\andre\Source\Repos\AlexanderAndrenko\Univer-programming--project-\Kindergarten\Kindergarten\obj\Debug\netcoreapp3.0\Kindergarten.genruntimeconfig.cache
+C:\Users\andre\Source\Repos\AlexanderAndrenko\Univer-programming--project-\Kindergarten\Kindergarten\obj\Debug\netcoreapp3.0\Kindergarten.csprojAssemblyReference.cache
+C:\Users\andre\Source\Repos\AlexanderAndrenko\Univer-programming--project-\Kindergarten\Kindergarten\obj\Debug\netcoreapp3.0\Views\Data\Pages\ChildrenAdd.g.cs
+C:\Users\andre\Source\Repos\AlexanderAndrenko\Univer-programming--project-\Kindergarten\Kindergarten\obj\Debug\netcoreapp3.0\Views\Data\Pages\ChildrenAdd.baml
+C:\Users\andre\Source\Repos\AlexanderAndrenko\Univer-programming--project-\Kindergarten\Kindergarten\obj\Debug\netcoreapp3.0\Views\Data\Pages\test.g.cs
+C:\Users\andre\Source\Repos\AlexanderAndrenko\Univer-programming--project-\Kindergarten\Kindergarten\obj\Debug\netcoreapp3.0\Views\Data\Pages\test.baml

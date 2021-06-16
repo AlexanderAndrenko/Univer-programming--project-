@@ -1,5 +1,6 @@
 ﻿using Kindergarten.ViewModels.Commands;
 using Kindergarten.ViewModels.DataViewModels;
+using Kindergarten.ViewModels.DataViewModels.PagesViewModel;
 using Kindergarten.ViewModels.SettingsViewModels;
 using Kindergarten.Views;
 using Kindergarten.Views.Data;
@@ -30,6 +31,7 @@ namespace Kindergarten.ViewModels
             MainData = DataVM.GetInstance();
             Settings = SettingsVM.GetInstance();
             CredentialForServerVM.GetInstance();
+            ChildrenAddVM.GetInstance();
 
             Home.dataButton += SetDataPage;
             Home.settingsButton += SetSettingsPage;
