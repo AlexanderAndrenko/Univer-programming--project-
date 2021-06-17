@@ -78,8 +78,9 @@ namespace Kindergarten.ViewModels.DataViewModels
 
         public void SetChangesNumberChildren()
         {
-            ChildrenAdd ca = new ChildrenAdd();
-            ca.Show();
+            ChildrenModel.SetChildrenData(DataGridChildren);
+            //ChildrenAdd ca = new ChildrenAdd();
+            //ca.Show();
         }
 
         #endregion //Method

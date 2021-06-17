@@ -35,8 +35,6 @@ namespace Kindergarten.Models
             }
         }
 
-
-
         public static string GetSurname(string login)
         {
             try

@@ -28,7 +28,7 @@ namespace Kindergarten.ViewModels.DataViewModels.PagesViewModel
         public int QuantityNursery { get; set; }
         public void SetData()
         {
-            ChildrenModel.SetChildrenData(Date, QuantityYard, QuantityNursery);
+            //ChildrenModel.SetChildrenData(Date, QuantityYard, QuantityNursery);
         }
     }
 }

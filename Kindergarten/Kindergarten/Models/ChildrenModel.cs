@@ -31,15 +31,47 @@ namespace Kindergarten.Models
                 return lstChildren;
             }
         }
-        public static void SetChildrenData(DateTime date, int QuantityYard, int QuantityNursery)
+        public static void SetChildrenData(List<NumberChildren> data)
         {
             try
             {
-                List<NumberChildren> numberChildrens = new List<NumberChildren>(); 
-
                 using (KindergartenContext db = new KindergartenContext())
                 {
+                    List<NumberChildren> nc = new List<NumberChildren>();
 
+                    for (int i = 0; i < data.Count(); i++)
+                    {
+                        List<NumberChildren> numberChildrens = db.NumberChildrens.Where(x => x.Id == data[i].Id).ToList();
+
+                        if (numberChildrens.Count() != 0)
+                        {
+                            nc.Add(numberChildrens[0]);
+                        }                        
+                    }
+
+                    for (int i = 0; i < data.Count(); i++)
+                    {
+                        int index =  nc.FindIndex(x=>x.Id == data[i].Id);
+
+                        if (index != -1)
+                        {
+                            nc[index].Date = data[i].Date;
+                            nc[index].QuantityNursery = data[i].QuantityNursery;
+                            nc[index].QuantityYard = data[i].QuantityYard;
+                        }
+                        else
+                        {
+                            NumberChildren a = new NumberChildren();
+
+                            a.Date = data[i].Date;
+                            a.QuantityNursery = data[i].QuantityNursery;
+                            a.QuantityYard = data[i].QuantityYard;
+
+                            nc.Add(a);
+                        }
+
+                        db.SaveChanges();
+                    }                    
                 }
             }
             catch (Exception ex)
