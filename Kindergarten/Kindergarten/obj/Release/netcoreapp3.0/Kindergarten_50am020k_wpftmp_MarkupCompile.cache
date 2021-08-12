@@ -1,20 +1,20 @@
-﻿Kindergarten
+﻿Kindergarten_50am020k_wpftmp
 
 
 winexe
 C#
 .cs
-C:\Users\andre\Source\Repos\AlexanderAndrenko\Univer-programming--project-\Kindergarten\Kindergarten\obj\Debug\netcoreapp3.0\
-Kindergarten
+C:\Users\andre\Source\Repos\AlexanderAndrenko\Univer-programming--project-\Kindergarten\Kindergarten\obj\Release\netcoreapp3.0\
+Kindergarten_50am020k_wpftmp
 none
 false
-TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_0;
+TRACE;RELEASE;NETCOREAPP;NETCOREAPP3_0;
 C:\Users\andre\Source\Repos\AlexanderAndrenko\Univer-programming--project-\Kindergarten\Kindergarten\App.xaml
 13-1720512908
 
-68607907926
-214-242083509
+83471450365
+428-484167018
 MainWindow.xaml;Views\CredentialForServerWindow.xaml;Views\Data\Control.xaml;Views\Data\MainData.xaml;Views\Data\Pages\ChildrenAdd.xaml;Views\Data\Pages\ChildrenData.xaml;Views\Data\Pages\DishListData.xaml;Views\Data\Pages\test.xaml;Views\Home.xaml;Views\Settings\Pages\ChildrenSet.xaml;Views\Settings\Pages\DishListSet.xaml;Views\Settings\Settings.xaml;Views\SingIn.xaml;
 
-False
+True
 

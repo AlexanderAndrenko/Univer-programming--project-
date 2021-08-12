@@ -37,41 +37,23 @@ namespace Kindergarten.Models
             {
                 using (KindergartenContext db = new KindergartenContext())
                 {
-                    List<NumberChildren> nc = new List<NumberChildren>();
+                    var ids = data.Select(x => x.Id).ToList();                    
+                    var nc = db.NumberChildrens.Where(x => ids.Contains(x.Id)).ToList();
 
                     for (int i = 0; i < data.Count(); i++)
                     {
-                        List<NumberChildren> numberChildrens = db.NumberChildrens.Where(x => x.Id == data[i].Id).ToList();
-
-                        if (numberChildrens.Count() != 0)
+                        for (int j = 0; j < nc.Count(); j++)
                         {
-                            nc.Add(numberChildrens[0]);
-                        }                        
+                            if (nc[j].Id == data[i].Id)
+                            {
+                                nc[j].Date = data[i].Date;
+                                nc[j].QuantityNursery = data[i].QuantityNursery;
+                                nc[j].QuantityYard = data[i].QuantityYard;
+                            }
+                        }
                     }
 
-                    for (int i = 0; i < data.Count(); i++)
-                    {
-                        int index =  nc.FindIndex(x=>x.Id == data[i].Id);
-
-                        if (index != -1)
-                        {
-                            nc[index].Date = data[i].Date;
-                            nc[index].QuantityNursery = data[i].QuantityNursery;
-                            nc[index].QuantityYard = data[i].QuantityYard;
-                        }
-                        else
-                        {
-                            NumberChildren a = new NumberChildren();
-
-                            a.Date = data[i].Date;
-                            a.QuantityNursery = data[i].QuantityNursery;
-                            a.QuantityYard = data[i].QuantityYard;
-
-                            nc.Add(a);
-                        }
-
-                        db.SaveChanges();
-                    }                    
+                    db.SaveChanges();
                 }
             }
             catch (Exception ex)

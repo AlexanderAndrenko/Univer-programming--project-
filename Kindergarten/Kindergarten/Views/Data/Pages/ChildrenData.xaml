@@ -37,7 +37,9 @@
                                 Height="25"
                                 Width="70"
                                 Margin="10,0,0,0"
-                                Command="{Binding ShowButton}"/>
+                                Command="{Binding ShowButton}"/>                        
+                    </StackPanel>
+                    <StackPanel>
                         <Button Content="Добавить запись"
                                 Height="25"
                                 Width="120"
