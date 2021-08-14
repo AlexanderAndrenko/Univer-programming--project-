@@ -68,9 +68,9 @@
             <StackPanel>
                 <DataGrid ItemsSource="{Binding DataGridChildren, Mode=OneWay}" AutoGenerateColumns="False">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Binding="{Binding XPath=@Data}" Width="SizeToHeader" Header="Дата" />
-                        <DataGridTextColumn Binding="{Binding XPath=@QuantityNursery}" Width="SizeToHeader" Header="Количество детей сад"/>
-                        <DataGridTextColumn Binding="{Binding XPath=@QuantityYard}" Width="SizeToHeader" Header="Количество детей ясли"/>
+                        <DataGridTextColumn Binding="{Binding Date}" Width="Auto" Header="Дата" />
+                        <DataGridTextColumn Binding="{Binding QuantityNursery}" Width="SizeToHeader" Header="Количество детей сад"/>
+                        <DataGridTextColumn Binding="{Binding QuantityYard}" Width="SizeToHeader" Header="Количество детей ясли"/>
                     </DataGrid.Columns>
                 </DataGrid>
             </StackPanel>

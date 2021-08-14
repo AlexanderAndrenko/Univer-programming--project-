@@ -14,7 +14,7 @@ namespace Kindergarten.Models.Entities
         //Дата записи
         [Required]
         [Column(TypeName = "datetime")]
-        public DateTime Date { get; set; }
+        public DateTime Date { get; set; } = DateTime.Today;
 
         //Количество детей ясли
         [Required]

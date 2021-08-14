@@ -31,26 +31,71 @@ namespace Kindergarten.Models
                 return lstChildren;
             }
         }
-        public static void SetChildrenData(List<NumberChildren> data)
+
+        public static void SetChildrenData(List<NumberChildren> data, List<DateTime> gd)
         {
             try
             {
                 using (KindergartenContext db = new KindergartenContext())
                 {
-                    var ids = data.Select(x => x.Id).ToList();                    
-                    var nc = db.NumberChildrens.Where(x => ids.Contains(x.Id)).ToList();
+                    var dates = data.Select(x => x.Date).ToList();                    
+                    var nc = db.NumberChildrens.Where(x => dates.Contains(x.Date)).ToList();
+                    List<int> ids = new List<int>();
+
+                    for (int i = 0; i < gd.Count(); i++)
+                    {
+                        for (int j = 0; j < data.Count(); j++)
+                        {
+                            if (gd[i] == data[j].Date)
+                            {
+                                ids.Add(i);
+                            }
+                        }
+                    }
+
+                    ids.Distinct();
+                    ids.Reverse();
+
+                    for (int i = 0; i < ids.Count(); i++)
+                    {
+                        gd.RemoveAt(ids[i]);
+                    }
+
+
+                    var deletedObjects = db.NumberChildrens.Where(x => gd.Contains(x.Date)).ToList();
+
+                    for (int i = 0; i < deletedObjects.Count(); i++)
+                    {
+                        db.NumberChildrens.Remove(deletedObjects[i]);
+                    }
 
                     for (int i = 0; i < data.Count(); i++)
                     {
+                        bool isNew = true;
+
                         for (int j = 0; j < nc.Count(); j++)
                         {
-                            if (nc[j].Id == data[i].Id)
+                            if (nc[j].Date == data[i].Date)
                             {
-                                nc[j].Date = data[i].Date;
                                 nc[j].QuantityNursery = data[i].QuantityNursery;
                                 nc[j].QuantityYard = data[i].QuantityYard;
+
+                                isNew = false;
                             }
                         }
+
+                        if (isNew)
+                        {
+                            var newNumberChildrens = new NumberChildren()
+                            {
+                                Date = data[i].Date,
+                                QuantityNursery = data[i].QuantityNursery,
+                                QuantityYard = data[i].QuantityYard                                
+                            };
+
+                            db.NumberChildrens.Add(newNumberChildrens);
+                        }
+                            
                     }
 
                     db.SaveChanges();

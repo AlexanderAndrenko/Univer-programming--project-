@@ -59,6 +59,8 @@ namespace Kindergarten.ViewModels.DataViewModels
                 RaisePropertyChanged();
             } 
         }
+
+        private List<DateTime> GetDates { get; set; }
         public OwnCommand ShowButton { get; set; }
 
         public OwnCommand SaveChanges { get; set; }
@@ -73,12 +75,14 @@ namespace Kindergarten.ViewModels.DataViewModels
             if (children != null)
             {
                 DataGridChildren = children;
+                GetDates = children.Select(x => x.Date).ToList();
             }
         }
 
         public void SetChangesNumberChildren()
         {
-            ChildrenModel.SetChildrenData(DataGridChildren);
+            ChildrenModel.SetChildrenData(DataGridChildren, GetDates);
+            GetChildrenData();
             //ChildrenAdd ca = new ChildrenAdd();
             //ca.Show();
         }
