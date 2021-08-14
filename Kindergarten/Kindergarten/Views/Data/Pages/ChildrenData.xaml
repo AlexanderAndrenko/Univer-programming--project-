@@ -66,7 +66,13 @@
                 </Grid>
     </StackPanel>
             <StackPanel>
-                <DataGrid ItemsSource="{Binding DataGridChildren, Mode=OneWay}"/>
+                <DataGrid ItemsSource="{Binding DataGridChildren, Mode=OneWay}" AutoGenerateColumns="False">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Binding="{Binding XPath=@Data}" Width="SizeToHeader" Header="Дата" />
+                        <DataGridTextColumn Binding="{Binding XPath=@QuantityNursery}" Width="SizeToHeader" Header="Количество детей сад"/>
+                        <DataGridTextColumn Binding="{Binding XPath=@QuantityYard}" Width="SizeToHeader" Header="Количество детей ясли"/>
+                    </DataGrid.Columns>
+                </DataGrid>
             </StackPanel>
         </DockPanel>
     </Grid>
