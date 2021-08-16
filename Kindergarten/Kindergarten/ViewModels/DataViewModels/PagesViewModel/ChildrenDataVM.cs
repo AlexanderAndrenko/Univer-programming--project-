@@ -30,7 +30,8 @@ namespace Kindergarten.ViewModels.DataViewModels
             IsRangeDate = false;
             ShowButton = new OwnCommand(GetChildrenData);
             SaveChanges = new OwnCommand(SetChangesNumberChildren);
-            StartDate = System.DateTime.Now;
+            StartDate = DateTime.Today;
+            EndDate = DateTime.Today;
         }
         #endregion //Constructor
 

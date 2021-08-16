@@ -25,6 +25,8 @@ namespace Kindergarten.Views.Data
         {
             InitializeComponent();
             DataContext = ChildrenDataVM.GetInstanse();
+            SD.SelectedDate = DateTime.Today;
+            ED.SelectedDate = DateTime.Today;
         }
 
         private void CheckBox_Checked(object sender, RoutedEventArgs e)

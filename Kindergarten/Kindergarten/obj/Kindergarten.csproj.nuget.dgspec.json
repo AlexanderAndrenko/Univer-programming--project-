@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\andre\\Source\\Repos\\AlexanderAndrenko\\Univer-programming--project-\\Kindergarten\\Kindergarten\\Kindergarten.csproj": {}
+    "C:\\Users\\andre\\source\\repos\\AlexanderAndrenko\\Univer-programming--project-\\Kindergarten\\Kindergarten\\Kindergarten.csproj": {}
   },
   "projects": {
-    "C:\\Users\\andre\\Source\\Repos\\AlexanderAndrenko\\Univer-programming--project-\\Kindergarten\\Kindergarten\\Kindergarten.csproj": {
+    "C:\\Users\\andre\\source\\repos\\AlexanderAndrenko\\Univer-programming--project-\\Kindergarten\\Kindergarten\\Kindergarten.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\andre\\Source\\Repos\\AlexanderAndrenko\\Univer-programming--project-\\Kindergarten\\Kindergarten\\Kindergarten.csproj",
+        "projectUniqueName": "C:\\Users\\andre\\source\\repos\\AlexanderAndrenko\\Univer-programming--project-\\Kindergarten\\Kindergarten\\Kindergarten.csproj",
         "projectName": "Kindergarten",
-        "projectPath": "C:\\Users\\andre\\Source\\Repos\\AlexanderAndrenko\\Univer-programming--project-\\Kindergarten\\Kindergarten\\Kindergarten.csproj",
+        "projectPath": "C:\\Users\\andre\\source\\repos\\AlexanderAndrenko\\Univer-programming--project-\\Kindergarten\\Kindergarten\\Kindergarten.csproj",
         "packagesPath": "C:\\Users\\andre\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\andre\\Source\\Repos\\AlexanderAndrenko\\Univer-programming--project-\\Kindergarten\\Kindergarten\\obj\\",
+        "outputPath": "C:\\Users\\andre\\source\\repos\\AlexanderAndrenko\\Univer-programming--project-\\Kindergarten\\Kindergarten\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\andre\\AppData\\Roaming\\NuGet\\NuGet.Config",

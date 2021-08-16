@@ -1,4 +1,5 @@
 ﻿using Kindergarten.ViewModels.Commands;
+using Kindergarten.ViewModels.DataViewModels.PagesViewModel;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -24,7 +25,9 @@ namespace Kindergarten.ViewModels.DataViewModels
             MenuItemsData = new ObservableCollection<MenuItemDataVM>()
             {
                 new MenuItemDataVM("Дети", ChildrenDataVM.GetInstanse()),
-                new MenuItemDataVM("Блюда", new DishListDataVM())
+                new MenuItemDataVM("Блюда", new DishListDataVM()),
+                new MenuItemDataVM("Сотрудники", EmployeeDataVM.GetInstanse()),
+                new MenuItemDataVM("Пользователи", UserDataVM.GetInstanse())
             };
             #endregion //CreateListOfPages
 

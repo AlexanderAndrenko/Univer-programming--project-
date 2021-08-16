@@ -24,12 +24,13 @@
                     <CheckBox VerticalAlignment="Center" 
                               Content="выбрать диапазон"
                               Checked="CheckBox_Checked"
-                              Unchecked="CheckBox_Checked"/>
+                              Unchecked="CheckBox_Checked"
+                              Visibility="Hidden"/>
                 </StackPanel>
                 <Grid>
                     <StackPanel x:Name="SingleSelect"
                                 Orientation="Horizontal"
-                                Visibility="Visible">
+                                Visibility="Hidden">
                         <DatePicker Margin="10,0,0,0"
                                     Height="25"
                                     SelectedDate="{Binding StartDate, Mode=OneWayToSource}"/>
@@ -48,15 +49,18 @@
                     </StackPanel>
                     <StackPanel x:Name="MultipleSelect"
                                 Orientation="Horizontal"
-                                Visibility="Hidden">
-                        <DatePicker Margin="10,0,0,0"
+                                Visibility="Visible">
+                        <DatePicker Name="SD"
+                            Margin="10,0,0,0"
                                     Height="25"
                                     SelectedDate="{Binding StartDate, Mode=OneWayToSource}"/>                    
                             <TextBlock VerticalAlignment="Center" 
                                        Text=" - "/>
-                            <DatePicker Margin="10,0,0,0"
+                            <DatePicker Name="ED"
+                                        Margin="10,0,0,0"
                                         Height="25"
-                                        SelectedDate="{Binding EndDate, Mode=OneWayToSource}"/>                   
+                                        SelectedDate="{Binding EndDate, Mode=OneWayToSource}"
+                                        />                   
                         <Button Content="Показать"
                                 Height="25"
                                 Width="70"
@@ -66,7 +70,10 @@
                 </Grid>
     </StackPanel>
             <StackPanel>
-                <DataGrid ItemsSource="{Binding DataGridChildren, Mode=OneWay}" AutoGenerateColumns="False">
+                <DataGrid 
+                    ItemsSource="{Binding DataGridChildren, Mode=OneWay}" 
+                    AutoGenerateColumns="False"
+                    HorizontalAlignment="Left">
                     <DataGrid.Columns>
                         <DataGridTextColumn Binding="{Binding Date}" Width="Auto" Header="Дата" />
                         <DataGridTextColumn Binding="{Binding QuantityNursery}" Width="SizeToHeader" Header="Количество детей сад"/>

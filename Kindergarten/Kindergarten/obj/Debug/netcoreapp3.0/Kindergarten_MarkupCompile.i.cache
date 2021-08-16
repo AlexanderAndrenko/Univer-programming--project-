@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\andre\Source\Repos\AlexanderAndrenko\Univer-programming--project-\Kindergarten\Kindergarten\obj\Debug\netcoreapp3.0\
+C:\Users\andre\source\repos\AlexanderAndrenko\Univer-programming--project-\Kindergarten\Kindergarten\obj\Debug\netcoreapp3.0\
 Kindergarten
 none
 false
 TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_0;
-C:\Users\andre\Source\Repos\AlexanderAndrenko\Univer-programming--project-\Kindergarten\Kindergarten\App.xaml
-13-1720512908
+C:\Users\andre\source\repos\AlexanderAndrenko\Univer-programming--project-\Kindergarten\Kindergarten\App.xaml
+15-1325001768
 
-71250345714
+77-1126205762
 214-242083509
-MainWindow.xaml;Views\CredentialForServerWindow.xaml;Views\Data\Control.xaml;Views\Data\MainData.xaml;Views\Data\Pages\ChildrenAdd.xaml;Views\Data\Pages\ChildrenData.xaml;Views\Data\Pages\DishListData.xaml;Views\Data\Pages\test.xaml;Views\Home.xaml;Views\Settings\Pages\ChildrenSet.xaml;Views\Settings\Pages\DishListSet.xaml;Views\Settings\Settings.xaml;Views\SingIn.xaml;
+MainWindow.xaml;Views\CredentialForServerWindow.xaml;Views\Data\Control.xaml;Views\Data\MainData.xaml;Views\Data\Pages\ChildrenAdd.xaml;Views\Data\Pages\ChildrenData.xaml;Views\Data\Pages\DishListData.xaml;Views\Data\Pages\EmployeeData.xaml;Views\Data\Pages\test.xaml;Views\Data\Pages\UserData.xaml;Views\Home.xaml;Views\Settings\Pages\ChildrenSet.xaml;Views\Settings\Pages\DishListSet.xaml;Views\Settings\Settings.xaml;Views\SingIn.xaml;
 
-True
+False
 
