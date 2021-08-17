@@ -29,7 +29,7 @@ namespace Kindergarten.Models
                 MessageBox.Show("Ошибка! " + ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return lstUser;
             }
-        }
+        } 
 
         public static void SetUser(List<User> users, List<int> li)
         {
@@ -59,7 +59,7 @@ namespace Kindergarten.Models
                                 u[j].Login = users[i].Login;
                                 u[j].Password = users[i].Password;
                                 u[j].LevelAccess = users[i].LevelAccess;
-                                u[j].Employee = users[i].Employee;
+                                u[j].EmployeeId = users[i].EmployeeId;
 
                                 isNew = false;
                             }
@@ -72,7 +72,7 @@ namespace Kindergarten.Models
                                 Login = users[i].Login,
                                 Password = users[i].Password,
                                 LevelAccess = users[i].LevelAccess,
-                                Employee = users[i].Employee
+                                EmployeeId = users[i].EmployeeId
                             };
 
                             db.Users.Add(newUser);

@@ -29,12 +29,15 @@
                     <DataGridTextColumn Binding="{Binding Login}" Width="Auto" Header="Логин"/>
                     <DataGridTextColumn Binding="{Binding Password}" Width="Auto" Header="Пароль" />
                     <DataGridTextColumn Binding="{Binding LevelAccess}" Width="Auto" Header="Уровень доступа"/>
-                    <DataGridComboBoxColumn         
-                        SelectedItemBinding="{Binding DataGridUsers.Employee}"
+                    <DataGridTextColumn Binding="{Binding Employee}" Width="Auto" Header="Сотрудник"/>
+
+                    <!--<DataGridComboBoxColumn         
+                        SelectedValueBinding="{Binding DataGridUsers.EmployeeId}"
                         ItemsSource="{Binding Source={StaticResource EmployeeList}}"
+                        SelectedValuePath="Id"
                         DisplayMemberPath="Lastname"
                         Width="Auto" 
-                        Header="Сотрудник"/>
+                        Header="Сотрудник"/>-->
                 </DataGrid.Columns>
             </DataGrid>
         </StackPanel>

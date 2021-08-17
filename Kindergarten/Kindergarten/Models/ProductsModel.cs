@@ -7,55 +7,54 @@ using System.Windows;
 
 namespace Kindergarten.Models
 {
-    class SupplierModel
+    class ProductsModel
     {
-        public static List<Supplier> GetSupplier()
+        public static List<Product> GetProducts()
         {
-            List<Supplier> lstSupplier = new List<Supplier>();
+            List<Product> lstProducts = new List<Product>();
 
             try
             {
                 using (KindergartenContext db = new KindergartenContext())
                 {
-                    lstSupplier = db.Suppliers.ToList();
+                    lstProducts = db.Products.ToList();
 
-                    return lstSupplier;
+                    return lstProducts;
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Ошибка! " + ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                return lstSupplier;
+                return lstProducts;
             }
         }
 
-        public static void SetSupplier(List<Supplier> supplier, List<int> li)
+        public static void SetProducts(List<Product> products, List<int> ids)
         {
             try
             {
                 using (KindergartenContext db = new KindergartenContext())
                 {
-                    var dates = supplier.Select(x => x.Id).ToList();
-                    var u = db.Suppliers.Where(x => dates.Contains(x.Id)).ToList();
+                    var dates = products.Select(x => x.Id).ToList();
+                    var nc = db.Products.Where(x => dates.Contains(x.Id)).ToList();
 
-                    li = li.Except(dates).ToList();
-                    var deletedObjects = db.Suppliers.Where(x => li.Contains(x.Id)).ToList();
+                    ids = ids.Except(dates).ToList();
+                    var deletedObjects = db.Products.Where(x => ids.Contains(x.Id)).ToList();
 
                     for (int i = 0; i < deletedObjects.Count(); i++)
                     {
-                        db.Suppliers.Remove(deletedObjects[i]);
+                        db.Products.Remove(deletedObjects[i]);
                     }
 
-                    for (int i = 0; i < supplier.Count(); i++)
+                    for (int i = 0; i < products.Count(); i++)
                     {
                         bool isNew = true;
 
-                        for (int j = 0; j < u.Count(); j++)
+                        for (int j = 0; j < nc.Count(); j++)
                         {
-                            if (u[j].Id == supplier[i].Id)
+                            if (nc[j].Id == products[i].Id)
                             {
-                                u[j].Name = supplier[i].Name;
-                                u[j].Phone = supplier[i].Phone;
+                                nc[j].Name = products[i].Name;
 
                                 isNew = false;
                             }
@@ -63,13 +62,12 @@ namespace Kindergarten.Models
 
                         if (isNew)
                         {
-                            var newSupplier = new Supplier()
+                            var newProducts = new Product()
                             {
-                                Name = supplier[i].Name,
-                                Phone = supplier[i].Phone
+                                Name = products[i].Name
                             };
 
-                            db.Suppliers.Add(newSupplier);
+                            db.Products.Add(newProducts);
                         }
                     }
 
@@ -82,5 +80,5 @@ namespace Kindergarten.Models
             }
         }
     }
-}
+  }
 

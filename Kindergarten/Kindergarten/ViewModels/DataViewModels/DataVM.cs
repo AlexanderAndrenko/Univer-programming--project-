@@ -27,7 +27,9 @@ namespace Kindergarten.ViewModels.DataViewModels
                 new MenuItemDataVM("Дети", ChildrenDataVM.GetInstanse()),
                 new MenuItemDataVM("Блюда", new DishListDataVM()),
                 new MenuItemDataVM("Сотрудники", EmployeeDataVM.GetInstanse()),
-                new MenuItemDataVM("Пользователи", UserDataVM.GetInstanse())
+                new MenuItemDataVM("Пользователи", UserDataVM.GetInstanse()),
+                new MenuItemDataVM("Поставщики", SupplierDataVM.GetInstanse()),
+                new MenuItemDataVM("Продукты", ProductsDataVM.GetInstanse())
             };
             #endregion //CreateListOfPages
 

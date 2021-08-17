@@ -50,7 +50,9 @@ namespace Kindergarten.ViewModels.DataViewModels.PagesViewModel
         public void GetUser()
         {
             DataGridUsers = UserModel.GetUser();
-            Ids = DataGridUsers.Select(x => x.Id).ToList();            
+            if (Ids != null)
+                Ids.Clear();
+            Ids = DataGridUsers.Select(x => x.Id).ToList();
         }
 
         #endregion //Methods

@@ -22,6 +22,12 @@
         <DataTemplate DataType="{x:Type vmdp:UserDataVM}">
             <localpage:UserData/>
         </DataTemplate>
+        <DataTemplate DataType="{x:Type vmdp:SupplierDataVM}">
+            <localpage:SupplierData/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vmdp:ProductsDataVM}">
+            <localpage:ProductsData/>
+        </DataTemplate>
     </UserControl.Resources>
     <Grid Margin="5">
         <Grid.ColumnDefinitions>

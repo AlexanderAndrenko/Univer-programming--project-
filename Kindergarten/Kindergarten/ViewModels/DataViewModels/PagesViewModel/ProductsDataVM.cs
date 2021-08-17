@@ -8,49 +8,49 @@ using System.Text;
 
 namespace Kindergarten.ViewModels.DataViewModels.PagesViewModel
 {
-    class SupplierDataVM : BaseVM
+    class ProductsDataVM : BaseVM
     {
-
         #region Constructor
-        private static SupplierDataVM instanse;
+        private static ProductsDataVM instanse;
 
-        public static SupplierDataVM GetInstanse()
+        public static ProductsDataVM GetInstanse()
         {
             if (instanse == null)
-                instanse = new SupplierDataVM();
-            return instanse;            
+                instanse = new ProductsDataVM();
+            return instanse;
         }
 
-        private SupplierDataVM()
+        private ProductsDataVM()
         {
-            GetSupplier();
-            SaveChanges = new OwnCommand(SetSupplier);
+            GetProduct();
+            SaveChanges = new OwnCommand(SetProduct);            
         }
         #endregion //Constructor
 
         #region Properties
 
-        List<Supplier> DataGridSupplier { get; set; }
+        List<Product> DataGridProducts { get; set; }
+
         List<int> Ids { get; set; }
-        
+
         public OwnCommand SaveChanges { get; set; }
 
         #endregion //Properties
 
         #region Methods
 
-        public void GetSupplier()
+        public void GetProduct()
         {
-            DataGridSupplier = SupplierModel.GetSupplier();
+            DataGridProducts = ProductsModel.GetProducts();
             if (Ids != null)
                 Ids.Clear();
-            Ids = DataGridSupplier.Select(x => x.Id).ToList();
+            Ids = DataGridProducts.Select(x => x.Id).ToList();
         }
 
-        public void SetSupplier()
+        public void SetProduct()
         {
-            SupplierModel.SetSupplier(DataGridSupplier, Ids);
-            GetSupplier();
+            ProductsModel.SetProducts(DataGridProducts, Ids);
+            GetProduct();
         }
 
         #endregion //Methods
