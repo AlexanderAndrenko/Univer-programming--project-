@@ -1,4 +1,5 @@
 ﻿using Kindergarten.Models.Entities;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +18,7 @@ namespace Kindergarten.Models
             {
                 using (KindergartenContext db = new KindergartenContext())
                 {
-                    lstUser = db.Users.ToList();
+                    lstUser = db.Users.Include(x => x.Employee).ToList();
                     //Where(x => x.Date >= startDate).Where(x => x.Date <= endDate).ToList();
 
                     return lstUser;
@@ -40,11 +41,11 @@ namespace Kindergarten.Models
                     var u = db.Users.Where(x => dates.Contains(x.Id)).ToList();
 
                     li = li.Except(dates).ToList();
-                    var deletedObjects = db.Employees.Where(x => li.Contains(x.Id)).ToList();
+                    var deletedObjects = db.Users.Where(x => li.Contains(x.Id)).ToList();
 
                     for (int i = 0; i < deletedObjects.Count(); i++)
                     {
-                        db.Employees.Remove(deletedObjects[i]);
+                        db.Users.Remove(deletedObjects[i]);
                     }
 
                     for (int i = 0; i < users.Count(); i++)

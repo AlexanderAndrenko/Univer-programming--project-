@@ -30,7 +30,7 @@
                     <DataGridTextColumn Binding="{Binding Password}" Width="Auto" Header="Пароль" />
                     <DataGridTextColumn Binding="{Binding LevelAccess}" Width="Auto" Header="Уровень доступа"/>
                     <DataGridComboBoxColumn         
-                        SelectedValueBinding="{Binding EmployeeList.Lastname}"
+                        SelectedItemBinding="{Binding DataGridUsers.Employee}"
                         ItemsSource="{Binding Source={StaticResource EmployeeList}}"
                         DisplayMemberPath="Lastname"
                         Width="Auto" 
