@@ -30,8 +30,8 @@ namespace Kindergarten.ViewModels.DataViewModels.PagesViewModel
 
         #region Properties
 
-        List<Supplier> DataGridSupplier { get; set; }
-        List<int> Ids { get; set; }
+        public List<Supplier> DataGridSupplier { get; set; }
+        private List<int> Ids { get; set; }
         
         public OwnCommand SaveChanges { get; set; }
 

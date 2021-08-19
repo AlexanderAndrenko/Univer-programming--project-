@@ -29,9 +29,9 @@ namespace Kindergarten.ViewModels.DataViewModels.PagesViewModel
 
         #region Properties
 
-        List<Product> DataGridProducts { get; set; }
+        public List<Product> DataGridProducts { get; set; }
 
-        List<int> Ids { get; set; }
+        private List<int> Ids { get; set; }
 
         public OwnCommand SaveChanges { get; set; }
 
