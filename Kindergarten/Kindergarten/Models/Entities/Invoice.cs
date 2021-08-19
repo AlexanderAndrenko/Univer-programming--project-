@@ -11,6 +11,14 @@ namespace Kindergarten.Models.Entities
         [Key]
         public int ID { get; set; }
 
+        //Дата создани записи
+        [Required]
+        public DateTime DateCreated { get; set; }
+
+        //Дата накладной
+        [Required]
+        public DateTime DateOfInvoice { get; set; }
+
         //Номер накладной поставщика
         [Column(TypeName = "nvarchar(20)")]
         public string SupplierNumber { get; set; }

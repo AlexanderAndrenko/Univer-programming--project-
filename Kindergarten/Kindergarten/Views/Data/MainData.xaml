@@ -28,6 +28,9 @@
         <DataTemplate DataType="{x:Type vmdp:ProductsDataVM}">
             <localpage:ProductsData/>
         </DataTemplate>
+        <DataTemplate DataType="{x:Type vmdp:InvoiceDataVM}">
+            <localpage:InvoiceData/>
+        </DataTemplate>
     </UserControl.Resources>
     <Grid Margin="5">
         <Grid.ColumnDefinitions>

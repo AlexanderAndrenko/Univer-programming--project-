@@ -38,7 +38,7 @@ namespace Kindergarten.Models
                 using (KindergartenContext db = new KindergartenContext())
                 {
                     var dates = users.Select(x => x.Id).ToList();
-                    var u = db.Users.Where(x => dates.Contains(x.Id)).ToList();
+                    var u = db.Users.Where(x => dates.Contains(x.Id)).Include(x => x.Employee).ToList();
 
                     li = li.Except(dates).ToList();
                     var deletedObjects = db.Users.Where(x => li.Contains(x.Id)).ToList();

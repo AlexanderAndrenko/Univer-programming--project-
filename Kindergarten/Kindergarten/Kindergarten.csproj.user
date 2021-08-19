@@ -8,6 +8,12 @@
     <Compile Update="Views\Data\Pages\EmployeeData.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\Data\Pages\InvoiceData.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Data\Pages\PartyData.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\Data\Pages\ProductsData.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -26,6 +32,12 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Data\Pages\EmployeeData.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Data\Pages\InvoiceData.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Data\Pages\PartyData.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Data\Pages\ProductsData.xaml">

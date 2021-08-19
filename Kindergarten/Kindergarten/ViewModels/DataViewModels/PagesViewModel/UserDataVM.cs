@@ -30,7 +30,6 @@ namespace Kindergarten.ViewModels.DataViewModels.PagesViewModel
         #region Properties
 
         public List<User> DataGridUsers { get; set; }
-
         private List<int> Ids { get; set; }
 
         public OwnCommand SaveChanges { get; set; }
