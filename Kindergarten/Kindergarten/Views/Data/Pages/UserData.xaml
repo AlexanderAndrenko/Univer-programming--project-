@@ -10,6 +10,7 @@
         <CollectionViewSource x:Key="EmployeeList" Source="{Binding EmployeeList}"/>
     </UserControl.Resources>
     <Grid Background="White">
+        <FrameworkElement x:Name="Proxy" DataContext="{Binding}" Visibility="Collapsed"/>
         <StackPanel Orientation="Vertical">
             <StackPanel>
                 <Button x:Name="button" 
@@ -22,7 +23,7 @@
                 Command="{Binding SaveChanges}"/>
             </StackPanel>
             <DataGrid 
-                    ItemsSource="{Binding DataGridUsers, Mode=OneWay}" 
+                    ItemsSource="{Binding DataGridUsers}" 
                     AutoGenerateColumns="False"
                     HorizontalAlignment="Left">
                 <DataGrid.Columns>
@@ -30,9 +31,8 @@
                     <DataGridTextColumn Binding="{Binding Password}" Width="Auto" Header="Пароль" />
                     <DataGridTextColumn Binding="{Binding LevelAccess}" Width="Auto" Header="Уровень доступа"/>
                     <!--<DataGridTextColumn Binding="{Binding Employee.Lastname}" Width="Auto" Header="Сотрудник"/>-->
-
                     <DataGridComboBoxColumn         
-                        SelectedValueBinding="{Binding DataGridUsers.Employee.EmployeeId}"
+                        SelectedValueBinding="{Binding EmployeeId, UpdateSourceTrigger=PropertyChanged}"
                         ItemsSource="{Binding Source={StaticResource EmployeeList}}"
                         SelectedValuePath="Id"
                         DisplayMemberPath="Lastname"

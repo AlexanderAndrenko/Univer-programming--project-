@@ -31,13 +31,30 @@ namespace Kindergarten.Models
             }
         } 
 
+        /// <summary>
+        /// Метод добавления пользователей в БД
+        /// </summary>
         public static void SetUser(List<User> users, List<int> li)
         {
             try
             {
                 using (KindergartenContext db = new KindergartenContext())
                 {
-                    var dates = users.Select(x => x.Id).ToList();
+                    var usersDict = users.ToDictionary(x => x.Id);
+                    li.ForEach(x =>
+                    {
+                        if (!usersDict.ContainsKey(x))
+                        {
+                            db.Entry(db.Users.Where(y => y.Id == x).FirstOrDefault()).State = EntityState.Deleted;
+                        }
+                    });
+
+                    users.ForEach(x =>
+                    {
+                        db.Entry(x).State = x.Id == 0 ? EntityState.Added : EntityState.Modified;
+                    });
+
+                    /*var dates = users.Select(x => x.Id).ToList();
                     var u = db.Users.Where(x => dates.Contains(x.Id)).Include(x => x.Employee).ToList();
 
                     li = li.Except(dates).ToList();
@@ -77,7 +94,7 @@ namespace Kindergarten.Models
 
                             db.Users.Add(newUser);
                         }
-                    }
+                    }*/
 
                     db.SaveChanges();
                 }
