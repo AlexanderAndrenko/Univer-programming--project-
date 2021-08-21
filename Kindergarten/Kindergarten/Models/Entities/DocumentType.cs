@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Kindergarten.Models.Entities
 {
-    public class TypeMovingProduct
+    public class DocumentType
     {
         [Key]
         public int Id { get; set; }
@@ -16,6 +16,6 @@ namespace Kindergarten.Models.Entities
         [Column(TypeName = "nvarchar(100)")]
         public string Name { get; set; }
 
-        public ICollection<MovingProduct> MovingProducts { get; set; }
+        public ICollection<Document> Documents { get; set; }
     }
 }

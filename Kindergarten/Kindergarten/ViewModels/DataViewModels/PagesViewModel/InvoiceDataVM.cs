@@ -1,6 +1,7 @@
 ﻿using Kindergarten.Models;
 using Kindergarten.Models.Entities;
 using Kindergarten.ViewModels.Commands;
+using Kindergarten.Views.Data.Pages;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -24,6 +25,9 @@ namespace Kindergarten.ViewModels.DataViewModels.PagesViewModel
             StartDate = DateTime.Today;
             StartDate.AddDays(-7);
             GetInvoice();
+            Refresh = new OwnCommand(GetInvoice);
+            NewInvoice = new OwnCommand(OpenWindowCreateNewInvoice);
+            
         }
         #endregion //Contructor
 
@@ -31,10 +35,31 @@ namespace Kindergarten.ViewModels.DataViewModels.PagesViewModel
 
         public List<Invoice> DataGridInvoice { get; set; }
 
-        public DateTime StartDate { get; set; }
-        public DateTime EndDate { get; set; }
+        private DateTime startDate;
+        public DateTime StartDate 
+        { 
+            get => startDate;
+            set
+            {
+                startDate = value;
+                RaisePropertyChanged();
+            } 
+        }
 
+        private DateTime endDate;
+        public DateTime EndDate 
+        { 
+            get => endDate; 
+            set
+            {
+                endDate = value;
+                RaisePropertyChanged();
+            }
+        }
+
+        public OwnCommand DoubleClickInvoice { get; set; }
         public OwnCommand NewInvoice { get; set; }
+        public OwnCommand Refresh { get; set; }
 
         #endregion //Properties
 
@@ -43,6 +68,12 @@ namespace Kindergarten.ViewModels.DataViewModels.PagesViewModel
         public void GetInvoice()
         {
             DataGridInvoice = InvoiceModel.GetInvoice(StartDate, EndDate);
+        }
+
+        public void OpenWindowCreateNewInvoice()
+        {
+            InvoiceCreateNew nw = new InvoiceCreateNew();
+            nw.Show();
         }
 
 

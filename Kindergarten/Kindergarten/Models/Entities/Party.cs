@@ -28,17 +28,13 @@ namespace Kindergarten.Models.Entities
 
         public bool IsDeleted { get; set; }
 
-
-        public ICollection<MovingProduct> MovingProducts { get; set; }
+        public ICollection<DocumentData> DocumentDatas { get; set; }
 
         //Навигационные свойства
         public int ProductId { get; set; }
         public Product Product { get; set; }
 
-        public int SuppleirId { get; set; }
-        public Supplier Supplier { get; set; }
-
-        public int InvoiceId { get; set; }
-        public Invoice Invoice { get; set; }
+        public int DocumentId { get; set; }
+        public Document Document { get; set; }
     }
 }

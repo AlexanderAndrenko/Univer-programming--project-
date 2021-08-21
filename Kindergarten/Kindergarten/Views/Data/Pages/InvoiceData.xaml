@@ -6,7 +6,48 @@
              xmlns:local="clr-namespace:Kindergarten.Views.Data.Pages"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
+    <Grid Background="White">
+        <DockPanel>
+            <DockPanel
+                DockPanel.Dock="Top">
+                <DatePicker Name="SD"
+                            Margin="10,0,0,0"
+                                    Height="25"
+                                    SelectedDate="{Binding StartDate, Mode=TwoWay}"/>
+                <TextBlock VerticalAlignment="Center" 
+                                       Text=" - "/>
+                <DatePicker Name="ED"
+                                        Margin="10,0,0,0"
+                                        Height="25"
+                                        SelectedDate="{Binding EndDate, Mode=TwoWay}"
+                                        />
+                <Button DockPanel.Dock="Left"
+                Content="Обновить записи"
+                Margin="10" 
+                VerticalAlignment="Top" 
+                Width="150" 
+                Height="25"
+                Command="{Binding Refresh}"/>
+                <Button x:Name="button" 
+                Content="Создать новую накладную"
+                DockPanel.Dock="Right"
+                Margin="10" 
+                VerticalAlignment="Top" 
+                Width="150" 
+                Height="25"
+                Command="{Binding NewInvoice}"/>
+            </DockPanel>        
+        <DataGrid 
+            ItemsSource="{Binding DataGridInvoice}"
+            DockPanel.Dock="Top"
+            AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding DateCreated}" Width="*" Header="Дата создания"/>
+                <DataGridTextColumn Binding="{Binding DateOfInvoice}" Width="*" Header="Дата накладной"/>
+                <DataGridTextColumn Binding="{Binding SupplierNumber}" Width="*" Header="Номер накладной"/>
+                <DataGridTextColumn Binding="{Binding Supplier.Name}" Width="*" Header="Поставщик"/>
+                </DataGrid.Columns>
+        </DataGrid>
+        </DockPanel>
     </Grid>
 </UserControl>

@@ -8,7 +8,7 @@ using System.Text;
 namespace Kindergarten.Models.Entities
 {
     [Index("Date")]
-    public class MovingProduct
+    public class Document
     {
         [Key]
         public int Id { get; set; }
@@ -17,23 +17,21 @@ namespace Kindergarten.Models.Entities
         [Column(TypeName = "datetime")]
         public DateTime Date { get; set; }
 
-        [Required]
-        public float Quantity { get; set; }
-
-
+        public int? InvoiceId { get; set; }
+        public Invoice Invoice { get; set; }
 
         //Навигационные свойства
-        public int DishItemFatcId { get; set; }
+        public int? DishItemFatcId { get; set; }
         public DishItemFact DishItemFact { get; set; }
 
-        public int NumberChildrenId { get; set; }
+        public int? NumberChildrenId { get; set; }
         public NumberChildren NumberChildren { get; set; }
 
-        public int TypeMovingProductId { get; set; }
-        public TypeMovingProduct TypeMovingProduct { get; set; }
+        public int DocumentTypeId { get; set; }
+        public DocumentType DocumentType { get; set; }
 
-        public int PartyId { get; set; }
-        public Party Party { get; set; }
+        public ICollection<Party> Parties { get; set; }
 
+        public ICollection<DocumentData> DocumentDatas { get; set; }
     }
 }

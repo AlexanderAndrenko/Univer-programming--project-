@@ -1,4 +1,5 @@
 ﻿using Kindergarten.Models.Entities;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,14 +30,26 @@ namespace Kindergarten.Models
             }
         }
 
-        public static void SetInvoice(Invoice invoice)
+        public static void SetInvoice(Invoice invoice, List<Party> parties)
         {
             try
             {
                 using (KindergartenContext db = new KindergartenContext())
                 {
-                    db.Invoices.Add(invoice);
+                    db.Entry(invoice).State = invoice.ID == 0 ? EntityState.Added : EntityState.Modified;
                     db.SaveChanges();
+
+                    var dt = db.DocumentTypes.Where(x => x.Name == "Приход от поставщика").FirstOrDefault();
+
+                    var document = new Document()
+                    {
+                        Date = DateTime.Now,
+                        InvoiceId = db.Invoices.Local.First().ID,
+                        DocumentTypeId = dt.Id
+                    };
+
+                    DocumentModel.SetDocumentFromInvoice(document, parties);
+                    MessageBox.Show("Накладная добавлена в систему!", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
             }
             catch (Exception ex)

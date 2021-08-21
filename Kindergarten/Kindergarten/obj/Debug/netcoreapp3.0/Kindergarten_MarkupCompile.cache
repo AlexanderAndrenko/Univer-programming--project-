@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\MRT\Source\Repos\AlexanderAndrenko\Univer-programming--project-\Kindergarten\Kindergarten\obj\Debug\netcoreapp3.0\
+C:\Users\andre\source\repos\AlexanderAndrenko\Univer-programming--project-\Kindergarten\Kindergarten\obj\Debug\netcoreapp3.0\
 Kindergarten
 none
 false
 TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_0;
-C:\Users\MRT\Source\Repos\AlexanderAndrenko\Univer-programming--project-\Kindergarten\Kindergarten\App.xaml
-192140202842
+C:\Users\andre\source\repos\AlexanderAndrenko\Univer-programming--project-\Kindergarten\Kindergarten\App.xaml
+201976344746
 
-90-278727891
-214652833953
-MainWindow.xaml;Views\CredentialForServerWindow.xaml;Views\Data\Control.xaml;Views\Data\MainData.xaml;Views\Data\Pages\ChildrenAdd.xaml;Views\Data\Pages\ChildrenData.xaml;Views\Data\Pages\DishListData.xaml;Views\Data\Pages\EmployeeData.xaml;Views\Data\Pages\InvoiceData.xaml;Views\Data\Pages\PartyData.xaml;Views\Data\Pages\ProductsData.xaml;Views\Data\Pages\SupplierData.xaml;Views\Data\Pages\test.xaml;Views\Data\Pages\UserData.xaml;Views\Home.xaml;Views\Settings\Pages\ChildrenSet.xaml;Views\Settings\Pages\DishListSet.xaml;Views\Settings\Settings.xaml;Views\SingIn.xaml;
+103-829600383
+2141721355513
+MainWindow.xaml;Views\CredentialForServerWindow.xaml;Views\Data\Control.xaml;Views\Data\MainData.xaml;Views\Data\Pages\ChildrenAdd.xaml;Views\Data\Pages\ChildrenData.xaml;Views\Data\Pages\DishListData.xaml;Views\Data\Pages\EmployeeData.xaml;Views\Data\Pages\InvoiceCreateNew.xaml;Views\Data\Pages\InvoiceData.xaml;Views\Data\Pages\PartyData.xaml;Views\Data\Pages\ProductsData.xaml;Views\Data\Pages\SupplierData.xaml;Views\Data\Pages\test.xaml;Views\Data\Pages\UserData.xaml;Views\Home.xaml;Views\Settings\Pages\ChildrenSet.xaml;Views\Settings\Pages\DishListSet.xaml;Views\Settings\Settings.xaml;Views\SingIn.xaml;
 
 False
 

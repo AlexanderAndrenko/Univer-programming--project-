@@ -19,7 +19,6 @@ namespace Kindergarten.Models.Entities
 
 
         public ICollection<Invoice> Invoices { get; set; }
-        public ICollection<Party> Parties { get; set; }
 
     }
 }

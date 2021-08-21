@@ -17,11 +17,12 @@ namespace Kindergarten.Models
         public DbSet<MenuFact> MenuFacts { get; set; }
         public DbSet<Employee> Employees { get; set; }
         public DbSet<Invoice> Invoices { get; set; }
-        public DbSet<MovingProduct> MovingProducts { get; set; }
+        public DbSet<Document> Documents { get; set; }
+        public DbSet<DocumentData> DocumentData { get; set; }
         public DbSet<NumberChildren> NumberChildrens { get; set; }
         public DbSet<Party> Parties { get; set; }
         public DbSet<Supplier> Suppliers { get; set; }
-        public DbSet<TypeMovingProduct> TypeMovingProducts { get; set; }
+        public DbSet<DocumentType> DocumentTypes { get; set; }
         public DbSet<User> Users { get; set; }
 
         public KindergartenContext()
@@ -44,7 +45,6 @@ namespace Kindergarten.Models
 
             //Значение уровня доступа у пользователя по умолчанию 0
             modelBuilder.Entity<User>().Property(u => u.LevelAccess).HasDefaultValue(0);
-
         }
     }
 }

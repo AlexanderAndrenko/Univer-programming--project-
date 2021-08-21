@@ -23,8 +23,6 @@ namespace Kindergarten.Models.Entities
         [Column(TypeName = "nvarchar(20)")]
         public string SupplierNumber { get; set; }
 
-        public ICollection<Party> Party { get; set; }
-
         public int SupplierId { get; set; }
         public Supplier Supplier { get; set; }
     }

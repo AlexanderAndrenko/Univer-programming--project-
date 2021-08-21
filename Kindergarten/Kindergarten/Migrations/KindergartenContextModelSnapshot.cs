@@ -16,7 +16,7 @@ namespace Kindergarten.Migrations
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("ProductVersion", "5.0.8")
+                .HasAnnotation("ProductVersion", "5.0.9")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("Kindergarten.Models.Entities.Dish", b =>
@@ -134,6 +134,101 @@ namespace Kindergarten.Migrations
                     b.ToTable("DishItemFacts");
                 });
 
+            modelBuilder.Entity("Kindergarten.Models.Entities.Document", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime");
+
+                    b.Property<int?>("DishItemFactId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("DishItemFatcId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("DocumentTypeId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("InvoiceId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("NumberChildrenId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Date");
+
+                    b.HasIndex("DishItemFactId");
+
+                    b.HasIndex("DocumentTypeId");
+
+                    b.HasIndex("InvoiceId");
+
+                    b.HasIndex("NumberChildrenId");
+
+                    b.ToTable("Documents");
+                });
+
+            modelBuilder.Entity("Kindergarten.Models.Entities.DocumentData", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("DateCreated")
+                        .HasColumnType("datetime");
+
+                    b.Property<DateTime?>("DateDeleted")
+                        .HasColumnType("datetime");
+
+                    b.Property<int>("DocumentId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("PartyId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.Property<float>("Quantity")
+                        .HasColumnType("real");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("DocumentId");
+
+                    b.HasIndex("PartyId");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("DocumentData");
+                });
+
+            modelBuilder.Entity("Kindergarten.Models.Entities.DocumentType", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(100)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("DocumentTypes");
+                });
+
             modelBuilder.Entity("Kindergarten.Models.Entities.Employee", b =>
                 {
                     b.Property<int>("Id")
@@ -221,49 +316,6 @@ namespace Kindergarten.Migrations
                     b.ToTable("MenuFacts");
                 });
 
-            modelBuilder.Entity("Kindergarten.Models.Entities.MovingProduct", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("Date")
-                        .HasColumnType("datetime");
-
-                    b.Property<int?>("DishItemFactId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("DishItemFatcId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("NumberChildrenId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("PartyId")
-                        .HasColumnType("int");
-
-                    b.Property<float>("Quantity")
-                        .HasColumnType("real");
-
-                    b.Property<int>("TypeMovingProductId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("Date");
-
-                    b.HasIndex("DishItemFactId");
-
-                    b.HasIndex("NumberChildrenId");
-
-                    b.HasIndex("PartyId");
-
-                    b.HasIndex("TypeMovingProductId");
-
-                    b.ToTable("MovingProducts");
-                });
-
             modelBuilder.Entity("Kindergarten.Models.Entities.NumberChildren", b =>
                 {
                     b.Property<int>("Id")
@@ -298,7 +350,7 @@ namespace Kindergarten.Migrations
                     b.Property<DateTime>("DateCreated")
                         .HasColumnType("datetime");
 
-                    b.Property<int>("InvoiceId")
+                    b.Property<int>("DocumentId")
                         .HasColumnType("int");
 
                     b.Property<bool>("IsClosed")
@@ -317,23 +369,15 @@ namespace Kindergarten.Migrations
                     b.Property<float>("Quantity")
                         .HasColumnType("real");
 
-                    b.Property<int>("SuppleirId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("SupplierId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
                     b.HasIndex("DateCreated");
 
-                    b.HasIndex("InvoiceId");
+                    b.HasIndex("DocumentId");
 
                     b.HasIndex("IsClosed");
 
                     b.HasIndex("ProductId");
-
-                    b.HasIndex("SupplierId");
 
                     b.ToTable("Parties");
                 });
@@ -373,22 +417,6 @@ namespace Kindergarten.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Suppliers");
-                });
-
-            modelBuilder.Entity("Kindergarten.Models.Entities.TypeMovingProduct", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(100)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("TypeMovingProducts");
                 });
 
             modelBuilder.Entity("Kindergarten.Models.Entities.User", b =>
@@ -485,6 +513,62 @@ namespace Kindergarten.Migrations
                     b.Navigation("Product");
                 });
 
+            modelBuilder.Entity("Kindergarten.Models.Entities.Document", b =>
+                {
+                    b.HasOne("Kindergarten.Models.Entities.DishItemFact", "DishItemFact")
+                        .WithMany("MovingProducts")
+                        .HasForeignKey("DishItemFactId");
+
+                    b.HasOne("Kindergarten.Models.Entities.DocumentType", "DocumentType")
+                        .WithMany("MovingProducts")
+                        .HasForeignKey("DocumentTypeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Kindergarten.Models.Entities.Invoice", "Invoice")
+                        .WithMany()
+                        .HasForeignKey("InvoiceId");
+
+                    b.HasOne("Kindergarten.Models.Entities.NumberChildren", "NumberChildren")
+                        .WithMany("MovingProducts")
+                        .HasForeignKey("NumberChildrenId");
+
+                    b.Navigation("DishItemFact");
+
+                    b.Navigation("DocumentType");
+
+                    b.Navigation("Invoice");
+
+                    b.Navigation("NumberChildren");
+                });
+
+            modelBuilder.Entity("Kindergarten.Models.Entities.DocumentData", b =>
+                {
+                    b.HasOne("Kindergarten.Models.Entities.Document", "Document")
+                        .WithMany("DocumentDatas")
+                        .HasForeignKey("DocumentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Kindergarten.Models.Entities.Party", "Party")
+                        .WithMany("DocumentDatas")
+                        .HasForeignKey("PartyId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Kindergarten.Models.Entities.Product", "Product")
+                        .WithMany()
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Document");
+
+                    b.Navigation("Party");
+
+                    b.Navigation("Product");
+                });
+
             modelBuilder.Entity("Kindergarten.Models.Entities.Invoice", b =>
                 {
                     b.HasOne("Kindergarten.Models.Entities.Supplier", "Supplier")
@@ -496,44 +580,11 @@ namespace Kindergarten.Migrations
                     b.Navigation("Supplier");
                 });
 
-            modelBuilder.Entity("Kindergarten.Models.Entities.MovingProduct", b =>
-                {
-                    b.HasOne("Kindergarten.Models.Entities.DishItemFact", "DishItemFact")
-                        .WithMany("MovingProducts")
-                        .HasForeignKey("DishItemFactId");
-
-                    b.HasOne("Kindergarten.Models.Entities.NumberChildren", "NumberChildren")
-                        .WithMany("MovingProducts")
-                        .HasForeignKey("NumberChildrenId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Kindergarten.Models.Entities.Party", "Party")
-                        .WithMany("MovingProducts")
-                        .HasForeignKey("PartyId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Kindergarten.Models.Entities.TypeMovingProduct", "TypeMovingProduct")
-                        .WithMany("MovingProducts")
-                        .HasForeignKey("TypeMovingProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("DishItemFact");
-
-                    b.Navigation("NumberChildren");
-
-                    b.Navigation("Party");
-
-                    b.Navigation("TypeMovingProduct");
-                });
-
             modelBuilder.Entity("Kindergarten.Models.Entities.Party", b =>
                 {
-                    b.HasOne("Kindergarten.Models.Entities.Invoice", "Invoice")
-                        .WithMany("Party")
-                        .HasForeignKey("InvoiceId")
+                    b.HasOne("Kindergarten.Models.Entities.Document", "Document")
+                        .WithMany("Parties")
+                        .HasForeignKey("DocumentId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -543,15 +594,9 @@ namespace Kindergarten.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Kindergarten.Models.Entities.Supplier", "Supplier")
-                        .WithMany("Parties")
-                        .HasForeignKey("SupplierId");
-
-                    b.Navigation("Invoice");
+                    b.Navigation("Document");
 
                     b.Navigation("Product");
-
-                    b.Navigation("Supplier");
                 });
 
             modelBuilder.Entity("Kindergarten.Models.Entities.User", b =>
@@ -580,14 +625,21 @@ namespace Kindergarten.Migrations
                     b.Navigation("MovingProducts");
                 });
 
+            modelBuilder.Entity("Kindergarten.Models.Entities.Document", b =>
+                {
+                    b.Navigation("DocumentDatas");
+
+                    b.Navigation("Parties");
+                });
+
+            modelBuilder.Entity("Kindergarten.Models.Entities.DocumentType", b =>
+                {
+                    b.Navigation("MovingProducts");
+                });
+
             modelBuilder.Entity("Kindergarten.Models.Entities.Employee", b =>
                 {
                     b.Navigation("Users");
-                });
-
-            modelBuilder.Entity("Kindergarten.Models.Entities.Invoice", b =>
-                {
-                    b.Navigation("Party");
                 });
 
             modelBuilder.Entity("Kindergarten.Models.Entities.Menu", b =>
@@ -607,7 +659,7 @@ namespace Kindergarten.Migrations
 
             modelBuilder.Entity("Kindergarten.Models.Entities.Party", b =>
                 {
-                    b.Navigation("MovingProducts");
+                    b.Navigation("DocumentDatas");
                 });
 
             modelBuilder.Entity("Kindergarten.Models.Entities.Product", b =>
@@ -622,13 +674,6 @@ namespace Kindergarten.Migrations
             modelBuilder.Entity("Kindergarten.Models.Entities.Supplier", b =>
                 {
                     b.Navigation("Invoices");
-
-                    b.Navigation("Parties");
-                });
-
-            modelBuilder.Entity("Kindergarten.Models.Entities.TypeMovingProduct", b =>
-                {
-                    b.Navigation("MovingProducts");
                 });
 #pragma warning restore 612, 618
         }

@@ -54,6 +54,8 @@ namespace Kindergarten.Models
                         db.Entry(x).State = x.Id == 0 ? EntityState.Added : EntityState.Modified;
                     });
 
+
+                    #region OldCodeForHistory
                     /*var dates = users.Select(x => x.Id).ToList();
                     var u = db.Users.Where(x => dates.Contains(x.Id)).Include(x => x.Employee).ToList();
 
@@ -95,6 +97,7 @@ namespace Kindergarten.Models
                             db.Users.Add(newUser);
                         }
                     }*/
+                    #endregion //OldCodeForHistory
 
                     db.SaveChanges();
                 }
