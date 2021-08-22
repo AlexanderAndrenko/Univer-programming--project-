@@ -4,14 +4,16 @@ using Kindergarten.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Kindergarten.Migrations
 {
     [DbContext(typeof(KindergartenContext))]
-    partial class KindergartenContextModelSnapshot : ModelSnapshot
+    [Migration("20210822090223_ChangedTypeOfVar")]
+    partial class ChangedTypeOfVar
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -53,11 +55,11 @@ namespace Kindergarten.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<float>("DishNurseryNorm")
-                        .HasColumnType("real");
+                    b.Property<int>("DishNurseryNorm")
+                        .HasColumnType("int");
 
-                    b.Property<float>("DishYardNorm")
-                        .HasColumnType("real");
+                    b.Property<int>("DishYardNorm")
+                        .HasColumnType("int");
 
                     b.Property<int>("MenuFactId")
                         .HasColumnType("int");

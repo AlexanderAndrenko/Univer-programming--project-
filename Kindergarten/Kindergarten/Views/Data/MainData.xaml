@@ -13,8 +13,8 @@
         <DataTemplate DataType="{x:Type vmd:ChildrenDataVM}">
             <local:ChildrenData/>
         </DataTemplate>
-        <DataTemplate DataType="{x:Type vmd:DishListDataVM}">
-            <local:DishListData/>
+        <DataTemplate DataType="{x:Type vmdp:MenuDataVM}">
+            <localpage:MenuData/>
         </DataTemplate>
         <DataTemplate DataType="{x:Type vmdp:EmployeeDataVM}">
             <localpage:EmployeeData/>

@@ -16,10 +16,10 @@ namespace Kindergarten.Models.Entities
         public string Name { get; set; }
 
         [Required]
-        public int DishNurseryNorm { get; set; }
+        public float DishNurseryNorm { get; set; }
 
         [Required]
-        public int DishYardNorm { get; set; }
+        public float DishYardNorm { get; set; }
 
         public ICollection<DishItemFact> DishItemFacts { get; set; }
 

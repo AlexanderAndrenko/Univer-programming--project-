@@ -1,0 +1,53 @@
+﻿<UserControl x:Class="Kindergarten.Views.Data.Pages.MenuData"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Kindergarten.Views.Data.Pages"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <CollectionViewSource x:Key="Products" Source="{Binding Products}"/>
+    </UserControl.Resources>
+    <Grid Background="White">
+        <StackPanel Orientation="Horizontal">
+            <DataGrid
+                x:Name="Menus"
+                DockPanel.Dock="Left"
+                ItemsSource="{Binding DataGridMenus}"
+                AutoGenerateColumns="False"
+                SelectionChanged="Menus_SelectionChanged"
+                >
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding Name}" Width="70" Header="Меню"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            <DataGrid
+                x:Name="Dishes"
+                DockPanel.Dock="Left"
+                ItemsSource="{Binding DataGridDishes}"
+                AutoGenerateColumns="False" SelectionChanged="Dishes_SelectionChanged">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding Name}" Width="Auto" Header="Блюдо"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            <DataGrid
+                x:Name="DishItems"
+                DockPanel.Dock="Left"
+                ItemsSource="{Binding DataGridDishItems}"
+                AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <DataGridComboBoxColumn         
+                        SelectedValueBinding="{Binding ProductId, UpdateSourceTrigger=PropertyChanged}"
+                        ItemsSource="{Binding Source={StaticResource Products}}"
+                        SelectedValuePath="Id"
+                        DisplayMemberPath="Name"
+                        Width="Auto" 
+                        Header="Продукт"/>
+                    <DataGridTextColumn Binding="{Binding NurseryNorm}" Width="Auto" Header="Ясли"/>
+                    <DataGridTextColumn Binding="{Binding YardNorm}" Width="Auto" Header="Сад"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+        </StackPanel>
+    </Grid>
+</UserControl>

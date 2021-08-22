@@ -13,10 +13,10 @@ namespace Kindergarten.Models.Entities
         public int Id { get; set; }
 
         [Required]
-        public  int NurseryNorm { get; set; }
+        public  float NurseryNorm { get; set; }
 
         [Required]
-        public int YardNorm { get; set; }
+        public float YardNorm { get; set; }
 
         //Навигационные свойства
         public int ProductId { get; set; }
