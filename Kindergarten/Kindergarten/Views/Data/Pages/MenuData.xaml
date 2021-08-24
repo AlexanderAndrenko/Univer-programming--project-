@@ -16,7 +16,8 @@
                 DockPanel.Dock="Left"
                 ItemsSource="{Binding DataGridMenus}"
                 AutoGenerateColumns="False"
-                SelectionChanged="Menus_SelectionChanged"
+                SelectedItem="{Binding SelectedMenu}"
+                SelectedIndex="0"
                 >
                 <DataGrid.Columns>
                     <DataGridTextColumn Binding="{Binding Name}" Width="70" Header="Меню"/>
@@ -26,7 +27,9 @@
                 x:Name="Dishes"
                 DockPanel.Dock="Left"
                 ItemsSource="{Binding DataGridDishes}"
-                AutoGenerateColumns="False" SelectionChanged="Dishes_SelectionChanged">
+                AutoGenerateColumns="False"
+                SelectedItem="{Binding SelectedDish}"
+                SelectedIndex="0">
                 <DataGrid.Columns>
                     <DataGridTextColumn Binding="{Binding Name}" Width="Auto" Header="Блюдо"/>
                 </DataGrid.Columns>
@@ -35,7 +38,8 @@
                 x:Name="DishItems"
                 DockPanel.Dock="Left"
                 ItemsSource="{Binding DataGridDishItems}"
-                AutoGenerateColumns="False">
+                AutoGenerateColumns="False"
+                SelectedIndex="0">
                 <DataGrid.Columns>
                     <DataGridComboBoxColumn         
                         SelectedValueBinding="{Binding ProductId, UpdateSourceTrigger=PropertyChanged}"

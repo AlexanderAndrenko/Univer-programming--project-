@@ -46,7 +46,22 @@ namespace Kindergarten.ViewModels.DataViewModels.PagesViewModel
             } 
         }
         public List<int> MenuIds { get; set; }
-        public Menu SelectedMenu { get; set; }
+
+        private Menu selectedMenu;
+        public Menu SelectedMenu 
+        { 
+            get => selectedMenu;
+            set
+            {
+                if(SelectedMenu != null)
+                {
+                    SetDishes();
+                }
+                
+                selectedMenu = value;
+                GetDishes();
+            }
+        }
 
         private List<Dish> dishes;
         public List<Dish> DataGridDishes 
@@ -59,7 +74,22 @@ namespace Kindergarten.ViewModels.DataViewModels.PagesViewModel
             }
         }
         public List<int> DishIds { get; set; }
-        public Dish SelectedDish { get; set; }
+
+        private Dish selectedDish;
+        public Dish SelectedDish 
+        { 
+            get => selectedDish;
+            set
+            {
+                if (SelectedDish != null)
+                {
+                    SetDishItems();
+                }
+                
+                selectedDish = value;
+                GetDishItems();
+            } 
+        }
 
         private List<DishItem> dishItems;
         public List<DishItem> DataGridDishItems 
@@ -96,20 +126,29 @@ namespace Kindergarten.ViewModels.DataViewModels.PagesViewModel
 
         public void GetDishItems()
         {
-            DataGridDishItems = DishItemModel.GetDishItems(SelectedDish.Id);
-            if (DishItemsIds != null)
-                DishItemsIds.Clear();
-            DishItemsIds = DataGridDishItems.Select(x => x.Id).ToList();
+            if (SelectedDish != null)
+            {
+                DataGridDishItems = DishItemModel.GetDishItems(SelectedDish.Id);
+                if (DishItemsIds != null)
+                    DishItemsIds.Clear();
+                DishItemsIds = DataGridDishItems.Select(x => x.Id).ToList();
+            }
+            else
+            {
+                DataGridDishItems = new List<DishItem>();
+            }
+            
         }
 
         public void SetMenus()
         {
             MenuModel.SetMenus(DataGridMenus, MenuIds);
-            GetMenus();
         }
 
         public void SetDishes()
         {
+            DataGridDishes.ForEach(x =>
+                x.MenuId = SelectedMenu.Id);
             DishModel.SetDishes(DataGridDishes, DishIds);
             if (DishIds != null)
                 DishIds.Clear();
@@ -117,6 +156,8 @@ namespace Kindergarten.ViewModels.DataViewModels.PagesViewModel
 
         public void SetDishItems()
         {
+            DataGridDishItems.ForEach(x => 
+                x.DishId = SelectedDish.Id);
             DishItemModel.SetDishItems(DataGridDishItems, DishItemsIds);
             if (DishItemsIds != null)
                 DishItemsIds.Clear();

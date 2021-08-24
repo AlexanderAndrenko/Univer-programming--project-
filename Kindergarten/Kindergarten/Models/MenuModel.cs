@@ -48,6 +48,8 @@ namespace Kindergarten.Models
                     {
                         db.Entry(x).State = x.Id == 0 ? EntityState.Added : EntityState.Modified;
                     });
+
+                    db.SaveChanges();
                 }
             }
             catch (Exception ex)

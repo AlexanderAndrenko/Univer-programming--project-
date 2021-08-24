@@ -35,10 +35,12 @@ namespace Kindergarten.Models
             {
                 using (KindergartenContext db = new KindergartenContext())
                 {
-                    var dishItemsDict = dishItems.ToDictionary(x => x.Id);
+                    //var dishItemsDict = dishItems.ToDictionary(x => x.Id);
+
+                    var dishItemsDict = dishItems.Select(x => x.Id).ToList();
                     li.ForEach(x =>
                     {
-                        if (!dishItemsDict.ContainsKey(x))
+                    if (!dishItemsDict.Contains(x))        //!dishItemsDict.ContainsKey(x)
                         {
                             db.Entry(db.Users.Where(y => y.Id == x).FirstOrDefault()).State = EntityState.Deleted;
                         }
@@ -48,6 +50,8 @@ namespace Kindergarten.Models
                     {
                         db.Entry(x).State = x.Id == 0 ? EntityState.Added : EntityState.Modified;
                     });
+
+                    db.SaveChanges();
                 }
             }
             catch (Exception ex)
