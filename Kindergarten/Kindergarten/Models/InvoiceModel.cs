@@ -36,20 +36,35 @@ namespace Kindergarten.Models
             {
                 using (KindergartenContext db = new KindergartenContext())
                 {
-                    db.Entry(invoice).State = invoice.ID == 0 ? EntityState.Added : EntityState.Modified;
-                    db.SaveChanges();
-
-                    var dt = db.DocumentTypes.Where(x => x.Name == "Приход от поставщика").FirstOrDefault();
-
-                    var document = new Document()
+                    foreach (var item in parties)
                     {
-                        Date = DateTime.Now,
-                        InvoiceId = db.Invoices.Local.First().ID,
-                        DocumentTypeId = dt.Id
-                    };
+                        if (item.ProductId == 0)
+                        {
+                            parties.Remove(item);
+                        }
+                    }
 
-                    DocumentModel.SetDocumentFromInvoice(document, parties);
-                    MessageBox.Show("Накладная добавлена в систему!", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
+                    if (parties.Count() > 0)
+                    {
+                        db.Entry(invoice).State = invoice.ID == 0 ? EntityState.Added : EntityState.Modified;
+                        db.SaveChanges();
+
+                        var dt = db.DocumentTypes.Where(x => x.Name == "Приход от поставщика").FirstOrDefault();
+
+                        var document = new Document()
+                        {
+                            Date = DateTime.Now,
+                            InvoiceId = db.Invoices.Local.First().ID,
+                            DocumentTypeId = dt.Id
+                        };
+
+                        DocumentModel.SetDocumentFromInvoice(document, parties);
+                        MessageBox.Show("Накладная добавлена в систему!", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Накладная не содержит товары!", "Пустая накладная", MessageBoxButton.OK, MessageBoxImage.Information);
+                    }
                 }
             }
             catch (Exception ex)

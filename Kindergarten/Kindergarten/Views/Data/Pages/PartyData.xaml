@@ -8,6 +8,13 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
         <DockPanel>
+            <Button DockPanel.Dock="Top"
+                Content="Обновить записи"
+                Margin="10" 
+                HorizontalAlignment="Right" 
+                Width="150" 
+                Height="25"
+                Command="{Binding RefreshData}"/>
             <DataGrid 
                     ItemsSource="{Binding DataGridParty, Mode=OneWay}" 
                     AutoGenerateColumns="False"

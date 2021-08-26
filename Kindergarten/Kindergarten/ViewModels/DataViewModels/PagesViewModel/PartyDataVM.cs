@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Kindergarten.Models;
+using Kindergarten.ViewModels.Commands;
 
 namespace Kindergarten.ViewModels.DataViewModels.PagesViewModel
 {
@@ -21,6 +22,7 @@ namespace Kindergarten.ViewModels.DataViewModels.PagesViewModel
         private PartyDataVM()
         {
             GetParty();
+            RefrehData = new OwnCommand(GetParty);
         }
 
         #endregion //Constructor
@@ -28,6 +30,7 @@ namespace Kindergarten.ViewModels.DataViewModels.PagesViewModel
         #region Properties
 
         public List<Party> DataGridParty { get; set; }
+        public OwnCommand RefrehData { get; set; }
 
         #endregion //Properties
 
