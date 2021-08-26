@@ -21,7 +21,8 @@
             <DataGrid 
                     ItemsSource="{Binding DataGridSupplier, Mode=OneWay}" 
                     AutoGenerateColumns="False"
-                    HorizontalAlignment="Left">
+                    HorizontalAlignment="Left"
+                    RowHeaderWidth="0">
                 <DataGrid.Columns>
                     <DataGridTextColumn Binding="{Binding Name}" Width="Auto" Header="Наименование поставщика"/>
                     <DataGridTextColumn Binding="{Binding Phone}" Width="Auto" Header="Телефон" />

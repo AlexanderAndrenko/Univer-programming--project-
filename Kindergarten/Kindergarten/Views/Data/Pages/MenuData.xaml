@@ -18,9 +18,9 @@
                 AutoGenerateColumns="False"
                 SelectedItem="{Binding SelectedMenu}"
                 SelectedIndex="0"
-                >
+                RowHeaderWidth="0">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Binding="{Binding Name}" Width="70" Header="Меню"/>
+                    <DataGridTextColumn Binding="{Binding Name}" Width="90" Header="Меню"/>
                 </DataGrid.Columns>
             </DataGrid>
             <DataGrid
@@ -29,9 +29,10 @@
                 ItemsSource="{Binding DataGridDishes}"
                 AutoGenerateColumns="False"
                 SelectedItem="{Binding SelectedDish}"
-                SelectedIndex="0">
+                SelectedIndex="0"
+                RowHeaderWidth="0">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Binding="{Binding Name}" Width="Auto" Header="Блюдо"/>
+                    <DataGridTextColumn Binding="{Binding Name}" Width="300" Header="Блюдо"/>
                 </DataGrid.Columns>
             </DataGrid>
             <DataGrid
@@ -39,17 +40,18 @@
                 DockPanel.Dock="Left"
                 ItemsSource="{Binding DataGridDishItems}"
                 AutoGenerateColumns="False"
-                SelectedIndex="0">
+                SelectedIndex="0" 
+                RowHeaderWidth="0">
                 <DataGrid.Columns>
                     <DataGridComboBoxColumn         
                         SelectedValueBinding="{Binding ProductId, UpdateSourceTrigger=PropertyChanged}"
                         ItemsSource="{Binding Source={StaticResource Products}}"
                         SelectedValuePath="Id"
                         DisplayMemberPath="Name"
-                        Width="Auto" 
+                        Width="250" 
                         Header="Продукт"/>
-                    <DataGridTextColumn Binding="{Binding NurseryNorm}" Width="Auto" Header="Ясли"/>
-                    <DataGridTextColumn Binding="{Binding YardNorm}" Width="Auto" Header="Сад"/>
+                    <DataGridTextColumn Binding="{Binding NurseryNorm}" Width="40" Header="Ясли"/>
+                    <DataGridTextColumn Binding="{Binding YardNorm}" Width="40" Header="Сад"/>
                     </DataGrid.Columns>
                 </DataGrid>
         </StackPanel>

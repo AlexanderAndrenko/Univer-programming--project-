@@ -15,13 +15,14 @@
                     ScrollViewer.CanContentScroll="True"
                     ScrollViewer.HorizontalScrollBarVisibility="Auto"
                     ScrollViewer.VerticalScrollBarVisibility="Auto"
-                    DockPanel.Dock="Top">
+                    DockPanel.Dock="Top"
+                    RowHeaderWidth="0">
                 <DataGrid.Columns>
                     <DataGridTextColumn Binding="{Binding Product.Name}" Width="*" Header="Наименование товара"/>
                     <DataGridTextColumn Binding="{Binding Quantity}" Width="SizeToHeader" Header="Остаток"/>
-                    <DataGridTextColumn Binding="{Binding Supplier.Name}" Width="*" Header="Поставщик"/>
-                    <DataGridTextColumn Binding="{Binding Invoice.SupplierNumber}" Width="*" Header="Номер накладной"/>
-                    <DataGridTextColumn Binding="{Binding Invoice.DateOfInvoice}" Width="*" Header="Дата поставки"/>
+                    <DataGridTextColumn Binding="{Binding Document.Invoice.Supplier.Name}" Width="*" Header="Поставщик"/>
+                    <DataGridTextColumn Binding="{Binding Document.Invoice.SupplierNumber}" Width="*" Header="Номер накладной"/>
+                    <DataGridTextColumn Binding="{Binding Document.Invoice.DateOfInvoice}" Width="*" Header="Дата поставки"/>
                 </DataGrid.Columns>
             </DataGrid>
         </DockPanel>

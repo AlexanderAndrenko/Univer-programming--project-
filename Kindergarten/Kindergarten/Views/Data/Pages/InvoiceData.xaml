@@ -38,9 +38,10 @@
                 Command="{Binding NewInvoice}"/>
             </DockPanel>        
         <DataGrid 
-            ItemsSource="{Binding DataGridInvoice}"
+            ItemsSource="{Binding DataGridInvoice, Mode=TwoWay}"
             DockPanel.Dock="Top"
-            AutoGenerateColumns="False">
+            AutoGenerateColumns="False"
+            RowHeaderWidth="0">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding DateCreated}" Width="*" Header="Дата создания"/>
                 <DataGridTextColumn Binding="{Binding DateOfInvoice}" Width="*" Header="Дата накладной"/>

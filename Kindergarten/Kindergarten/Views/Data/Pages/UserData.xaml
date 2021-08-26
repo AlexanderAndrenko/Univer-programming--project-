@@ -25,7 +25,8 @@
             <DataGrid 
                     ItemsSource="{Binding DataGridUsers}" 
                     AutoGenerateColumns="False"
-                    HorizontalAlignment="Left">
+                    HorizontalAlignment="Left"
+                    RowHeaderWidth="0">
                 <DataGrid.Columns>
                     <DataGridTextColumn Binding="{Binding Login}" Width="Auto" Header="Логин"/>
                     <DataGridTextColumn Binding="{Binding Password}" Width="Auto" Header="Пароль" />

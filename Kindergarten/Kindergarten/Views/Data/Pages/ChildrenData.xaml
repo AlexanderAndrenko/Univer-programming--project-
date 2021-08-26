@@ -73,7 +73,8 @@
                 <DataGrid 
                     ItemsSource="{Binding DataGridChildren, Mode=OneWay}" 
                     AutoGenerateColumns="False"
-                    HorizontalAlignment="Left">
+                    HorizontalAlignment="Left"
+                    RowHeaderWidth="0">
                     <DataGrid.Columns>
                         <DataGridTextColumn Binding="{Binding Date}" Width="Auto" Header="Дата" />
                         <DataGridTextColumn Binding="{Binding QuantityNursery}" Width="SizeToHeader" Header="Количество детей сад"/>

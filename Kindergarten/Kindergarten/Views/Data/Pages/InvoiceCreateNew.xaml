@@ -53,7 +53,8 @@
             </StackPanel>
             <DataGrid AutoGenerateColumns="False"
                       DockPanel.Dock="Top"
-                      ItemsSource="{Binding DataGridProducts}">
+                      ItemsSource="{Binding DataGridProducts}"
+                      RowHeaderWidth="0">
                 <DataGrid.Columns>
                     <DataGridComboBoxColumn         
                         SelectedValueBinding="{Binding ProductId, UpdateSourceTrigger=PropertyChanged}"

@@ -18,7 +18,7 @@ namespace Kindergarten.Models
             {
                 using (KindergartenContext db = new KindergartenContext())
                 {
-                    invoices = db.Invoices.Where(x => x.DateOfInvoice >= startDate).Where(x => x.DateOfInvoice <= endDate).ToList();
+                    invoices = db.Invoices.Where(x => x.DateOfInvoice >= startDate).Where(x => x.DateOfInvoice <= endDate).Include(x => x.Supplier).ToList();
 
                     return invoices;
                 }

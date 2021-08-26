@@ -19,7 +19,7 @@ namespace Kindergarten.Models
                 using (KindergartenContext db = new KindergartenContext())
                 {
                     parties = db.Parties.Where(x => x.IsClosed == false)
-                        .Include(x => x.Document)
+                        .Include(x => x.Document).ThenInclude(x => x.Invoice).ThenInclude(y => y.Supplier)
                         .Include(x => x.Product)
                         .ToList();
                     return parties;

@@ -26,14 +26,22 @@ namespace Kindergarten.ViewModels.DataViewModels.PagesViewModel
             StartDate.AddDays(-7);
             GetInvoice();
             Refresh = new OwnCommand(GetInvoice);
-            NewInvoice = new OwnCommand(OpenWindowCreateNewInvoice);
-            
+            NewInvoice = new OwnCommand(OpenWindowCreateNewInvoice);            
         }
         #endregion //Contructor
 
         #region Properties
 
-        public List<Invoice> DataGridInvoice { get; set; }
+        private List<Invoice> dataGridInvoice;
+        public List<Invoice> DataGridInvoice 
+        { 
+            get => dataGridInvoice;
+            set
+            {
+                dataGridInvoice = value;
+                RaisePropertyChanged();
+            } 
+        }
 
         private DateTime startDate;
         public DateTime StartDate 

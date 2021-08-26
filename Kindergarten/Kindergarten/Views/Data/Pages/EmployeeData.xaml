@@ -21,7 +21,8 @@
             <DataGrid 
                     ItemsSource="{Binding DataGridEmployees, Mode=OneWay}" 
                     AutoGenerateColumns="False"
-                    HorizontalAlignment="Left">
+                    HorizontalAlignment="Left"
+                    RowHeaderWidth="0">
                 <DataGrid.Columns>
                     <DataGridTextColumn Binding="{Binding Lastname}" Width="Auto" Header="Фамилия"/>
                     <DataGridTextColumn Binding="{Binding Name}" Width="Auto" Header="Имя" />
