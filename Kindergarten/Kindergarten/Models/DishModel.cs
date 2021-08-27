@@ -58,5 +58,28 @@ namespace Kindergarten.Models
                 MessageBox.Show("Ошибка! " + ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
+        public static int SetOneDish(Dish dish, int MenuId)
+        {
+            try
+            {
+                using (KindergartenContext db = new KindergartenContext())
+                {
+                    if (dish.Id == 0)
+                    {
+                        dish.MenuId = MenuId;
+                        db.Dishes.Add(dish);
+                        db.SaveChanges();
+                    }
+                    
+                    return dish.Id;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ошибка! " + ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return 0;
+            }
+        }
     }
 }

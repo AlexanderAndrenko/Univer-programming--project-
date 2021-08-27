@@ -34,6 +34,14 @@ namespace Kindergarten.Models
             {
                 using (KindergartenContext db = new KindergartenContext())
                 {
+                    foreach (var item in documentData)
+                    {
+                        if (item.ProductId == 0 || item.Quantity == 0)
+                        {
+                            documentData.Remove(item);
+                        }
+                    }
+
                     db.DocumentData.AddRange(documentData);
                     db.SaveChanges();
                 }

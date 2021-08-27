@@ -83,6 +83,11 @@ namespace Kindergarten.ViewModels.DataViewModels.PagesViewModel
             {
                 if (SelectedDish != null)
                 {
+                    if (SelectedDish.Id == 0)
+                    {
+                        DishModel.SetOneDish(SelectedDish, SelectedMenu.Id);
+                        DataGridDishItems.ForEach(x => { x.DishId = selectedDish.Id; });
+                    }
                     SetDishItems();
                 }
                 
