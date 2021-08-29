@@ -21,8 +21,8 @@ namespace Kindergarten.Models.Entities
         public Invoice Invoice { get; set; }
 
         //Навигационные свойства
-        public int? DishItemFatcId { get; set; }
-        public DishItemFact DishItemFact { get; set; }
+        public int? MenuFactId { get; set; }
+        public MenuFact MenuFact { get; set; }
 
         public int? NumberChildrenId { get; set; }
         public NumberChildren NumberChildren { get; set; }

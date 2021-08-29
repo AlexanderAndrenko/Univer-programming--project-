@@ -10,6 +10,10 @@ namespace Kindergarten.Models
 {
     public class MenuModel
     {
+        /// <summary>
+        /// Возвращает все шаблоны меню
+        /// </summary>
+        /// <returns></returns>
         public static List<Menu> GetMenus()
         {
             List<Menu> menus = new List<Menu>();
@@ -19,6 +23,30 @@ namespace Kindergarten.Models
                 using (KindergartenContext db = new KindergartenContext())
                 {
                     menus = db.Menus.ToList();
+                    return menus;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ошибка! " + ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return menus;
+            }
+        }
+
+        /// <summary>
+        /// Возвращает определенное меню со связными сущностями
+        /// </summary>
+        /// <param name="MenuId"></param>
+        /// <returns></returns>
+        public static List<Menu> GetMenus(int MenuId)
+        {
+            List<Menu> menus = new List<Menu>();
+
+            try
+            {
+                using (KindergartenContext db = new KindergartenContext())
+                {
+                    menus = db.Menus.Where(x => x.Id == MenuId).Include(x => x.Dishes).ThenInclude(y => y.DishItems).ToList();
                     return menus;
                 }
             }

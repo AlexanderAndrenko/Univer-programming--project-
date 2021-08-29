@@ -42,7 +42,7 @@ namespace Kindergarten.Models
                     {
                     if (!dishItemsDict.Contains(x))        //!dishItemsDict.ContainsKey(x)
                         {
-                            db.Entry(db.Users.Where(y => y.Id == x).FirstOrDefault()).State = EntityState.Deleted;
+                            db.Entry(db.DishItems.Where(y => y.Id == x).FirstOrDefault()).State = EntityState.Deleted;
                         }
                     });
 

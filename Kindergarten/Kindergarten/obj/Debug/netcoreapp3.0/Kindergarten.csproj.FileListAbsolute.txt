@@ -355,6 +355,10 @@ C:\Users\andre\source\repos\AlexanderAndrenko\Univer-programming--project-\Kinde
 C:\Users\andre\source\repos\AlexanderAndrenko\Univer-programming--project-\Kindergarten\Kindergarten\obj\Debug\netcoreapp3.0\Views\Data\Pages\PartyData.baml
 C:\Users\andre\source\repos\AlexanderAndrenko\Univer-programming--project-\Kindergarten\Kindergarten\obj\Debug\netcoreapp3.0\Views\Data\Pages\InvoiceCreateNew.g.cs
 C:\Users\andre\source\repos\AlexanderAndrenko\Univer-programming--project-\Kindergarten\Kindergarten\obj\Debug\netcoreapp3.0\Views\Data\Pages\InvoiceCreateNew.baml
-C:\Users\andre\source\repos\AlexanderAndrenko\Univer-programming--project-\Kindergarten\Kindergarten\obj\Debug\netcoreapp3.0\Kindergarten.csprojAssemblyReference.cache
 C:\Users\andre\source\repos\AlexanderAndrenko\Univer-programming--project-\Kindergarten\Kindergarten\obj\Debug\netcoreapp3.0\Views\Data\Pages\MenuData.g.cs
 C:\Users\andre\source\repos\AlexanderAndrenko\Univer-programming--project-\Kindergarten\Kindergarten\obj\Debug\netcoreapp3.0\Views\Data\Pages\MenuData.baml
+C:\Users\andre\source\repos\AlexanderAndrenko\Univer-programming--project-\Kindergarten\Kindergarten\obj\Debug\netcoreapp3.0\Views\Data\Pages\DocumentData.g.cs
+C:\Users\andre\source\repos\AlexanderAndrenko\Univer-programming--project-\Kindergarten\Kindergarten\obj\Debug\netcoreapp3.0\Views\Data\Pages\DocumentData.baml
+C:\Users\andre\source\repos\AlexanderAndrenko\Univer-programming--project-\Kindergarten\Kindergarten\obj\Debug\netcoreapp3.0\Kindergarten.csprojAssemblyReference.cache
+C:\Users\andre\source\repos\AlexanderAndrenko\Univer-programming--project-\Kindergarten\Kindergarten\obj\Debug\netcoreapp3.0\Views\Data\Pages\ExpenseForNutrition.g.cs
+C:\Users\andre\source\repos\AlexanderAndrenko\Univer-programming--project-\Kindergarten\Kindergarten\obj\Debug\netcoreapp3.0\Views\Data\Pages\ExpenseForNutrition.baml

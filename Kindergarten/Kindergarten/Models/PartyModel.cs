@@ -10,6 +10,10 @@ namespace Kindergarten.Models
 {
     public class PartyModel
     {
+        /// <summary>
+        /// Возвращает все партии, которые не закрыты
+        /// </summary>
+        /// <returns></returns>
         public static List<Party> GetParty()
         {
             List<Party> parties = new List<Party>();

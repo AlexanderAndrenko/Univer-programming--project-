@@ -10,6 +10,9 @@ namespace Kindergarten.Models
 {
     public class DocumentModel
     {
+        ///<summary>
+        ///Возвращает все документы указанног типа
+        ///</summary>
         public static List<Document> GetDocument(DocumentType documentType)
         {
             List<Document> documents = new List<Document>();
@@ -19,6 +22,28 @@ namespace Kindergarten.Models
                 using (KindergartenContext db = new KindergartenContext())
                 {
                     documents = db.Documents.Where(x => x.DocumentType == documentType).ToList();
+                    return documents;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ошибка! " + ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return documents;
+            }
+        }
+
+        ///<summary>
+        ///Возвращает все документы за указанный интервал
+        ///</summary>
+        public static List<Document> GetDocument(DateTime startDate, DateTime endDate)
+        {
+            List<Document> documents = new List<Document>();
+
+            try
+            {
+                using (KindergartenContext db = new KindergartenContext())
+                {
+                    documents = db.Documents.Where(x => x.Date >= startDate).Where(x => x.Date <= endDate).Include(x => x.Invoice).Include(x => x.DocumentType).ToList();
                     return documents;
                 }
             }

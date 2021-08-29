@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
+using Kindergarten.Models.Entities;
 
 namespace Kindergarten.Models.Entities
 {
@@ -22,6 +23,12 @@ namespace Kindergarten.Models.Entities
         public DateTime? DateDeleted { get; set; }
 
         public bool IsDeleted { get; set; }
+
+        public int? DishItemFactId { get; set; }
+        public DishItemFact DishItemFact { get; set; }
+
+        public int? DishFactId { get; set; }
+        public DishFact DishFact { get; set; }
 
         public int DocumentId { get; set; }
         public Document Document { get; set; }

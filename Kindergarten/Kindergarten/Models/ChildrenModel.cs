@@ -12,6 +12,12 @@ namespace Kindergarten.Models
 {
     public class ChildrenModel
     {
+        /// <summary>
+        /// Возвращается список дат с количеством детей каждой категории
+        /// </summary>
+        /// <param name="startDate"></param>
+        /// <param name="endDate"></param>
+        /// <returns></returns>
         public static List<NumberChildren> GetChildrenData(DateTime startDate, DateTime endDate)
         {
             List<NumberChildren> lstChildren = new List<NumberChildren>();

@@ -33,6 +33,8 @@
                 RowHeaderWidth="0">
                 <DataGrid.Columns>
                     <DataGridTextColumn Binding="{Binding Name}" Width="300" Header="Блюдо"/>
+                    <DataGridTextColumn Binding="{Binding DishNurseryNorm}" Width="50" Header="Норма ясли"/>
+                    <DataGridTextColumn Binding="{Binding DishYardNorm}" Width="50" Header="Норма сад"/>
                 </DataGrid.Columns>
             </DataGrid>
             <DataGrid

@@ -34,6 +34,9 @@
         <DataTemplate DataType="{x:Type vmdp:PartyDataVM}">
             <localpage:PartyData/>
         </DataTemplate>
+        <DataTemplate DataType="{x:Type vmdp:DocumentDataVM}">
+            <localpage:Document/>
+        </DataTemplate>
     </UserControl.Resources>
     <Grid Margin="5">
         <Grid.ColumnDefinitions>

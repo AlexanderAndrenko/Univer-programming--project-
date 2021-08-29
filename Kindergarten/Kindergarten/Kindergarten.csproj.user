@@ -5,7 +5,13 @@
     <Compile Update="Views\Data\Pages\ChildrenAdd.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\Data\Pages\DocumentData.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\Data\Pages\EmployeeData.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Data\Pages\ExpenseForNutrition.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\Data\Pages\InvoiceCreateNew.xaml.cs">
@@ -37,7 +43,13 @@
     <Page Update="Views\Data\Pages\ChildrenAdd.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Views\Data\Pages\DocumentData.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Views\Data\Pages\EmployeeData.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Data\Pages\ExpenseForNutrition.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Data\Pages\InvoiceCreateNew.xaml">
