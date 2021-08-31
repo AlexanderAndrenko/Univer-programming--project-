@@ -3,6 +3,7 @@ using Kindergarten.Models.Entities;
 using Kindergarten.ViewModels.Commands;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Windows;
 
@@ -68,7 +69,44 @@ namespace Kindergarten.ViewModels.DataViewModels.PagesViewModel
         {
             if (SelectedMenu != null && NumberChildren.Count == 1)
             {
-                GetMenu();
+                var menu = MenuModel.GetMenus(SelectedMenu.Id);
+                
+
+                if (menu != null)
+                {
+                    List<Dish> dishes = (List<Dish>)menu[0].Dishes;
+                    List<Precalc> precalcs = new List<Precalc>();
+
+                    dishes.ForEach(x => 
+                    {
+                        List<DishItem> dishItems = (List<DishItem>)x.DishItems;
+
+                        dishItems.ForEach(y => 
+                        {
+                            bool flag = false;
+                            precalcs.ForEach(z => 
+                            {
+                                if (z.ProductId == y.ProductId)
+                                {
+                                    z.Quantity += y.NurseryNorm + y.YardNorm;
+                                    flag = true;
+                                }
+                            });
+
+                            if (!flag)
+                            {
+                                precalcs.Add(
+                                    new Precalc
+                                    { 
+                                        ProductId = y.ProductId,
+                                        Quantity = y.NurseryNorm + y.YardNorm 
+                                    });
+                            }
+
+                        });
+                        
+                    });                    
+                }
             }
             else
             {
@@ -76,6 +114,19 @@ namespace Kindergarten.ViewModels.DataViewModels.PagesViewModel
             }
             
         }
+
+        public class Precalc
+        {
+            public Precalc(int productId, float quantity)
+            {
+                ProductId = productId;
+                Quantity = quantity;
+            }
+
+            public int ProductId { get; set; }
+            public float Quantity { get; set; }
+        }
+
         #endregion //Methods
 
     }
