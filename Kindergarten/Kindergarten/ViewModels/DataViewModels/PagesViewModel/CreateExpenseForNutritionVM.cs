@@ -51,6 +51,17 @@ namespace Kindergarten.ViewModels.DataViewModels.PagesViewModel
 
         public List<Party> Stocks { get; set; }
         public OwnCommand Calculate { get; set; }
+
+        private List<DataGridProduct> dataGridProducts;
+        public List<DataGridProduct> DataGridProducts 
+        { 
+            get => dataGridProducts;
+            set
+            {
+                dataGridProducts = value;
+                RaisePropertyChanged();
+            }
+        }
         #endregion //Properties
 
         #region Methods
@@ -88,7 +99,8 @@ namespace Kindergarten.ViewModels.DataViewModels.PagesViewModel
                             {
                                 if (z.ProductId == y.ProductId)
                                 {
-                                    z.Quantity += y.NurseryNorm + y.YardNorm;
+                                    z.QuantityNursery += y.NurseryNorm;
+                                    z.QuantityYard += y.YardNorm;
                                     flag = true;
                                 }
                             });
@@ -96,16 +108,38 @@ namespace Kindergarten.ViewModels.DataViewModels.PagesViewModel
                             if (!flag)
                             {
                                 precalcs.Add(
-                                    new Precalc
-                                    { 
-                                        ProductId = y.ProductId,
-                                        Quantity = y.NurseryNorm + y.YardNorm 
-                                    });
+                                    new Precalc(
+                                        y.ProductId,
+                                        y.NurseryNorm,
+                                        y.YardNorm
+                                        )
+                                    );
                             }
+                        });                        
+                    });
 
+                    precalcs.ForEach(x =>
+                    {
+                        x.QuantityTotal = x.QuantityNursery * NumberChildren[0].QuantityNursery + x.QuantityYard * NumberChildren[0].QuantityYard;
+                    });
+
+
+                    
+                    precalcs.ForEach(x =>
+                    {
+                        Stocks.ForEach(y =>
+                        {
+                            if (x.ProductId == y.ProductId && x.QuantityTotal > y.Quantity)
+                            {
+                                dataGridProducts.Add(new DataGridProduct(y.Product, x.QuantityTotal - y.Quantity));
+                            }
                         });
-                        
-                    });                    
+                    });
+
+                    if (dataGridProducts.Count != 0)
+                    {
+                        MessageBox.Show("Продуктов достаточно!", "Успех!", MessageBoxButton.OK, MessageBoxImage.Information);
+                    }
                 }
             }
             else
@@ -114,20 +148,34 @@ namespace Kindergarten.ViewModels.DataViewModels.PagesViewModel
             }
             
         }
+        #endregion //Methods
+
+        public class DataGridProduct
+        {
+            public DataGridProduct(Product product, float lack)
+            {
+                Product = product;
+                Lack = lack;
+            }
+
+            public Product Product { get; set; }
+            public float Lack { get; set; }
+        }
 
         public class Precalc
         {
-            public Precalc(int productId, float quantity)
+            public Precalc(int productId, float quantityYard, float quantityNursery)
             {
                 ProductId = productId;
-                Quantity = quantity;
+                QuantityNursery = quantityNursery;
+                QuantityYard = quantityYard;
             }
 
             public int ProductId { get; set; }
-            public float Quantity { get; set; }
+            public float QuantityNursery { get; set; }
+            public float QuantityYard { get; set; }
+            public float QuantityTotal { get; set; }
         }
-
-        #endregion //Methods
 
     }
 }
