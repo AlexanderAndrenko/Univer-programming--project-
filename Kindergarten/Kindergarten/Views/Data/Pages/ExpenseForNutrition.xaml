@@ -66,14 +66,15 @@
                     <TextBlock Margin="10,10,10,0"
                                VerticalAlignment="Center"
                                TextAlignment="Center"
-                               Width="100"
+                               Width="Auto"
                                Height="25"
                                Text="Недостаточно продуктов"/>
                     <DataGrid 
                     ItemsSource="{Binding DataGridProducts, Mode=OneWay}" 
                     AutoGenerateColumns="False"
                     HorizontalAlignment="Left"
-                    RowHeaderWidth="0">
+                    RowHeaderWidth="0"
+                    Width="Auto">
                     <DataGrid.Columns>
                         <DataGridTextColumn Binding="{Binding Product.Name}" Width="Auto" Header="Продукт"/>
                         <DataGridTextColumn Binding="{Binding Lack}" Width="Auto" Header="Недостаточно"/>

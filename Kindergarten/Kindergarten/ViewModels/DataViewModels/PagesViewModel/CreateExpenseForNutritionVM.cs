@@ -23,7 +23,7 @@ namespace Kindergarten.ViewModels.DataViewModels.PagesViewModel
         private CreateExpenseForNutritionVM()
         {
             DateCalculation = DateTime.Today;
-            NumberChildren = ChildrenModel.GetChildrenData(DateCalculation, DateCalculation);
+            GetNumberChildren();
             GetStocks();
             ListMenu = MenuModel.GetMenus();
             Calculate = new OwnCommand(Calculation);
@@ -65,10 +65,16 @@ namespace Kindergarten.ViewModels.DataViewModels.PagesViewModel
         #endregion //Properties
 
         #region Methods
-
+        public void GetNumberChildren()
+        {
+            NumberChildren = ChildrenModel.GetChildrenData(DateCalculation, DateCalculation);
+        }
         public void GetStocks()
         {
             Stocks = PartyModel.GetParty();
+
+            //Переводим единицы измерения в граммы
+            Stocks.ForEach(x => { x.Quantity *= 1000; });
         }
 
         public void GetMenu()
@@ -78,6 +84,9 @@ namespace Kindergarten.ViewModels.DataViewModels.PagesViewModel
 
         public void Calculation()
         {
+            GetNumberChildren();
+            DataGridProducts = new List<DataGridProduct>();
+
             if (SelectedMenu != null && NumberChildren.Count == 1)
             {
                 var menu = MenuModel.GetMenus(SelectedMenu.Id);
@@ -85,12 +94,31 @@ namespace Kindergarten.ViewModels.DataViewModels.PagesViewModel
 
                 if (menu != null)
                 {
-                    List<Dish> dishes = (List<Dish>)menu[0].Dishes;
+                    ICollection<Dish> dishes1 = menu[0].Dishes;
+                    List<Dish> dishes = new List<Dish>();
+
+                    #region Get dish from menu
+
+                    foreach (var item in dishes1)
+                    {
+                        dishes.Add(item);
+                    }
+
                     List<Precalc> precalcs = new List<Precalc>();
+                    #endregion //Get dish from menu
 
                     dishes.ForEach(x => 
                     {
-                        List<DishItem> dishItems = (List<DishItem>)x.DishItems;
+                        List<DishItem> dishItems = new List<DishItem>();
+
+                        #region Get dishitems from menu
+                        ICollection<DishItem> dishItems1 = x.DishItems;
+
+                        foreach (var item in dishItems1)
+                        {
+                            dishItems.Add(item);
+                        }
+                        #endregion //Get dishitem from menu
 
                         dishItems.ForEach(y => 
                         {
@@ -131,12 +159,12 @@ namespace Kindergarten.ViewModels.DataViewModels.PagesViewModel
                         {
                             if (x.ProductId == y.ProductId && x.QuantityTotal > y.Quantity)
                             {
-                                dataGridProducts.Add(new DataGridProduct(y.Product, x.QuantityTotal - y.Quantity));
+                                DataGridProducts.Add(new DataGridProduct(y.Product, x.QuantityTotal - y.Quantity));
                             }
                         });
                     });
 
-                    if (dataGridProducts.Count != 0)
+                    if (dataGridProducts.Count == 0)
                     {
                         MessageBox.Show("Продуктов достаточно!", "Успех!", MessageBoxButton.OK, MessageBoxImage.Information);
                     }
@@ -156,6 +184,10 @@ namespace Kindergarten.ViewModels.DataViewModels.PagesViewModel
             {
                 Product = product;
                 Lack = lack;
+            }
+            public DataGridProduct()
+            {
+
             }
 
             public Product Product { get; set; }
