@@ -4,14 +4,16 @@ using Kindergarten.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Kindergarten.Migrations
 {
     [DbContext(typeof(KindergartenContext))]
-    partial class KindergartenContextModelSnapshot : ModelSnapshot
+    [Migration("20210903153307_changefieldsinDocumentDataDishItemFact")]
+    partial class changefieldsinDocumentDataDishItemFact
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -139,6 +141,9 @@ namespace Kindergarten.Migrations
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime");
 
+                    b.Property<int?>("DishItemFactId")
+                        .HasColumnType("int");
+
                     b.Property<int>("DocumentTypeId")
                         .HasColumnType("int");
 
@@ -154,6 +159,8 @@ namespace Kindergarten.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("Date");
+
+                    b.HasIndex("DishItemFactId");
 
                     b.HasIndex("DocumentTypeId");
 
@@ -508,6 +515,10 @@ namespace Kindergarten.Migrations
 
             modelBuilder.Entity("Kindergarten.Models.Entities.Document", b =>
                 {
+                    b.HasOne("Kindergarten.Models.Entities.DishItemFact", null)
+                        .WithMany("DocumentsData")
+                        .HasForeignKey("DishItemFactId");
+
                     b.HasOne("Kindergarten.Models.Entities.DocumentType", "DocumentType")
                         .WithMany("Documents")
                         .HasForeignKey("DocumentTypeId")
@@ -538,7 +549,7 @@ namespace Kindergarten.Migrations
             modelBuilder.Entity("Kindergarten.Models.Entities.DocumentData", b =>
                 {
                     b.HasOne("Kindergarten.Models.Entities.DishItemFact", "DishItemFact")
-                        .WithMany("DocumentData")
+                        .WithMany()
                         .HasForeignKey("DishItemFactId");
 
                     b.HasOne("Kindergarten.Models.Entities.Document", "Document")
@@ -621,7 +632,7 @@ namespace Kindergarten.Migrations
 
             modelBuilder.Entity("Kindergarten.Models.Entities.DishItemFact", b =>
                 {
-                    b.Navigation("DocumentData");
+                    b.Navigation("DocumentsData");
                 });
 
             modelBuilder.Entity("Kindergarten.Models.Entities.Document", b =>

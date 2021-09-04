@@ -25,6 +25,6 @@ namespace Kindergarten.Models.Entities
         public DishFact DishFact { get; set; }
 
 
-        public ICollection<Document> Documents { get; set; }
+        public ICollection<DocumentData> DocumentData { get; set; }
     }
 }

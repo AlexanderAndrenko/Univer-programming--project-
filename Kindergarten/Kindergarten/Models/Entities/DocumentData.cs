@@ -27,9 +27,6 @@ namespace Kindergarten.Models.Entities
         public int? DishItemFactId { get; set; }
         public DishItemFact DishItemFact { get; set; }
 
-        public int? DishFactId { get; set; }
-        public DishFact DishFact { get; set; }
-
         public int DocumentId { get; set; }
         public Document Document { get; set; }
 

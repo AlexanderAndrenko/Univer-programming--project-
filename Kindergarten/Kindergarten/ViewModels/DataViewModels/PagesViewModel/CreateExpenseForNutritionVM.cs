@@ -86,6 +86,8 @@ namespace Kindergarten.ViewModels.DataViewModels.PagesViewModel
         {
             GetNumberChildren();
             DataGridProducts = new List<DataGridProduct>();
+            List<DishItem> dishItems = new List<DishItem>();
+            List<Dish> dishes = new List<Dish>();
 
             if (SelectedMenu != null && NumberChildren.Count == 1)
             {
@@ -94,8 +96,7 @@ namespace Kindergarten.ViewModels.DataViewModels.PagesViewModel
 
                 if (menu != null)
                 {
-                    ICollection<Dish> dishes1 = menu[0].Dishes;
-                    List<Dish> dishes = new List<Dish>();
+                    ICollection<Dish> dishes1 = menu[0].Dishes;                   
 
                     #region Get dish from menu
 
@@ -108,9 +109,7 @@ namespace Kindergarten.ViewModels.DataViewModels.PagesViewModel
                     #endregion //Get dish from menu
 
                     dishes.ForEach(x => 
-                    {
-                        List<DishItem> dishItems = new List<DishItem>();
-
+                    {          
                         #region Get dishitems from menu
                         ICollection<DishItem> dishItems1 = x.DishItems;
 
@@ -164,9 +163,61 @@ namespace Kindergarten.ViewModels.DataViewModels.PagesViewModel
                         });
                     });
 
-                    if (dataGridProducts.Count == 0)
+                    if (DataGridProducts.Count == 0)
                     {
                         MessageBox.Show("Продуктов достаточно!", "Успех!", MessageBoxButton.OK, MessageBoxImage.Information);
+
+                        //Создаем переменные для сборки фактического меню для дальнейшего сохранения в базу
+                        List<DishItemFact> dishItemFact = new List<DishItemFact>();
+                        List<DishFact> dish = new List<DishFact>();
+                        MenuFact menuFact = new MenuFact();
+
+                        //Из имеющихся блюд соберём фактические блюда, которые будут состоять из фактических ингредиентов которые соберутся из шаблонных
+                        dishes.ForEach(x => 
+                        {
+                            //Список ингредиентов для текущего блюда
+                            List<DishItem> di = new List<DishItem>();
+
+                            //Собираем текущие игредиенты
+                            foreach (var item in dishItems)
+                            {
+                                if (item.DishId == x.Id)
+                                {
+                                    di.Add(item);
+                                }
+                            }
+
+                            //Из текущих ингредиентов собираем списко фактических ингредиентов
+                            di.ForEach(y =>
+                            {
+                                dishItemFact.Add(new DishItemFact
+                                {
+                                    ProductId = y.ProductId,
+                                    YardNorm = y.YardNorm,
+                                    NurseryNorm = y.NurseryNorm
+                                });
+                            });
+
+                            //Собираем фактические блюда
+                            dish.Add(new DishFact
+                            {
+                                DishItemFacts = (ICollection<DishItemFact>)dishItemFact,
+                                Name = x.Name,
+                                DishNurseryNorm = x.DishNurseryNorm,
+                                DishYardNorm = x.DishYardNorm
+                            });
+                        });
+
+                        //Собираем фактическое меню
+                        menuFact.Name = SelectedMenu.Name;
+                        menuFact.DishFacts = dish;
+
+
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Продуктов недостаточно!", "Меню не сформировано!", MessageBoxButton.OK, MessageBoxImage.Information);
                     }
                 }
             }
