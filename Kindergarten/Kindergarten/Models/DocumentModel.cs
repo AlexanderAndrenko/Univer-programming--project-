@@ -99,5 +99,28 @@ namespace Kindergarten.Models
                 MessageBox.Show("Ошибка! " + ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
+        public static void SetDocumentExpenseForNutrition()
+        {
+            try
+            {
+                using (KindergartenContext db = new KindergartenContext())
+                {
+                    db.Entry(document).State = document.Id == 0 ? EntityState.Added : EntityState.Modified;
+                    db.SaveChanges();
+
+                    parties.ForEach(x =>
+                    {
+                        x.DocumentId = db.Documents.Local.First().Id;
+                    });
+
+                    PartyModel.SetPartyFromInvoice(parties);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ошибка! " + ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
     }
 }

@@ -5,6 +5,7 @@ using System.Text;
 using System.Windows;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Kindergarten.Models
 {
@@ -83,6 +84,23 @@ namespace Kindergarten.Models
             catch (Exception ex)
             {
                 MessageBox.Show("Ошибка! " + ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        public class PartyComparer : IComparer<Party>
+        {
+            public int Compare([AllowNull] Party x, [AllowNull] Party y)
+            {
+                if (x.DateCreated > y.DateCreated)
+                {
+                    return 1;
+                }
+                else if (x.DateCreated < y.DateCreated)
+                {
+                    return -1;
+                }
+
+                return 0;
             }
         }
     }

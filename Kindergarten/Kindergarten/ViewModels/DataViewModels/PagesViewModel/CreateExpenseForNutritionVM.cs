@@ -150,11 +150,32 @@ namespace Kindergarten.ViewModels.DataViewModels.PagesViewModel
                     {
                         x.QuantityTotal = x.QuantityNursery * NumberChildren[0].QuantityNursery + x.QuantityYard * NumberChildren[0].QuantityYard;
                     });
-                    
+
                     //Расчет достаточно ли продкутов для этого меню
+                    List<Party> parties = new List<Party>();
+
+                    Stocks.ForEach(x => 
+                    {
+                        bool newGoods = true;
+
+                        parties.ForEach(y =>
+                        {
+                           if (x.Id == y.Id)
+                           {
+                               y.Quantity += x.Quantity;
+                               newGoods = false;
+                           }
+                        });
+
+                        if (newGoods)
+                        {
+                            parties.Add(x);
+                        }
+                    });
+
                     precalcs.ForEach(x =>
                     {
-                        Stocks.ForEach(y =>
+                        parties.ForEach(y =>
                         {
                             if (x.ProductId == y.ProductId && x.QuantityTotal > y.Quantity)
                             {
@@ -227,7 +248,52 @@ namespace Kindergarten.ViewModels.DataViewModels.PagesViewModel
                         menuFact.Name = SelectedMenu.Name;
                         menuFact.DishFacts = dish;
 
+                        //Создаем записи в базе данных
                         MenuFactModel.SetMenuFact(menuFact);
+
+                        List<DocumentData> documentData = new List<DocumentData>();
+
+                        dish.ForEach(x =>
+                        {
+                            ICollection<DishItemFact> dishItemFacts = x.DishItemFacts;
+
+                            foreach (var item in dishItemFacts)
+                            {
+                                List<Party> partiesGoods = Stocks.Where(y => y.ProductId == item.ProductId).ToList();
+
+                                bool enough = false;
+
+                                partiesGoods.Sort();
+
+                                partiesGoods.ForEach(z =>
+                                {
+                                    float need = item.NurseryNorm * NumberChildren[0].QuantityNursery + item.YardNorm * NumberChildren[0].QuantityYard;
+
+                                    if (z.Quantity >= need)
+                                    {
+                                        documentData.Add(new DocumentData
+                                        {
+                                            PartyId = z.Id,
+                                            Quantity = need,
+                                            DishItemFactId = item.Id,
+                                            ProductId = item.ProductId
+                                        });
+                                        enough = true;
+                                    }
+                                    else 
+                                    {
+
+                                    }
+                                });
+
+                            }
+
+                        });
+
+                        Document document = new Document 
+                        {
+                            
+                        };
 
                     }
                     else
