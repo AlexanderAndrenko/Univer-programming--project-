@@ -56,3 +56,32 @@ LEFT JOIN
 Products AS P
 ON
 P.Id = DI.ProductId
+
+
+--SELECT 
+--MF.Name,
+--DF.Name,
+--P.Name,
+--DIF.NurseryNorm,
+--DIF.YardNorm
+--FROM DishItemFacts AS DIF
+
+--LEFT JOIN
+--DishFacts AS DF
+--ON
+--DIF.DishFactId = DF.Id
+
+--LEFT JOIN
+--MenuFacts AS MF
+--ON
+--MF.Id = DF.MenuFactId
+
+--LEFT JOIN
+--Products AS P
+--ON
+--P.Id = DIF.ProductId
+
+--ORDER BY DF.Id, DIF.Id
+
+
+

@@ -36,16 +36,7 @@ namespace Kindergarten.Models
                 using (KindergartenContext db = new KindergartenContext())
                 {
                     db.MenuFacts.Add(menu);
-
-                    ICollection<DishFact> dishFacts = menu.DishFacts;
-
-                    foreach (var item in dishFacts)
-                    {
-                        item.MenuFactId = db.MenuFacts.Local.First().Id;
-                    }
-
-                    DishFactModel.SetDishFact(dishFacts);
-
+                    db.SaveChanges();
                 }
             }
             catch (Exception ex)

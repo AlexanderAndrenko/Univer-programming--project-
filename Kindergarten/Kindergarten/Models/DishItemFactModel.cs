@@ -29,9 +29,20 @@ namespace Kindergarten.Models
             }
         }
 
-        public static void SetDishItemFacts()
+        public static void SetDishItemFacts(ICollection<DishItemFact> dishItemFacts)
         {
-
+            try
+            {
+                using (KindergartenContext db = new KindergartenContext())
+                {
+                    db.DishItemFacts.AddRange(dishItemFacts);
+                    db.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ошибка! " + ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 }

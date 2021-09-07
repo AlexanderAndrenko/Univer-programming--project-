@@ -31,28 +31,29 @@ namespace Kindergarten.Models
 
         public static void SetDishFact(ICollection<DishFact> dishes)
         {
-            using (KindergartenContext db = new KindergartenContext())
-            {
-                db.DishFacts.AddRange(dishes);
-
-                db.DishFacts.ForEachAsync(x => 
+            try
+            { 
+                using (KindergartenContext db = new KindergartenContext())
                 {
-                    ICollection<DishItemFact> dishItemFacts = x.DishItemFacts;
+                    db.DishFacts.AddRange(dishes);
+                    db.SaveChanges();
+
+                    foreach (var item in dishes)
+                    {
+                        ICollection<DishItemFact> dishItemFacts = item.DishItemFacts;
 
 
-                });
+                        DishItemFactModel.SetDishItemFacts(dishItemFacts);
+                    }
 
-                
-
-
-                foreach (var item in dishFacts)
-                {
-                    item.MenuFactId = db.MenuFacts.Local.First().Id;
+                    
                 }
-
-
-
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ошибка! " + ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+
         }
 
     }

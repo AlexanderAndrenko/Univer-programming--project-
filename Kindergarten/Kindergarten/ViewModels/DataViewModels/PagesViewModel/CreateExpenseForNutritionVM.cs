@@ -86,7 +86,6 @@ namespace Kindergarten.ViewModels.DataViewModels.PagesViewModel
         {
             GetNumberChildren();
             DataGridProducts = new List<DataGridProduct>();
-            List<DishItem> dishItems = new List<DishItem>();
             List<Dish> dishes = new List<Dish>();
 
             if (SelectedMenu != null && NumberChildren.Count == 1)
@@ -112,6 +111,7 @@ namespace Kindergarten.ViewModels.DataViewModels.PagesViewModel
                     {          
                         #region Get dishitems from menu
                         ICollection<DishItem> dishItems1 = x.DishItems;
+                        List<DishItem> dishItems = new List<DishItem>();
 
                         foreach (var item in dishItems1)
                         {
@@ -145,13 +145,13 @@ namespace Kindergarten.ViewModels.DataViewModels.PagesViewModel
                         });                        
                     });
 
+                    //Расчет необходимого количества продуктов
                     precalcs.ForEach(x =>
                     {
                         x.QuantityTotal = x.QuantityNursery * NumberChildren[0].QuantityNursery + x.QuantityYard * NumberChildren[0].QuantityYard;
                     });
-
-
                     
+                    //Расчет достаточно ли продкутов для этого меню
                     precalcs.ForEach(x =>
                     {
                         Stocks.ForEach(y =>
@@ -164,11 +164,25 @@ namespace Kindergarten.ViewModels.DataViewModels.PagesViewModel
                     });
 
                     if (DataGridProducts.Count == 0)
-                    {
+                    {                  
                         MessageBox.Show("Продуктов достаточно!", "Успех!", MessageBoxButton.OK, MessageBoxImage.Information);
 
-                        //Создаем переменные для сборки фактического меню для дальнейшего сохранения в базу
-                        List<DishItemFact> dishItemFact = new List<DishItemFact>();
+                        #region Get dishItems from dishes
+                        List<DishItem> dishItems = new List<DishItem>();
+
+                        dishes.ForEach(x =>
+                        {
+                            ICollection<DishItem> dishItems1 = x.DishItems;
+
+                            foreach (var item in dishItems1)
+                            {
+                                dishItems.Add(item);
+                            }
+                        });
+
+                        #endregion //Get dishItems from dishes
+
+                        //Создаем переменные для сборки фактического меню для дальнейшего сохранения в базу                        
                         List<DishFact> dish = new List<DishFact>();
                         MenuFact menuFact = new MenuFact();
 
@@ -177,6 +191,7 @@ namespace Kindergarten.ViewModels.DataViewModels.PagesViewModel
                         {
                             //Список ингредиентов для текущего блюда
                             List<DishItem> di = new List<DishItem>();
+                            List<DishItemFact> dishItemFact = new List<DishItemFact>();
 
                             //Собираем текущие игредиенты
                             foreach (var item in dishItems)
@@ -212,12 +227,12 @@ namespace Kindergarten.ViewModels.DataViewModels.PagesViewModel
                         menuFact.Name = SelectedMenu.Name;
                         menuFact.DishFacts = dish;
 
-
+                        MenuFactModel.SetMenuFact(menuFact);
 
                     }
                     else
                     {
-                        MessageBox.Show("Продуктов недостаточно!", "Меню не сформировано!", MessageBoxButton.OK, MessageBoxImage.Information);
+                        //MessageBox.Show("Продуктов недостаточно!", "Меню не сформировано!", MessageBoxButton.OK, MessageBoxImage.Information);
                     }
                 }
             }
