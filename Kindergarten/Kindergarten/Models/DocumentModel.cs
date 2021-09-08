@@ -61,14 +61,17 @@ namespace Kindergarten.Models
                 using (KindergartenContext db = new KindergartenContext())
                 {
                     db.Entry(document).State = document.Id == 0 ? EntityState.Added : EntityState.Modified;
-                    db.SaveChanges();
+                    db.SaveChanges();                    
 
-                    parties.ForEach(x =>
+                    if (parties != null)
                     {
-                        x.DocumentId = db.Documents.Local.First().Id;
-                    });
+                        parties.ForEach(x =>
+                        {
+                            x.DocumentId = db.Documents.Local.First().Id;
+                        });
 
-                    PartyModel.SetParty(parties);
+                        PartyModel.SetParty(parties);
+                    }
                 }
             }
             catch (Exception ex)
@@ -100,7 +103,7 @@ namespace Kindergarten.Models
             }
         }
 
-        public static void SetDocumentExpenseForNutrition()
+        /*public static void SetDocumentExpenseForNutrition()
         {
             try
             {
@@ -121,6 +124,6 @@ namespace Kindergarten.Models
             {
                 MessageBox.Show("Ошибка! " + ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-        }
+        }*/
     }
 }

@@ -84,4 +84,3 @@ P.Id = DI.ProductId
 --ORDER BY DF.Id, DIF.Id
 
 
-

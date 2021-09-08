@@ -253,6 +253,7 @@ namespace Kindergarten.ViewModels.DataViewModels.PagesViewModel
 
                         List<DocumentData> documentData = new List<DocumentData>();
 
+                        //Формируем по всем ингредиентам документы списания
                         dish.ForEach(x =>
                         {
                             ICollection<DishItemFact> dishItemFacts = x.DishItemFacts;
@@ -261,40 +262,59 @@ namespace Kindergarten.ViewModels.DataViewModels.PagesViewModel
                             {
                                 List<Party> partiesGoods = Stocks.Where(y => y.ProductId == item.ProductId).ToList();
 
-                                bool enough = false;
-
+                                //Сортируем партии по дате создания, чтобы узначально брать старые партии, у которых выходит срок годности.
                                 partiesGoods.Sort();
 
+                                //Определяем сколько необходимо продуктов для каждого ингредиента
+                                float need = item.NurseryNorm * NumberChildren[0].QuantityNursery + item.YardNorm * NumberChildren[0].QuantityYard;
+
+                                //Отбираем партии для списания, начиная от самой старой
                                 partiesGoods.ForEach(z =>
                                 {
-                                    float need = item.NurseryNorm * NumberChildren[0].QuantityNursery + item.YardNorm * NumberChildren[0].QuantityYard;
-
-                                    if (z.Quantity >= need)
+                                    if (need > 0)
                                     {
-                                        documentData.Add(new DocumentData
+                                        if (z.Quantity >= need)
                                         {
-                                            PartyId = z.Id,
-                                            Quantity = need,
-                                            DishItemFactId = item.Id,
-                                            ProductId = item.ProductId
-                                        });
-                                        enough = true;
-                                    }
-                                    else 
-                                    {
-
-                                    }
+                                            documentData.Add(new DocumentData
+                                            {
+                                                PartyId = z.Id,
+                                                Quantity = need,
+                                                DishItemFactId = item.Id,
+                                                ProductId = item.ProductId
+                                            });
+                                            need -= documentData.Last().Quantity;
+                                        }
+                                        else
+                                        {
+                                            documentData.Add(new DocumentData
+                                            {
+                                                PartyId = z.Id,
+                                                Quantity = z.Quantity,
+                                                DishItemFactId = item.Id,
+                                                ProductId = item.ProductId
+                                            });
+                                            need -= z.Quantity;
+                                        }
+                                    }                                    
                                 });
+
+
 
                             }
 
                         });
 
-                        Document document = new Document 
+                        //Формируем заголовок документа "Расхода по питанию"
+                        Document document = new Document
                         {
-                            
+                            Date = DateTime.Now,
+                            DocumentTypeId = 11, //Расход по питанию
+                            MenuFactId = menuFact.Id,
+                            NumberChildrenId = NumberChildren.First().Id,
+                            DocumentDatas = documentData
                         };
 
+                        DocumentModel.SetDocument(document, null);
                     }
                     else
                     {
