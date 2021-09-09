@@ -103,27 +103,22 @@ namespace Kindergarten.Models
             }
         }
 
-        /*public static void SetDocumentExpenseForNutrition()
+        public static void SetDocumentExpenseForNutrition(Document document)
         {
             try
             {
                 using (KindergartenContext db = new KindergartenContext())
                 {
-                    db.Entry(document).State = document.Id == 0 ? EntityState.Added : EntityState.Modified;
+                    db.Documents.Add(document);
                     db.SaveChanges();
 
-                    parties.ForEach(x =>
-                    {
-                        x.DocumentId = db.Documents.Local.First().Id;
-                    });
-
-                    PartyModel.SetPartyFromInvoice(parties);
+                    PartyModel.DecreaseParty(document.DocumentDatas);
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Ошибка! " + ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-        }*/
+        }
     }
 }

@@ -87,6 +87,22 @@ namespace Kindergarten.Models
             }
         }
 
+        public static void DecreaseParty(ICollection<DocumentData> documentDatas)
+        {
+            try
+            {
+                using (KindergartenContext db = new KindergartenContext())
+                {
+
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ошибка! " + ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
         public class PartyComparer : IComparer<Party>
         {
             public int Compare([AllowNull] Party x, [AllowNull] Party y)
