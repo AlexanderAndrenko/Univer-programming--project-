@@ -93,8 +93,26 @@ namespace Kindergarten.Models
             {
                 using (KindergartenContext db = new KindergartenContext())
                 {
+                    var ids = documentDatas.Select(x => x.PartyId).ToList();
+                    var nc = db.Parties.Where(x => ids.Contains(x.Id)).ToList();
 
+                    nc.ForEach(x =>
+                    {
+                        foreach (var item in documentDatas)
+                        {
+                            if (x.Id == item.PartyId)
+                            {
+                                x.Quantity -= item.Quantity;
+                                if (x.Quantity <= 0)
+                                {
+                                    x.IsClosed = true;
+                                    x.DateClosed = DateTime.Now;
+                                }
+                            }
+                        }
+                    });
 
+                    db.SaveChanges();
                 }
             }
             catch (Exception ex)

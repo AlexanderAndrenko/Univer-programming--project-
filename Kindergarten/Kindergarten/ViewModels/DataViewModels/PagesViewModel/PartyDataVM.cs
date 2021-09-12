@@ -29,7 +29,16 @@ namespace Kindergarten.ViewModels.DataViewModels.PagesViewModel
 
         #region Properties
 
-        public List<Party> DataGridParty { get; set; }
+        private List<Party> dataGridParty;
+        public List<Party> DataGridParty 
+        { 
+            get => dataGridParty;
+            set
+            {
+                dataGridParty = value;
+                RaisePropertyChanged();
+            } 
+        }
         public OwnCommand RefrehData { get; set; }
 
         #endregion //Properties

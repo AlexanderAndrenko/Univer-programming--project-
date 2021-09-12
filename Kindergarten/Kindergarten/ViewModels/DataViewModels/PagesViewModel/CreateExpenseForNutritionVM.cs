@@ -266,7 +266,7 @@ namespace Kindergarten.ViewModels.DataViewModels.PagesViewModel
                                 partiesGoods.Sort();
 
                                 //Определяем сколько необходимо продуктов для каждого ингредиента
-                                float need = item.NurseryNorm * NumberChildren[0].QuantityNursery + item.YardNorm * NumberChildren[0].QuantityYard;
+                                float need = (item.NurseryNorm * NumberChildren[0].QuantityNursery + item.YardNorm * NumberChildren[0].QuantityYard) / 1000;
 
                                 //Отбираем партии для списания, начиная от самой старой
                                 partiesGoods.ForEach(z =>
@@ -277,6 +277,7 @@ namespace Kindergarten.ViewModels.DataViewModels.PagesViewModel
                                         {
                                             documentData.Add(new DocumentData
                                             {
+                                                DateCreated = DateTime.Now,
                                                 PartyId = z.Id,
                                                 Quantity = need,
                                                 DishItemFactId = item.Id,
@@ -288,6 +289,7 @@ namespace Kindergarten.ViewModels.DataViewModels.PagesViewModel
                                         {
                                             documentData.Add(new DocumentData
                                             {
+                                                DateCreated = DateTime.Now,
                                                 PartyId = z.Id,
                                                 Quantity = z.Quantity,
                                                 DishItemFactId = item.Id,
@@ -314,7 +316,7 @@ namespace Kindergarten.ViewModels.DataViewModels.PagesViewModel
                             DocumentDatas = documentData
                         };
 
-                        DocumentModel.SetDocument(document, null);
+                        DocumentModel.SetDocumentExpenseForNutrition(document);
                     }
                     else
                     {
