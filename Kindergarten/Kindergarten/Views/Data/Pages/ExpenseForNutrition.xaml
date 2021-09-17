@@ -49,18 +49,7 @@
             </StackPanel>
             <StackPanel
                 Orientation="Horizontal">
-                <DataGrid 
-                    ItemsSource="{Binding DataGridDocument, Mode=TwoWay}" 
-                    AutoGenerateColumns="False"
-                    HorizontalAlignment="Left"
-                    RowHeaderWidth="0"
-                    Margin="0,0,10,0">
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Binding="{Binding Date}" Width="Auto" Header="Дата" />
-                        <DataGridTextColumn Binding="{Binding DocumentType.Name}" Width="Auto" Header="Тип документа"/>
-                        <DataGridTextColumn Binding="{Binding Invoice.SupplierNumber}" Width="Auto" Header="Номер накладной"/>
-                    </DataGrid.Columns>
-                </DataGrid>
+                
                 <StackPanel
                     Orientation="Vertical">
                     <TextBlock Margin="10,10,10,0"
