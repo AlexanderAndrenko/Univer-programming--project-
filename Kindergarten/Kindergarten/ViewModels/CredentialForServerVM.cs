@@ -53,7 +53,14 @@ namespace Kindergarten.ViewModels
                     if (db.Users.ToList().Count() == 0 && db.Employees.ToList().Count() == 0)
                     {
                         db.Employees.Add(new Employee { Name = "Администратор", Lastname = "Администратор" });
+                        db.SaveChanges();
                         db.Users.Add(new User { Login = "admin", Password = "admin", LevelAccess = 1, EmployeeId = db.Employees.Local.First().Id });
+                        db.SaveChanges();                        
+                    }
+
+                    if (db.Menus.ToList().Count() == 0)
+                    {
+                        db.Menus.Add(new Menu { Name = "Меню 1" });
                         db.SaveChanges();
                     }
                 }
