@@ -5,6 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using Kindergarten.ViewModels.Commands;
 using Kindergarten.Models;
+using Microsoft.EntityFrameworkCore;
+using Kindergarten.Models.Entities;
+using System.Windows;
 
 namespace Kindergarten.ViewModels
 {
@@ -41,6 +44,24 @@ namespace Kindergarten.ViewModels
             CredentialsForServer.Password = Password;
             CredentialsForServer.DataSource = DataSource;
             CredentialsForServer.DataBase = DataBase;
+
+            try
+            {
+                using (KindergartenContext db = new KindergartenContext())
+                {
+                    db.Database.Migrate();
+                    if (db.Users.ToList().Count() == 0 && db.Employees.ToList().Count() == 0)
+                    {
+                        db.Employees.Add(new Employee { Name = "Администратор", Lastname = "Администратор" });
+                        db.Users.Add(new User { Login = "admin", Password = "admin", LevelAccess = 1, EmployeeId = db.Employees.Local.First().Id });
+                        db.SaveChanges();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ошибка! " + ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }            
         }
     }
 }

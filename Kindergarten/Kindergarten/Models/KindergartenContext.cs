@@ -32,7 +32,7 @@ namespace Kindergarten.Models
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(DBSQLServerUtils.GetDBStringConnection());
+            optionsBuilder.UseSqlServer(DBSQLServerUtils.GetDBStringConnection());            
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
