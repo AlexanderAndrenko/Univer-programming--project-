@@ -63,6 +63,8 @@ namespace Kindergarten.ViewModels
                         db.Menus.Add(new Menu { Name = "Меню 1" });
                         db.SaveChanges();
                     }
+
+                    MessageBox.Show("Подключение успешно создано!", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
             }
             catch (Exception ex)
